@@ -1,8 +1,8 @@
 <script setup>
 
 import { ref, onMounted, computed} from 'vue'
-import CorrectAnswerIcon from './icons/CorrectAnswerIcon.vue';
-import WrongAnswerIcon from './icons/WrongAnswerIcon.vue';
+import CorrectAnswerIcon from './content/icons/CorrectAnswerIcon.vue';
+import WrongAnswerIcon from './content/icons/WrongAnswerIcon.vue';
 
 //import { marked } from 'marked'
 //import MarkdownIt from 'markdown-it';

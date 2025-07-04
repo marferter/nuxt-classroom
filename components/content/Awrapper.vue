@@ -37,12 +37,11 @@ provide(/* key */'submited', /* value */ submited)
 provide(/* key */'explain', /* value */ explain)
 
 
-
 </script>
 
 
 <template>
-  <UCard variant="outline">
+  <UCard class="mt-4" variant="outline">
     <template #header>
         <div class="flex space-x-2">
             <h2 class="text-primary">
@@ -52,9 +51,9 @@ provide(/* key */'explain', /* value */ explain)
         </div>
     </template>
 
-    <div :key="resetKey">
-      <slot />
-    </div>
+    <main :key="resetKey">
+      <slot></slot>
+    </main>
 
     <template #footer>
         <div class="flex space-x-4 justify-end">

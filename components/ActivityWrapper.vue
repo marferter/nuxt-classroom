@@ -1,8 +1,6 @@
 <script setup>
 import {ref} from 'vue'
 import MChoice from './MChoice.vue'
-import ActivityTest from './ActivityTest.vue'
-import ShortAnswer from './ShortAnswer.vue'
 
 const props = defineProps({
 

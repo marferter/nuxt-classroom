@@ -3,7 +3,7 @@
 title: Quelques questions
 ---
 
-  ::Mcq
+  ::ActivityMcq
   ---
   title: test
   maxScore: 10

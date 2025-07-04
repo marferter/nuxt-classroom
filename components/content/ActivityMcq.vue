@@ -2,13 +2,12 @@
 
     import type { McqOption } from '~/utils/mcqOption.ts'
     import {computed} from 'vue'
-    import MarkdownIt from 'markdown-it';
     import hljs from 'highlight.js'; // Import highlight.js
 
     const props = defineProps<{
     options: McqOption[];
-    prompt: string;
-    code?: string;
+    //prompt: string;
+    //code?: string;
     title?: string;
     maxScore?: number;
     }>();
@@ -37,14 +36,10 @@
 </script>
 
 <template>
-    <Awrapper>
+    <Awrapper :title="title">
         <!--div> {{ prompt }} </div-->
-
-        <!--div class="mb-3" v-html="promptCompiledHtml"></div-->
         
-        <MDC :value="prompt" tag="div"/>
-
-        <CodeRender :code="code"/>
+        <slot></slot>
 
         <div v-for="(opt,index) in normalizedOptions" :key="index">
             <McqOptionRender :opt="opt">
