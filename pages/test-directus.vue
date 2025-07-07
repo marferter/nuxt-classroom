@@ -25,12 +25,33 @@ useSeoMeta({
 </template>
 
 
-<script setup>
-const { $directus, $readItem } = useNuxtApp()
+<script setup lang="ts">
+const { getItems } = useDirectusItems();
+const router = useRouter();
 
-const { data: global } = await useAsyncData('global', () => {
-  return $directus.request($readItem('global'))
-})
+const global = ref(null);
+
+const fetchGlobal = async () => {
+  try {
+    const filters = { };
+    const items = await getItems({
+      collection: "global",
+      params: {
+        filter: filters,
+      },
+    });
+    console.log("Global items:", items);
+    return items;
+
+  } catch (e) {}
+};
+
+onMounted(async () => {
+  const singleton = await fetchGlobal();
+  alert(singleton)
+  global.value = singleton;
+
+});
 </script>
 
 <!--
