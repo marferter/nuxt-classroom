@@ -44,7 +44,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       directus: {
-        url: 'https://classroom-directus.jcloud.ik-server.com/'
+        url: 'https://classroom-directus.jcloud.ik-server.com'
       }
     }
   },
