@@ -18,6 +18,7 @@
     
     const submited = inject('submited')
     const explain = inject('explain')
+    
 </script>
 
 <template>
