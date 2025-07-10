@@ -8,6 +8,10 @@
             type: String,
             required : true
         },
+        uuid : {
+            type:String,
+            required : true
+        },
         initialCode : {
             type: String,
             required : false
@@ -31,7 +35,7 @@
 
         <slot></slot>
 
-        <Wtp :initial-code="initialCode"/>
+        <WtpExpand :initial-code="initialCode"/>
 
         <MdSolution>
             <slot name="solution"></slot>
