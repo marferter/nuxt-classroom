@@ -3,6 +3,7 @@
 ::ActivityMcq
 ---
 title : Prompt simple et options avec code inline
+uuid: a1eed46d-adab-463f-ae07-437c66efe1bb
 options:
   - option: "`3 + 4`"
     explanation: "`3 + 4` est une *expression arithmétique* qui évalue à 7."
@@ -26,6 +27,7 @@ Cochez toutes les valeurs littérales parmi les options suivantes :
 ::ActivityMcq
 ---
 title: "Prompt avec bloc de code ; options, valeur et explications générées par Copilot"
+uuid: 2b3c4d5e-6789-0123-4567-89abcdef0123
 options:
   - option: "def ligne()"
     is: true
@@ -95,7 +97,7 @@ dessine_escalier()
 ---
 
 title: "Prompt complexe : Markdown, html"
-
+uuid: 3c4d5e6f-7890-1234-5678-90abcdef1234
 options:
   - option : Option 1
   - option : Opions 2
@@ -159,6 +161,7 @@ Laquelle des images suivantes son exécution produit-elle ?
 ::ActivityMcq
 ---
 title: "2. Deklination"
+uuid: 4d5e6f7a-8901-2345-6789-0abcdef12345
 options:
   - option: "einen guten"
     is: true
@@ -184,6 +187,7 @@ Wähle die richtige Kombination aus Artikel + Adjektiv aus :
 ::ActivityMcq
 ---
 title: "1. Deklination"
+uuid: 5e6f7a8b-9012-3456-7890-abcdef123456
 options:
   - option: "der grösste"
     is: true
@@ -211,6 +215,7 @@ Wähle die richtige Kombination aus bestimmtem Artikel + Adjektiv aus:
 ---
 title: "Exemples de questions à choix multiples avec code"
 #question: Déterminez quelles variable sont correctement déclarées (5 options en python, avec valeur et explication)
+uuid: 6f7a8b9c-0123-4567-8901-abcdef123456
 options :
   - option: "x = 5"
     is: true
@@ -236,6 +241,7 @@ options :
 ---
 #Question : quel est le code gturtle qui a produit ce dessin (spirale hexagone à 8 côtés) ; les options sont simplement "Option 1" à "Option 4" ; les 4 options de code sont dans le promtp, dont 2 sont correctes
 title: "Exemples de questions à choix multiples avec code et options"
+uuid: d131d1ae-430b-4143-b633-e8586ebbd8b1
 options :
   - option: "Option 1"
     code: |
