@@ -6,8 +6,7 @@
 
     const props = defineProps<{
     options: McqOption[];
-    //prompt: string;
-    //code?: string;
+    uuid: string;
     title?: string;
     maxScore?: number;
     }>();

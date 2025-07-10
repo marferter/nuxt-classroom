@@ -8,6 +8,10 @@
             type: String,
             required : true
         },
+        uuid : {
+            type:String,
+            required : true
+        },
         maxScore : {
             type : Number,
             required : false
