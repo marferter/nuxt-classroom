@@ -15,7 +15,7 @@ console.log($directus);
         <Header/>
       </nav>
   
-      <main class="mx-auto max-w-3xl px-4"> 
+      <main class="mx-auto max-w-4xl px-4"> 
         <NuxtPage/>
       </main>
 
