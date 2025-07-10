@@ -51,8 +51,8 @@ provide(/* key */'explain', /* value */ explain)
         </div>
     </template>
 
-    <main :key="resetKey">
-      <slot></slot>
+    <main>
+      <slot :key="resetKey" ></slot>
     </main>
 
     <template #footer>
