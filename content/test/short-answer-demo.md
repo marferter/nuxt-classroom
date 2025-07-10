@@ -1,9 +1,10 @@
-# Démontration du composant ShortAnswer
+# Démontration du composant ActivityShortAnswer
 
-::ShortAnswer
+
+::ActivityShortAnswer
 ---
 title: "Prompt avec bloc de code ; solution générée par Copilot"
-----
+---
 
 Analysez le programme suivant :
 ```python
