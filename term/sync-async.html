@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        console.log('Bonjour')
+        //setTimeout(()=>{console.log('les gens')},2000)
+        const t = setInterval(()=>{console.log('les gens')},500)
+        console.log('au revoir')
+        console.log(t)
+        */
+
+        let i = 0
+        const t = setInterval(()=>{
+            console.log('Coucou Marlene');
+            i++;
+            if (i >= 2) {
+                clearInterval(t)
+            }
+        }, 1000)
+
+        function decompte(n) {
+            const t = setInterval(()=>{
+                console.log(n) ;
+                n-- ;
+                if (n < 0) {
+                    clearInterval(t)
+                }
+
+            }, 500)
+        }
+
+        function decompteRec(n) {
+            console.log(n);
+            if (n === 0) {
+                return
+            }
+            setTimeout(() => {
+                decompteRec(n - 1)
+            },1000)
+        }
+        //decompte(3)
+
+        decompteRec(5)
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
