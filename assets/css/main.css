@@ -1,6 +1,26 @@
 @import "tailwindcss";
 @import "@nuxt/ui-pro";
 
+/*proposition de Copilot ; voir ancien code ci-dessous*/
+:root {
+    --font-sans: 'Public Sans', sans-serif;
+  
+    --breakpoint-3xl: 1920px;
+  
+    --color-green-50: #EFFDF5;
+    --color-green-100: #D9FBE8;
+    --color-green-200: #B3F5D1;
+    --color-green-300: #75EDAE;
+    --color-green-400: #00DC82;
+    --color-green-500: #00C16A;
+    --color-green-600: #00A155;
+    --color-green-700: #007F45;
+    --color-green-800: #016538;
+    --color-green-900: #0A5331;
+    --color-green-950: #052E16;
+}
+
+/*Voici l'ancien code
 @theme static {
     --font-sans: 'Public Sans', sans-serif;
   
@@ -18,7 +38,9 @@
     --color-green-900: #0A5331;
     --color-green-950: #052E16;
   }
+*/
 
+/*  Code obsolète, je crois... c'était pour  quand j'essayais de rendre le code en passant par markdownit
   code.hljs {
   background: #fafbfc;
   padding: 1rem;
@@ -28,13 +50,9 @@
   margin: 1rem 0;
   border-left: 4px solid #d0d7de;
 }
+*/  
 
-.shiki .line {
-  display: block;
-  position: relative;
-  padding-left: 2.5em; /* espace pour le numéro */
-}
-
+/* fourni par Copilot : pour afficher les numéros de ligne */
 .shiki .line::before {
   content: attr(line);
   position: absolute;
@@ -46,4 +64,11 @@
   user-select: none;
   font-variant-numeric: tabular-nums;
   padding-right: 0.5em;
+}
+
+/* fourni par Copilot : pour afficher gérer l'espacement les numéros de ligne et le code*/
+.shiki .line {
+  display: block;
+  position: relative;
+  padding-left: 2.5em; /* espace pour le numéro */
 }
