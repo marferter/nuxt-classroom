@@ -43,7 +43,8 @@ onMounted(() => {
 <template>
   <iframe
       ref="wtpiframe"
-      width="100%" 
+      width="100%"
+      height="400px" 
       src="https://webtigerpython.ethz.ch" allow="usb;clipboard-write"
   >
   </iframe>
