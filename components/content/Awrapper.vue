@@ -8,8 +8,8 @@ import 'highlight.js/styles/github.css'
 
 const props = defineProps({
     title : {
-        type: String,
-        required : false
+      type: String,
+      required : false
     }
 })
 
