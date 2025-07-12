@@ -3,7 +3,7 @@
 ::ActivityMcq
 ---
 title : Prompt simple et options avec code inline
-uuid: a1eed46d-adab-463f-ae07-437c66efe1bb
+uuid: a1eed46d-adab-463f-ae07-437c66efe1bc
 options:
   - option: "`3 + 4`"
     explanation: "`3 + 4` est une *expression arithmétique* qui évalue à 7."

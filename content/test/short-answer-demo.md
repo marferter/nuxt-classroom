@@ -1,9 +1,9 @@
 # Démontration du composant ActivityShortAnswer
 
-
 ::ActivityShortAnswer
 ---
 title: "Prompt avec bloc de code ; solution générée par Copilot"
+uuid: 70b5f110-a9b0-4fb3-aeee-1824ae081dfe
 ---
 
 Analysez le programme suivant :

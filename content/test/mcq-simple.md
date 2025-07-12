@@ -3,6 +3,7 @@
 ::ActivityMcq
 ---
 title : Question 1
+uuid: 9e3cb5b9-d553-4019-bf85-1634d111d1ff
 options :
   - option : "Option 1"
     is : true
@@ -17,9 +18,11 @@ options :
  Cochez la bonne réponse parmi les options suivantes :
 ::
 
+
 ::ActivityMcq
 ---
 title : Question 2
+uuid: 27ecb20a-6fb6-460f-a07d-02d337901adf
 options :
   - option : "Option A"
     is : true
@@ -33,4 +36,5 @@ options :
 ---
 Cochez la bonne réponse parmi les options suivantes 
 ::
+
 

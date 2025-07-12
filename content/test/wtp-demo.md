@@ -3,7 +3,7 @@
 ::ActivityWtp
 ---
 title: "Exercice"
-uuid: 60ae2658-7981-4b93-a1d7-ebd1cd5ae06a
+uuid: 60ae2658-7981-4b93-a1d8-fbd1cd5ae06a
 initialCode: |
     def dessine_carre(cote) :
         for _ in range(4) :
