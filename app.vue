@@ -1,10 +1,10 @@
 <!-- 
- Test pour voir si le plugin directus fonctionne 
+ Test pour voir si le plugin directus fonctionne -->
 <script setup>
 const { $directus } = useNuxtApp();
 console.log($directus);
 </script>
--->
+
 
 <template>
   <div>
