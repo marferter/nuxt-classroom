@@ -2,7 +2,6 @@
 
     import type { McqOption } from '~/utils/mcqOption.ts'
     import {computed} from 'vue'
-    import hljs from 'highlight.js'; // Import highlight.js
 
     const props = defineProps<{
     options: McqOption[];
