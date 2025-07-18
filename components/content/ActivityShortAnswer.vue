@@ -22,6 +22,8 @@
 
     //const submited = inject('submited')
     //const explain = inject('explain')
+
+    const test = ref('salut') // Variable pour tester le passage des variables de parent à enfant
     
 </script>
 
