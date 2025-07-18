@@ -1,7 +1,7 @@
 <script setup>
     import {computed, ref} from 'vue'
 
-    //const submited = inject('submited')
+    const submited = inject('submited')
 
     const userAnswer = ref('') //initialise une variable réactive pour stocker la réponse de l'utilisateur 
 
