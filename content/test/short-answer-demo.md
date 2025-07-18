@@ -1,4 +1,4 @@
-# Démontration du composant ActivityShortAnswer
+# Démonstration du composant ActivityShortAnswer
 
 ::ActivityShortAnswer
 ---
