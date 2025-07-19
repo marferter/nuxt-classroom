@@ -213,34 +213,34 @@ Wähle die richtige Kombination aus bestimmtem Artikel + Adjektiv aus:
 
 ::ActivityMcq
 ---
-title: "Exemples de questions à choix multiples avec code"
+title: Exemples de questions à choix multiples avec code
 #question: Déterminez quelles variable sont correctement déclarées (5 options en python, avec valeur et explication)
 uuid: 6f7a8b9c-0123-4567-8901-abcdef123456
 options :
-  - option: "x = 5"
+  - option: "`x = 5`"
     is: true
     explanation: "C'est une déclaration correcte d'une variable entière en Python."
-  - option: "y = 'Hello'"
+  - option: "`y = 'Hello'`"
     is: true
     explanation: "C'est une déclaration correcte d'une variable de type chaîne de caractères en Python."
-  - option: "z = [1, 2, 3]"
+  - option: "`z = [1, 2, 3]`"
     is: true
     explanation: "C'est une déclaration correcte d'une liste en Python."
-  - option: "a = {1, 2, 3}"
+  - option: "`a = {1, 2, 3}`"
     is: false
     explanation: "Ceci est une déclaration correcte d'un ensemble (set) en Python, mais la question demande des variables avec des valeurs spécifiques."
-  - option: "b = (1, 2)"
+  - option: "`b = (1, 2)`"
     is: false
     explanation: "Ceci est une déclaration correcte d'un tuple en Python, mais la question demande des variables avec des valeurs spécifiques."
 ---
-"Cochez les variables qui sont correctement déclarées en Python :"
+Cochez les variables qui sont correctement déclarées en Python :
 
 ::
 
 ::ActivityMcq
 ---
 #Question : quel est le code gturtle qui a produit ce dessin (spirale hexagone à 8 côtés) ; les options sont simplement "Option 1" à "Option 4" ; les 4 options de code sont dans le promtp, dont 2 sont correctes
-title: "Exemples de questions à choix multiples avec code et options"
+title: Exemples de questions à choix multiples avec code et options
 uuid: d131d1ae-430b-4143-b633-e8586ebbd8b1
 options :
   - option: "Option 1"
