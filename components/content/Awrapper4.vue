@@ -23,22 +23,31 @@ const props = defineProps({
 
 })
 
-//const emit = defineEmits(['submit','explain'])
+const emit = defineEmits(['submit','explain'])
 
-const toggleSubmited = () => {
-  submited.value = !submited.value;
-  if (!submited.value){
-    resetKey.value++
-  }
-  if (!submited.value && explain.value) {
-    toggleExplain();
-  }
+//la variable wrapperSubmitted récupère la prop comme valeur initiale, mais par la suite, elle n'est pas mise à jour avec la prop par cette affectation ; sa valeur est toggled par le bouton submit, puis possée par le emit vers le composant extérieur ; du coup, est-ce nécessaire que submitted soit une prop ?
+const wrapperSubmitted = ref(props.submitted)
+
+const wrapperExplained = ref(props.explained)
+
+const toggleWrapperSubmitted = () => {
+    wrapperSubmitted.value = !wrapperSubmitted.value
 }
 
+    const toggleWrapperExplained = () => {
+        wrapperExplained.value = !wrapperExplained.value
+    }
+
+
 const submit = () => {
-    //toggleSubmited()
-    emit('submit')
+  toggleWrapperSubmitted()
+  emit('submit',wrapperSubmitted.value)
 } 
+
+const explain = () => {
+  toggleWrapperExplained()
+  emit('explain',wrapperExplained.value)
+}
 
 </script>
 
@@ -55,7 +64,9 @@ const submit = () => {
     </template>
 
     <main>
-      <slot :key="resetKey" ></slot>
+      <p> Valeur de wrapperSubmitted : {{ wrapperSubmitted }}</p>
+      <p> Valeur de wrapperExplained : {{ wrapperExplained }}</p>
+      <slot> </slot>
     </main>
 
     <template #footer>
@@ -64,11 +75,9 @@ const submit = () => {
         <p> Reçoit la valeur de explained en prop : {{ explained }} </p>
         <div class="flex space-x-4 justify-end">
 
-            <!--<UButton v-if="submited" @click="toggleExplain" size="xl"> {{ explain ? "Masquer explications" : "Afficher explications" }} </UButton>-->
-
-            <UButton v-if="submitted" @click="$emit('explain')" size="xl"> {{ explained ? "Masquer explications" : "Afficher explications" }} </UButton>
+            <UButton v-if="submitted" @click="explain" size="xl"> {{ explained ? "Masquer explications" : "Afficher explications" }} </UButton>
             
-            <UButton @click="$emit('submit')" size="xl"> {{ submitted ? "Nouvel essai" : "Soumettre" }} </UButton>
+            <UButton @click="submit" size="xl"> {{ submitted ? "Nouvel essai" : "Soumettre" }} </UButton>
 
         </div>
     </template>

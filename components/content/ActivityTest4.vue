@@ -23,23 +23,20 @@
     const submitted = ref(false)
     const explained = ref(false)
 
-    const toggleSubmitted = () => {
-        submitted.value = !submitted.value
-    }
-
-    const toggleExplain = () => {
-        explained.value = !explained.value
-    }
-
     const clearTextArea = () => {
         if (submitted.value === false) {
             userAnswer.value = ''
         }
     }
 
-    const handleSubmit = () => {
-        toggleSubmitted()
+    const handleSubmit = (status) => {
+        //toggleSubmitted()
         clearTextArea()
+        submitted.value = status
+    }
+
+    const handleExplain = (status) => {
+        explained.value = status
     }
     
 </script>
@@ -51,9 +48,9 @@
 
     <p> Evénement émis par la composant enfant (bouton soumettre / nouvel essai) qui change la valeur de la variable submited : {{ submitted }}</p>
 
-    <p> Evénement émis par la composant enfant (bouton afficher / masquer explications) qui change la valeur de la variable submited : {{ explained }}</p>
+    <p> Evénement émis par le composant enfant (bouton afficher / masquer explications) qui change la valeur de la variable submited : {{ explained }}</p>
 
-    <Awrapper4 :title="title" :submitted="submitted" :explained="explained" @explain="toggleExplain" @submit="handleSubmit">
+    <Awrapper4 :title="title" :submitted="submitted" :explained="explained" @explain="handleExplain" @submit="handleSubmit">
 
         <slot></slot>
 
