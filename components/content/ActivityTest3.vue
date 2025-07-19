@@ -59,6 +59,10 @@
         <slot></slot>
 
         <UTextarea v-model="userAnswer" :maxrows="4" autoresize class="w-full"/>
+
+        <MdSolution4 v-if="explained && submitted">
+            <slot name="solution"></slot>
+        </MdSolution4>
         
     </Awrapper3>
 

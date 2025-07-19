@@ -23,23 +23,6 @@ const props = defineProps({
 
 })
 
-//const emit = defineEmits(['submit','explain'])
-
-const toggleSubmited = () => {
-  submited.value = !submited.value;
-  if (!submited.value){
-    resetKey.value++
-  }
-  if (!submited.value && explain.value) {
-    toggleExplain();
-  }
-}
-
-const submit = () => {
-    //toggleSubmited()
-    emit('submit')
-} 
-
 </script>
 
 
@@ -55,7 +38,7 @@ const submit = () => {
     </template>
 
     <main>
-      <slot :key="resetKey" ></slot>
+      <slot></slot>
     </main>
 
     <template #footer>
