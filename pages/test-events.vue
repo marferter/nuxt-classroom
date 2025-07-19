@@ -4,7 +4,12 @@ import ActivityTest3 from '~/components/content/ActivityTest3.vue';
 </script>
 
 <template>
-    <ActivityTest3 title="Test de passage d'events et de props ; gestion dans Activity"></ActivityTest3>
+    <ActivityTest3 title="Test de passage d'events et de props ; gestion dans Activity">
+
+        <template #solution>
+            <p>Ceci est la solution.</p>
+        </template>
+    </ActivityTest3>
 
     <ActivityTest4 title="Test de passage d'events et de props ; gestion dans Awrapper">
 
