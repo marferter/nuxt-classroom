@@ -11,7 +11,7 @@ initialCode: |
             right(90)
 ---
 
-1. A l’aide de la fonction dessine_carre, écrivez un programme qui dessine une suite de 5 carrés côte à côte , en partant d’un grand carré de côté 400 et en divisant chaque fois le côté par 2.
+1. A l’aide de la fonction `dessine_carre`, écrivez un programme qui dessine une suite de 5 carrés côte à côte , en partant d’un grand carré de côté 400 et en divisant chaque fois le côté par 2.
 
 2. Complétez le programme afin qu’il calcule la somme des aires de tous les carrés et qu’il affiche : “La somme des aires des carrés est …”.
 
