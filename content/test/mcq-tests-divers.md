@@ -1,7 +1,7 @@
 
 # Test de divers composants et divers formats d'entrée des questions
 
-::ActivityMcq
+::ActivityMcqV1
 ---
 title: "Composant Mcq avec slot-prompt et prop-options"
 #Que fait ce code:
