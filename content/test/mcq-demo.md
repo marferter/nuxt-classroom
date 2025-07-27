@@ -1,17 +1,21 @@
 # Démonstration du composant QCM pour divers types de questions
 
+Répartir entre plusieurs pages ; enlever les exemples moins pertinents ; séparer une palette d'exemples variés en termes de contenu, et les démos des problèmes liés au yaml.
+
+
 ::ActivityMcq
 ---
 title : Prompt simple et options avec code inline
 uuid: a1eed46d-adab-463f-ae07-437c66efe1bc
 options:
-  - option: "`3 + 4`"
+  - option: "`3 + 4`" 
+    is: false
     explanation: "`3 + 4` est une *expression arithmétique* qui évalue à 7."
   - option: "`\"Hello, world!\"`"
     is: true
     explanation: "`\"Hello, world!\"` est une valeur littérale de type `str`."
   - option: "`sqrt(100)`"
-    explanation: "`sqrt(100)` est une *expression (appel de fonction)* qui évalue à 10."
+    explanation: "`sqrt(100)` est une *expression* (appel de fonction) qui évalue à 10."
   - option: "`True`"
     is: true
     explanation: "`True` est une valeur littérale de type `bool`."
@@ -19,6 +23,45 @@ options:
     explanation: "`2 * (3 + 5)` est une *expression arithmétique* qui évalue à 16."
   - option: "`19 >= 18`"
     explanation: "`19 >= 18` est une *expression booléenne* qui évalue à `True`."
+---
+
+Cochez toutes les valeurs littérales parmi les options suivantes :
+::
+
+
+::ActivityMcq
+---
+title : |
+  Prompt simple et options avec code inline - syntaxe avec le *littéral block scalar*
+uuid: f7ca7f81-e1c1-4b0c-916b-6a1809237a6f
+options:
+  - option: |
+      `3 + 4`
+    is: false
+    explanation: |
+      `3 + 4` est une *expression arithmétique* qui évalue à 7.
+  - option: |
+      `"Hello, world!"`
+    is: true
+    explanation: |
+      `\"Hello, world!\"` est une valeur littérale de type `str`.
+  - option: |
+      `sqrt(100)`
+    explanation: |
+      `sqrt(100)` est une *expression (appel de fonction)* qui évalue à 10.
+  - option: |
+      `True`
+    is: true
+    explanation: |
+      `True` est une valeur littérale de type `bool`.
+  - option: |
+      `2 * (3 + 5)`
+    explanation: |
+      `2 * (3 + 5)` est une *expression arithmétique* qui évalue à 16.
+  - option: |
+      `19 >= 18`
+    explanation: |
+      `19 >= 18` est une *expression booléenne* qui évalue à `True`.
 ---
 
 Cochez toutes les valeurs littérales parmi les options suivantes :
@@ -132,8 +175,6 @@ print(longueur)
 ```
 Laquelle des images suivantes son exécution produit-elle ?
 
-<!--![Option 1](/barres1.png)-->
-
 <div style="display: flex; gap: 1rem;">
   <figure>
     <img src="/barres1.png" alt="spirale">
@@ -182,33 +223,6 @@ options:
 Wähle die richtige Kombination aus Artikel + Adjektiv aus :
 
 **Ich habe _ _ Freund.**
-::
-
-::ActivityMcq
----
-title: "1. Deklination"
-uuid: 5e6f7a8b-9012-3456-7890-abcdef123456
-options:
-  - option: "der grösste"
-    is: true
-    explanation: "‘der’ est le nominatif masculin singulier du déterminant défini, et ‘grösste’ est la forme correcte de l’adjectif ‘gross’ après le déterminant défini au nominatif masculin. (orthographe suisse)"
-  - option: "den grössten"
-    is: false
-    explanation: "‘den grössten’ est accusatif masculin, mais ici il faut le nominatif. (orthographe suisse)"
-  - option: "dem grössten"
-    is: false
-    explanation: "‘dem grössten’ est datif masculin, mais ici il faut le nominatif. (orthographe suisse)"
-  - option: "des grössten"
-    is: false
-    explanation: "‘des grössten’ est génitif masculin, mais ici il faut le nominatif. (orthographe suisse)"
-  - option: "die grösste"
-    is: false
-    explanation: "‘die grösste’ est féminin, alors que ‘Spieler’ est masculin singulier. (orthographe suisse)"
----
-Wähle die richtige Kombination aus bestimmtem Artikel + Adjektiv aus:
-
-<b>CR7 ist _ _ Spieler der Welt.</b>
-
 ::
 
 ::ActivityMcq
@@ -318,4 +332,3 @@ for i in range(12):
     right(30)
 ```
 ::
-
