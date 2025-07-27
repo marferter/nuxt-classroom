@@ -10,11 +10,11 @@
 
     }>()
 
-    const userAnswer = ref(false) //initialise une variable réactive pour stocker la réponse de l'utilisateur
+    const userAnswer = defineModel<boolean>() 
 
-    const userAnswerStatus = computed(() => {
-    return userAnswer.value === props.opt.is
-    })
+    const userAnswerCorrect = computed(() => 
+    userAnswer.value === props.opt.is
+    )
     
     const submited = inject('submited')
     const explain = inject('explain')
@@ -23,7 +23,7 @@
 
 <template>
     <div  
-        :class="{'bg-elevated/50': !submited, 'bg-red-50': submited && !userAnswerStatus,'bg-green-50': submited && userAnswerStatus}"
+        :class="{'bg-elevated/50': !submited, 'bg-red-50': submited && !userAnswerCorrect,'bg-green-50': submited && userAnswerCorrect}"
         
         class="p-4 border border-neutral-300 rounded-lg shadow-sm flex items-center justify-between">
 
@@ -37,8 +37,8 @@
             </label>
         </div>
 
-        <CorrectAnswerIcon v-if="submited && userAnswerStatus"/>
-        <WrongAnswerIcon v-if="submited && !userAnswerStatus"/>
+        <CorrectAnswerIcon v-if="submited && userAnswerCorrect"/>
+        <WrongAnswerIcon v-if="submited && !userAnswerCorrect"/>
     </div>
 
     <!--<div class="ml-4 text-neutral-500 text-xs" v-if="explanation"> {{props.explanation}}</div>
