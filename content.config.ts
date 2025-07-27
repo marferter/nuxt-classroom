@@ -5,7 +5,7 @@ export default defineContentConfig({
   collections: {
     content: defineCollection({
       type: 'page',
-      source: 'test/*.md'
+      source: '**/*.md'
     }),
     /* activity: defineCollection({
         source: ,
