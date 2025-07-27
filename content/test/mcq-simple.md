@@ -1,6 +1,6 @@
 # Un fichier au contenu simple pour explorer la manipulation de l'AST
 
-::ActivityMcq
+::ActivityMcqV1
 ---
 title : Question 1
 uuid: 9e3cb5b9-d553-4019-bf85-1634d111d1ff
@@ -19,7 +19,7 @@ options :
 ::
 
 
-::ActivityMcq
+::ActivityMcqV1
 ---
 title : Question 2
 uuid: 27ecb20a-6fb6-460f-a07d-02d337901adf

@@ -1,9 +1,9 @@
-::Awrapper
+::AwrapperV1
 ---
 title: Quelques questions
 ---
 
-  ::ActivityMcq
+  ::ActivityMcqV1
   ---
   title: test
   maxScore: 10
