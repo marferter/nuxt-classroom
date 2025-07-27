@@ -13,7 +13,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   components: true,
   hooks: {
-    'content:file:beforeParse'(ctx) {
+    /*'content:file:beforeParse'(ctx) {
         // console.log(ctx)
     },
     'content:file:afterParse': async (ctx) => {
@@ -61,7 +61,7 @@ export default defineNuxtConfig({
         //console.dir(uuids)
 
         
-    },
+    },*/
   },
 
   content: {
