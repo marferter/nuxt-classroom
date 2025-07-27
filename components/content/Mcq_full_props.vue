@@ -36,7 +36,7 @@
 </script>
 
 <template>
-    <Awrapper :title="title">
+    <AwrapperV1 :title="title">
         <!--div> {{ prompt }} </div-->
         
         <MDC :value="prompt" tag="div"/>
@@ -50,6 +50,6 @@
         </div>
 
         <slot :data="props" />
-    </Awrapper>
+    </AwrapperV1>
 
 </template>

@@ -36,7 +36,7 @@
 </script>
 
 <template>
-    <Awrapper>
+    <AwrapperV1>
         <!--div> {{ prompt }} </div-->
 
         <!--div class="mb-3" v-html="promptCompiledHtml"></div-->
@@ -48,6 +48,6 @@
 
             </McqOptionRender>
         </div>
-    </Awrapper>
+    </AwrapperV1>
 
 </template>

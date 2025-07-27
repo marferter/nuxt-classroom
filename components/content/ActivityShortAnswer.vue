@@ -30,7 +30,7 @@
 
 <template>
 
-    <Awrapper :title="title">
+    <AwrapperV1 :title="title">
 
         <slot></slot>
 
@@ -40,6 +40,6 @@
             <slot name="solution"></slot>
         </MdSolution>
         
-    </Awrapper>
+    </AwrapperV1>
 
 </template>
