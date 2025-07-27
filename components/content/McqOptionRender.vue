@@ -7,6 +7,8 @@
     const props = defineProps<{
 
         opt: McqOption
+        submitted: boolean
+        explained: boolean
 
     }>()
 
@@ -16,14 +18,11 @@
     userAnswer.value === props.opt.is
     )
     
-    const submited = inject('submited')
-    const explain = inject('explain')
-    
 </script>
 
 <template>
     <div  
-        :class="{'bg-elevated/50': !submited, 'bg-red-50': submited && !userAnswerCorrect,'bg-green-50': submited && userAnswerCorrect}"
+        :class="{'bg-elevated/50': !submitted, 'bg-red-50': submitted && !userAnswerCorrect,'bg-green-50': submitted && userAnswerCorrect}"
         
         class="p-4 border border-neutral-300 rounded-lg shadow-sm flex items-center justify-between">
 
@@ -37,14 +36,14 @@
             </label>
         </div>
 
-        <CorrectAnswerIcon v-if="submited && userAnswerCorrect"/>
-        <WrongAnswerIcon v-if="submited && !userAnswerCorrect"/>
+        <CorrectAnswerIcon v-if="submitted && userAnswerCorrect"/>
+        <WrongAnswerIcon v-if="submitted && !userAnswerCorrect"/>
     </div>
 
     <!--<div class="ml-4 text-neutral-500 text-xs" v-if="explanation"> {{props.explanation}}</div>
     -->
 
-    <div v-if="explain && opt.explanation" class="text-sm ml-5 mt-1 mb-5 flex space-x-2">
+    <div v-if="explained && opt.explanation && submitted" class="text-sm ml-5 mt-1 mb-5 flex space-x-2">
         <label class="flex items-center space-x-1">
             <UCheckbox :default-value="opt.is" disabled/>
             <div class="mdc-wrapper">

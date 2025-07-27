@@ -1,41 +1,59 @@
 <script setup>
-import { ref, provide} from 'vue'
+import { ref, provide, defineEmits} from 'vue'
 
 import MarkdownIt from 'markdown-it'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/github.css'
 
-
 const props = defineProps({
     title : {
       type: String,
       required : false
+    },
+
+    submitted : {
+        type : Boolean,
+        default : false
+    },
+
+    explained : {
+        type : Boolean,
+        default : false
     }
+
 })
 
-const explain = ref(false)
-const submited = ref(false)
+const emit = defineEmits(['submit','explain'])
 
-const toggleExplain = () => {
-  explain.value = !explain.value
+//la variable wrapperSubmitted récupère la prop comme valeur initiale, mais par la suite, elle n'est pas mise à jour avec la prop par cette affectation ; sa valeur est toggled par le bouton submit, puis poussée par le emit vers le composant extérieur ; du coup, est-ce nécessaire que submitted soit une prop ?
+
+/* inversion des valeurs gérée dans le composant activity
+const wrapperSubmitted = ref(props.submitted)
+
+const wrapperExplained = ref(props.explained)
+
+
+const toggleWrapperSubmitted = () => {
+    wrapperSubmitted.value = !wrapperSubmitted.value
 }
 
-const toggleSubmited = () => {
-  submited.value = !submited.value;
-  if (!submited.value){
-    resetKey.value++
-  }
-  if (!submited.value && explain.value) {
-    toggleExplain();
-  }
+const toggleWrapperExplained = () => {
+    wrapperExplained.value = !wrapperExplained.value
 }
+*/
 
-const resetKey = ref(0) //utilisé pour reset les composants enfants lorsqu'on clique sur nouvel essai
 
+const submit = () => {
+  //toggleWrapperSubmitted()
+  //emit('submit',wrapperSubmitted.value)
+  emit('submit')
+} 
 
-provide(/* key */'submited', /* value */ submited)
-provide(/* key */'explain', /* value */ explain)
-
+const explain = () => {
+  //toggleWrapperExplained()
+  //emit('explain',wrapperExplained.value)
+  emit('explain')
+}
 
 </script>
 
@@ -47,19 +65,21 @@ provide(/* key */'explain', /* value */ explain)
             <h2 class="text-primary">
                 {{ title }}
             </h2>
-        </div>
 
-      </template>
+        </div>
+    </template>
 
     <main>
-      <slot :key="resetKey" ></slot>
+      <slot> </slot>
     </main>
 
     <template #footer>
         <div class="flex space-x-4 justify-end">
-            <UButton v-if="submited" @click="toggleExplain" size="xl"> {{ explain ? "Masquer explications" : "Afficher explications" }} </UButton>
 
-            <UButton @click="toggleSubmited" size="xl"> {{ submited ? "Nouvel essai" : "Soumettre" }} </UButton>
+            <UButton v-if="submitted" @click="explain" size="xl"> {{ explained ? "Masquer explications" : "Afficher explications" }} </UButton>
+            
+            <UButton @click="submit" size="xl"> {{ submitted ? "Nouvel essai" : "Soumettre" }} </UButton>
+
         </div>
     </template>
   </UCard>
