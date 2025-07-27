@@ -47,9 +47,9 @@ provide(/* key */'explain', /* value */ explain)
             <h2 class="text-primary">
                 {{ title }}
             </h2>
-
         </div>
-    </template>
+
+      </template>
 
     <main>
       <slot :key="resetKey" ></slot>
