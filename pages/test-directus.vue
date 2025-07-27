@@ -18,7 +18,6 @@ async function submitAnswer() {
   sendError.value = null
   sendSuccess.value = false
   try {
-    // Remplace 'answers' par le nom de ta collection Directus
     await $directus.request($createItem('test_form_simple', { text: userAnswer.value }))
     sendSuccess.value = true
     userAnswer.value = ''
