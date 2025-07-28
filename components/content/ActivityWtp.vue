@@ -1,6 +1,6 @@
 <script setup>
 
-    import {computed, ref} from 'vue'
+    import {computed, ref,watch} from 'vue'
     import hljs from 'highlight.js'; // Import highlight.js
 
     const props = defineProps({
@@ -22,28 +22,40 @@
         }
     });
 
-    const userAnswer = ref('') //initialise une variable réactive pour stocker la réponse de l'utilisateur 
+    const type = 'wtp'
 
-    const submitted = ref(false)
-    const explained = ref(false)
+    const userAnswer = ref('Coucou') //initialise une variable réactive pour stocker la réponse de l'utilisateur
 
-    const handleSubmit = () => {
-        submitted.value = !submitted.value //inverse submitted
-        if (submitted.value === true){
-            submitAnswer()
-            //console.log("soumis")
+    // Variables et fonctions liées à la soumission des réponses et à l'état du composant
+
+    // Initialisation (=récupération des variables et fonctions) depuis le composable de soumission
+    const { sending, sendError, sendSuccess, submitAnswer } = useAnswerSubmission()
+
+    // Initialisation (=récupération des variables et fonctions) depuis le composable d'état, avec la fonction de réinitialisation spécifique en argument : ici c'est une fonction à corps vide.
+    const {submitted, explained,toggleExplain, handleActivityCycle} = useActivityState(() => {})
+
+    // On observe l'état `submitted` du composable d'état.
+    // Quand il passe à `true`, on déclenche la soumission des données ; isSubmitted récupère la valeur de la variable après changement.
+    watch(submitted, (isSubmitted) => {
+        if (isSubmitted) {
+    // On est en état "soumis", on envoie la réponse
+        submitAnswer(
+            type,
+            userAnswer.value
+        )
         }
-    }
-
-    const handleExplain = () => {
-        explained.value = !explained.value //inverse explained
-    }
+    });
     
 </script>
 
 <template>
 
-    <Awrapper :explained="explained" :submitted="submitted" :title="title" @explain="handleExplain" @submit="handleSubmit">
+    <Awrapper 
+        :title="title"
+        :explained="explained" 
+        :submitted="submitted" 
+        @explain="toggleExplain" 
+        @submit="handleActivityCycle">
 
         <slot></slot>
 
