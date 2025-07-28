@@ -11,7 +11,7 @@
     maxScore?: number;
     }>();
 
-    // Variables liées à la donnée de la question et aux réponses ; liées au composant interne d'affichage des questions McqOptionRender
+    // Variables liées à la donnée de la question et aux réponses ; elles sont passées au composant interne d'affichage des questions McqOptionRender
 
     // La normalisation suivante permet de gérer le cas où aucune prop n'est passée ainsi que d'attribuer des valeurs par défaut aux propriétés ; la version suivante est plus élégante et flexible (avec le spread operator) que celle de la version V1 de ce composant ; elle s'appuie sur l'objet mcqOption par défaut.
     const normalizedOptions = computed(() => {
@@ -29,10 +29,18 @@
     const userAnswersCorrect = computed(() => 
         normalizedOptions.value.map((opt, i) => userAnswers.value[i] === opt.is))
 
-    // Variables et fonctions liées au statut de soumision et d'affichage du corrigé ; liées au composant intermédiaire d'enveloppe des questions Awrapper
+    // Variables et fonctions liées au statut de soumision et d'affichage du corrigé ; elles sont passées au composant intermédiaire d'enveloppe des questions Awrapper
 
     const submitted = ref(false)
     const explained = ref(false)
+
+    // Variables et fonctions liées à la soumission des réponses
+    // Récupération depuis le composable
+    const { sending, sendError, sendSuccess, submitAnswer } = useAnswerSubmission();
+
+    const handleExplain = () => {
+        explained.value = !explained.value //inverse explained
+    }
 
     const clearBoxes = () => {
         if (submitted.value === false) {
@@ -42,6 +50,27 @@
         }
     }
 
+    // Appel du composable de submit
+    async function handleSubmit() {
+        submitted.value = !submitted.value // D'abord, on inverse l'état
+        
+        if (submitted.value === true) {
+            // On est maintenant en état "soumis", on envoie la réponse
+            await submitAnswer(userAnswers.value, userAnswersCorrect.value);
+
+            if (sendSuccess.value) {
+                //console.log("Succès");
+            }
+        }
+        else {
+            // On est en état "nouvel essai", on réinitialise les cases
+            clearBoxes()
+            explained.value = false
+        }
+    }
+
+
+    /*
     const handleSubmit = () => {
         submitted.value = !submitted.value //inverse submitted
         if (submitted.value === true){
@@ -52,25 +81,34 @@
             clearBoxes()
         }
     }
+    */
 
-    const handleExplain = () => {
-        explained.value = !explained.value //inverse explained
-    }
-
+    /*
     // Variables et fonctions liées à la communication avec Directus
     const { $directus, $readItems, $createItem } = useNuxtApp()
     const sending = ref(false)
     const sendError = ref<string | null>(null)
     const sendSuccess = ref(false)
+    const user = useDirectusUser()
+    const token = useDirectusToken();
+    console.log('Token avant la requête:', token.token.value); // Pour débugger, vérifiez que le token existe
 
     async function submitAnswer() {
+        if (!user.value) {
+            sendError.value = 'Utilisateur non connecté. Impossible de soumettre la réponse.';
+            return;
+        }
         sending.value = true
         sendError.value = null
         sendSuccess.value = false
+        console.log('Connecté !', user.value)
         try {
             await $directus.request($createItem('submissions_mcq', {
+
             user_answer: userAnswers.value,
-            user_correction: userAnswersCorrect.value
+            user_correction: userAnswersCorrect.value,
+            user_created: user.value.id
+
         }))
             sendSuccess.value = true
             //userAnswers.value = '' je crois que ça sert à reset... à voir si je veux déplacer ici ma fonction de reset
@@ -79,7 +117,7 @@
         } finally {
             sending.value = false
         }
-        }
+    }*/
     
 </script>
 
@@ -107,4 +145,4 @@
         </div>
     </Awrapper>
 
-</template> 
+</template>
