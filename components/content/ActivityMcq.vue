@@ -11,6 +11,8 @@
     maxScore?: number;
     }>();
 
+    const type = 'mcq'
+
     // Variables liées à la donnée de la question et aux réponses ; elles sont passées au composant interne d'affichage des questions McqOptionRender
 
     // La normalisation suivante permet de gérer le cas où aucune prop n'est passée ainsi que d'attribuer des valeurs par défaut aux propriétés ; la version suivante est plus élégante et flexible (avec le spread operator) que celle de la version V1 de ce composant ; elle s'appuie sur l'objet mcqOption par défaut.
@@ -25,22 +27,21 @@
         }
     );
     
-    const userAnswers = ref(normalizedOptions.value.map(() => false))
+    const userAnswer = ref(normalizedOptions.value.map(() => false))
 
-    const userAnswersCorrect = computed(() => 
-        normalizedOptions.value.map((opt, i) => userAnswers.value[i] === opt.is))
+    // Comme il s'agit d'un champ de réponse spécifique à la question, on précise ici le nom du champ spécifique correspondant dans la base de données
+    const userAnswerCorrectField = 'user_correction'
+    const userAnswerCorrect = computed(() => 
+        normalizedOptions.value.map((opt, i) => userAnswer.value[i] === opt.is))
+
 
     // Variables et fonctions liées au statut de soumision et d'affichage du corrigé ; elles sont passées au composant intermédiaire d'enveloppe des questions Awrapper
 
-    //const submitted = ref(false)
-    //const explained = ref(false)
-
-
-    // Variables et fonctions liées à la soumission des réponses
+    // Variables et fonctions liées à la soumission des réponses et à l'état du composant
 
     //fonction spécifique de réinitialisation du "formulaire"
     const clearBoxes = () => {
-        userAnswers.value.fill(false)
+        userAnswer.value.fill(false)
     }
 
     // Initialisation (=récupération des variables et fonctions) depuis le composable de soumission
@@ -54,7 +55,11 @@
     watch(submitted, (isSubmitted) => {
         if (isSubmitted) {
     // On est en état "soumis", on envoie la réponse
-        submitAnswer(userAnswers.value, userAnswersCorrect.value);
+        submitAnswer(
+            type,
+            userAnswer.value, 
+            {[userAnswerCorrectField]:userAnswerCorrect.value}
+        )
         }
     });
     
@@ -85,7 +90,7 @@
             :submitted="submitted" 
             :explained="explained" 
             :opt="opt"
-            v-model="userAnswers[index]">
+            v-model="userAnswer[index]">
 
             </McqOptionRender>
         </div>

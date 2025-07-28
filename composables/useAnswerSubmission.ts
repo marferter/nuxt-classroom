@@ -1,5 +1,12 @@
 import { ref } from 'vue'
 
+// dictionnaire qui permet d'associer chaque type de question à une collection spécifique pour les soumissions
+const activities: Record<string, string> = {
+  mcq: 'submissions_mcq',
+  shortanswer: 'submissions_shortanswer',
+  wtp: 'submissions_wtp'
+}
+
 export const useAnswerSubmission = () => {
   // Définir tous les états nécessaires à l'intérieur du composable
   const sending = ref(false)
@@ -13,7 +20,10 @@ export const useAnswerSubmission = () => {
   const user = useDirectusUser()
 
   // Définir la fonction principale avec les données en paramètres.
-  async function submitAnswer(userAnswers: any, userAnswersCorrect: any) {
+  async function submitAnswer(
+    type: string, 
+    userAnswer: any, 
+    extraFields?: Record<string, any>) {
     // Validation de l'utilisateur
     if (!user.value) {
       sendError.value = 'Utilisateur non connecté. Impossible de soumettre la réponse.'
@@ -26,13 +36,21 @@ export const useAnswerSubmission = () => {
     sendSuccess.value = false
 
     try {
-      // Utilisation de la dépendance $directus injectée par Nuxt
-      await nuxtApp.$directus.request(nuxtApp.$createItem('submissions_mcq', {
-        user_answer: userAnswers,
-        user_correction: userAnswersCorrect,
-        user_created: user.value.id
-      }))
+      const collection = activities[type]
+      if (!collection) {
+        sendError.value = `Type de question inconnu: ${type}`
+        sending.value = false
+        return
+      }
+      // Créer le payload dynamiquement pour pouvoir s'adapter à des champs de réponse spécifiques au type de question
+      const payload: Record<string, any> = {
+        user_answer: userAnswer,
+        user_created: user.value.id,
+        ...extraFields
+      }
 
+      // Utilisation de la dépendance $directus injectée par Nuxt
+      await nuxtApp.$directus.request(nuxtApp.$createItem('submissions_mcq', payload))
       sendSuccess.value = true
 
     } catch (e) {
