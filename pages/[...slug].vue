@@ -1,13 +1,27 @@
-<script lang="ts" setup>
+<script setup>
 
-const { login } = useDirectusAuth();
+import { onMounted } from 'vue'
 
 const route = useRoute()
 const { data: page } = await useAsyncData(route.path, () => {
   return queryCollection('content').path(route.path).first()
 })
 
-await login({ email: "admin@21-learning.com", password: "Van.Rossum$21" });
+const { login } = useDirectusAuth();
+
+const user = useDirectusUser();
+
+onBeforeMount(async () => {
+  // Si l'utilisateur n'est pas connecté, lance le login
+  if (!user.value) {
+    await login({ email: "admin@21-learning.com", password: "Van.Rossum$21" })
+    //pour vérifier que user.value est bien renseigné
+    //console.log('Connecté !', user.value)
+  } else {
+    //log si déjà connecté
+    console.log('Déjà connecté !', user.value)
+  }
+})
 
 </script>
 
@@ -16,3 +30,5 @@ await login({ email: "admin@21-learning.com", password: "Van.Rossum$21" });
         <ContentRenderer v-if="page" :value="page" />
     </main>
 </template>
+
+
