@@ -50,7 +50,7 @@ export const useAnswerSubmission = () => {
       }
 
       // Utilisation de la dépendance $directus injectée par Nuxt
-      await nuxtApp.$directus.request(nuxtApp.$createItem('submissions_mcq', payload))
+      await nuxtApp.$directus.request(nuxtApp.$createItem(collection, payload))
       sendSuccess.value = true
 
     } catch (e) {
