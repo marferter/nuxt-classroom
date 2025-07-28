@@ -68,56 +68,6 @@
             explained.value = false
         }
     }
-
-
-    /*
-    const handleSubmit = () => {
-        submitted.value = !submitted.value //inverse submitted
-        if (submitted.value === true){
-            submitAnswer()
-            //console.log("soumis")
-        }
-        else {
-            clearBoxes()
-        }
-    }
-    */
-
-    /*
-    // Variables et fonctions liées à la communication avec Directus
-    const { $directus, $readItems, $createItem } = useNuxtApp()
-    const sending = ref(false)
-    const sendError = ref<string | null>(null)
-    const sendSuccess = ref(false)
-    const user = useDirectusUser()
-    const token = useDirectusToken();
-    console.log('Token avant la requête:', token.token.value); // Pour débugger, vérifiez que le token existe
-
-    async function submitAnswer() {
-        if (!user.value) {
-            sendError.value = 'Utilisateur non connecté. Impossible de soumettre la réponse.';
-            return;
-        }
-        sending.value = true
-        sendError.value = null
-        sendSuccess.value = false
-        console.log('Connecté !', user.value)
-        try {
-            await $directus.request($createItem('submissions_mcq', {
-
-            user_answer: userAnswers.value,
-            user_correction: userAnswersCorrect.value,
-            user_created: user.value.id
-
-        }))
-            sendSuccess.value = true
-            //userAnswers.value = '' je crois que ça sert à reset... à voir si je veux déplacer ici ma fonction de reset
-        } catch (e) {
-            sendError.value = (e as Error).message || 'Erreur lors de l\'envoi'
-        } finally {
-            sending.value = false
-        }
-    }*/
     
 </script>
 
