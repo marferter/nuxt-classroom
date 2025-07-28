@@ -1,5 +1,5 @@
 <script setup>
-import { ref, provide, defineEmits} from 'vue'
+import { ref, provide} from 'vue'
 
 import MarkdownIt from 'markdown-it'
 import hljs from 'highlight.js'

@@ -44,11 +44,6 @@ const userAnswersStatus = computed(() => {
 
 const userAnswer = ref('') //initialise une variable réactive pour stocker la réponse de l'utilisateur 
 
-
-/*onMounted(() => {
-  console.log('Composant remonté')
-})*/
-
 const questionPromptCompiledHtml = computed(() => $md.render(props.questionPrompt))
 
 </script>
