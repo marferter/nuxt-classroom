@@ -44,7 +44,7 @@
     // Initialisation (=récupération des variables et fonctions) depuis le composable de soumission
     const { sending, sendError, sendSuccess, submitAnswer } = useAnswerSubmission()
 
-    // Initialisation (=récupération des variables et fonctions) depuis le composable d'état, avec la fonction de réinitialisation spécifique en argument ; destructuration avec renommage de handleSubmit
+    // Initialisation (=récupération des variables et fonctions) depuis le composable d'état, avec la fonction de réinitialisation spécifique en argument.
     const {submitted, explained,toggleExplain, handleActivityCycle} = useActivityState(clearBoxes)
 
     // On observe l'état `submitted` du composable d'état.
