@@ -34,9 +34,6 @@
     const userAnswerCorrect = computed(() => 
         normalizedOptions.value.map((opt, i) => userAnswer.value[i] === opt.is))
 
-
-    // Variables et fonctions liées au statut de soumision et d'affichage du corrigé ; elles sont passées au composant intermédiaire d'enveloppe des questions Awrapper
-
     // Variables et fonctions liées à la soumission des réponses et à l'état du composant
 
     //fonction spécifique de réinitialisation du "formulaire"
