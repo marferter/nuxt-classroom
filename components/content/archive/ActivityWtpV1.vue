@@ -24,35 +24,23 @@
 
     const userAnswer = ref('') //initialise une variable réactive pour stocker la réponse de l'utilisateur 
 
-    const submitted = ref(false)
-    const explained = ref(false)
-
-    const handleSubmit = () => {
-        submitted.value = !submitted.value //inverse submitted
-        if (submitted.value === true){
-            submitAnswer()
-            //console.log("soumis")
-        }
-    }
-
-    const handleExplain = () => {
-        explained.value = !explained.value //inverse explained
-    }
+    //const submited = inject('submited')
+    //const explain = inject('explain')
     
 </script>
 
 <template>
 
-    <Awrapper :explained="explained" :submitted="submitted" :title="title" @explain="handleExplain" @submit="handleSubmit">
+    <AwrapperV1 :title="title">
 
         <slot></slot>
 
         <WtpExpand :initial-code="initialCode"/>
 
-        <MdSolution v-if="explained && submitted">
+        <MdSolution>
             <slot name="solution"></slot>
         </MdSolution>
         
-    </Awrapper>
+    </AwrapperV1>
 
 </template>
