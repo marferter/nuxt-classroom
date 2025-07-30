@@ -7,36 +7,78 @@ const props = defineProps({
   initialCode: String
 })
 
-const iframeRef = ref(null)
+//Variables et fonctions pour la gestion de l'affichage plein écran
 const expanded = ref(false)
 
-function toggleExpand() {
+const toggleExpand = () => {
   expanded.value = !expanded.value
 }
 
-onMounted(() => {
-  const iframe = iframeRef.value
+//Variables et fonctions pour la gestion de la communication avec le composant parent
+const emit = defineEmits(['codeRun'])
 
-  if (!iframe) {
-    console.error("L'iframe n'a pas été trouvé !")
+//Variables et fonctions pour la gestion de la communication avec l'iframe
+const iframeRef = ref(null)
+
+const userInputCode = ref(null)
+
+const sendInitialCode = () => {
+  if (!iframeRef.value) {
+    console.error("L'iframe n'est pas prête !")
     return
   }
 
-  const defObject = {
+  const messagePayload = {
     type: 'files',
     data: [{
       name: 'main.py',
       data: props.initialCode
     }]
   }
+  
+  //Si ça marche il faudra remplacer * pour vérifier l'origine du message...
+  iframeRef.value.contentWindow.postMessage(messagePayload,"*")
+  console.log("Code initial envoyé à l'iframe")
 
-  iframe.addEventListener('load', () => {
-    iframe.contentWindow.postMessage(defObject, "*")
-  })
+}
 
-  window.addEventListener('message', function(event) {
-    console.log(event.data)
-  })
+const handleGlobalMessage = (event) => {
+  //Vérifications : si une condition est fausse on ignore le message
+
+  if (
+    !iframeRef.value || //iframe pas montée
+    event.source !== iframeRef.value.contentWindow //le message vient d'une autre iframe
+  ) {
+    return //on arrête tout car le message n'est pas pour nous.
+  }
+  const msg = event.data
+
+  if (msg && msg.type === "code") {
+    console.log("Exécution de code détectée dans mon iframe")
+    console.log(userInputCode.value)
+    userInputCode.value = msg.data
+    emit('codeRun', userInputCode.value)
+  }
+
+  
+}
+
+onMounted(() => {
+
+  if (iframeRef.value) {
+    iframeRef.value.addEventListener('load',sendInitialCode)
+  }
+
+  window.addEventListener('message', handleGlobalMessage)
+})
+
+onBeforeUnmount(() => {
+  // Nettoyer les listeners quand le composant est détruit pour éviter les fuites de mémoire.
+  window.removeEventListener('message', handleGlobalMessage);
+
+  if (iframeRef.value) {
+    iframeRef.value.removeEventListener('load', sendInitialCode);
+  }
 })
 </script>
 
@@ -44,9 +86,6 @@ onMounted(() => {
   <div>
     <!-- Affichage normal -->
     <div v-if="!expanded" class="wtp-iframe-container">
-      <!--<button class="expand-btn" @click="toggleExpand">
-        Agrandir
-      </button> -->
       <iframe
         ref="iframeRef"
         width="100%"
@@ -56,7 +95,7 @@ onMounted(() => {
       ></iframe>
       <UButton @click="toggleExpand" size="xl"> Plein écran </UButton>
     </div>
-    <!-- Overlay fullscreen quand élargi -->
+    <!-- Overlay fullscreen quand élargi : solution de Copilot-->
     <Teleport to="body">
       <div v-if="expanded" class="iframe-fullscreen-overlay">
         <UButton @click="toggleExpand" size="xl"> Réduire </UButton>
@@ -72,6 +111,7 @@ onMounted(() => {
         ></iframe>
       </div>
     </Teleport>
+    <pre>{{ userInputCode }}</pre>
   </div>
 </template>
 
