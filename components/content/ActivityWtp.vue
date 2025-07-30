@@ -24,7 +24,25 @@
 
     const type = 'wtp'
 
-    const userAnswer = ref('Coucou') //initialise une variable réactive pour stocker la réponse de l'utilisateur
+    const userAnswer = ref('') //initialise une variable réactive pour stocker la réponse de l'utilisateur
+
+    //valeur booléenne pour tracer les codes ont été volontairement soumis par l'élève via le bouton soumettre (true) des codes enregistrés via le code run ; règle de nommage du champ ad-hoc
+    const userAnswerSubmitted = ref(false)
+    const userAnswerSubmittedField = 'submitted'
+
+    const saveCode = (code) => {
+        userAnswer.value = code
+        submitAnswer(
+            type,
+            userAnswer.value
+        )
+    }
+
+    const isComponentVisible = ref(false)
+
+    const mountComponent = () => {
+        isComponentVisible.value = true
+    }
 
     // Variables et fonctions liées à la soumission des réponses et à l'état du composant
 
@@ -58,9 +76,13 @@
         @submit="handleActivityCycle">
 
         <slot></slot>
-
-        <WtpExpand :initial-code="initialCode"/>
-
+        <!-- <pre>{{ userAnswer }}</pre> -->
+        <UButton v-if="!isComponentVisible"   @click="mountComponent" size="xl"> Afficher éditeur </UButton>
+        <WtpExpand 
+            v-if="isComponentVisible"
+            :initial-code="initialCode"
+            @codeRun="saveCode"
+        />
         <MdSolution v-if="explained && submitted">
             <slot name="solution"></slot>
         </MdSolution>
