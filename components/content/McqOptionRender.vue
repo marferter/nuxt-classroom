@@ -7,8 +7,6 @@
     const props = defineProps<{
 
         opt: McqOption
-        submitted: boolean
-        explained: boolean
 
     }>()
 
@@ -17,6 +15,9 @@
     const userAnswerCorrect = computed(() => 
     userAnswer.value === props.opt.is
     )
+
+    const submitted = inject('submitted')
+    const explained = inject('explained')
     
 </script>
 

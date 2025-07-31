@@ -18,28 +18,53 @@
         }
     });
 
-    const userAnswer = ref('') //initialise une variable réactive pour stocker la réponse de l'utilisateur 
+    const type ='shortanswer'
 
-    //const submited = inject('submited')
-    //const explain = inject('explain')
+    const userAnswer = ref('') //initialise une variable réactive pour stocker la réponse de l'utilisateur
 
-    const test = ref('salut') // Variable pour tester le passage des variables de parent à enfant
-    
+    //champ de réponse spécifique : aucun pour ce composant
+
+    // Initialisation (=récupération des variables et fonctions) depuis le composable de soumission
+    const { sending, sendError, sendSuccess, submitAnswer } = useAnswerSubmission()
+
+    const {toggleSubmit, toggleExplain, resetActivity, explained, submitted} = useActivityState(clearTextArea)
+
+    const handleSubmit = () => {
+        toggleSubmit()
+        submitAnswer(
+            type, //voir si je peux le passer par défaut ?
+            userAnswer.value
+        )
+    }
+
+        //fonction spécifique de réinitialisation du "formulaire"
+    function clearTextArea() {
+            userAnswer.value = ''
+        }
+
+
 </script>
 
 
 <template>
 
-    <AwrapperV1 :title="title">
-
+    <Awrapper 
+        :title="title"
+        @clearForm="resetActivity"
+        @submit="handleSubmit"
+        @explain="toggleExplain"
+    >
         <slot></slot>
 
-        <ShortAnswerField/>
+        <UTextarea v-model="userAnswer" :maxrows="4" autoresize class="w-full"/>
 
-        <MdSolution>
+        <!-- <p>AShortAnswer explained {{ explained }}</p>
+        <p>AShortAnswer submitted {{ submitted}} </p> -->
+
+        <MdSolution v-if="explained && submitted">
             <slot name="solution"></slot>
         </MdSolution>
         
-    </AwrapperV1>
+    </Awrapper>
 
 </template>

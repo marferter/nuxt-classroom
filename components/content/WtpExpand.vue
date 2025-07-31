@@ -1,6 +1,7 @@
 <!--Solution de Copilot pour pouvoir expand la fenêtre wtp-->
 
 <script setup>
+import { code } from '#build/ui-pro/prose'
 import { ref, onMounted } from 'vue'
 
 const props = defineProps({
@@ -93,12 +94,20 @@ onBeforeUnmount(() => {
         src="https://webtigerpython.ethz.ch"
         allow="usb;clipboard-write"
       ></iframe>
-      <UButton @click="toggleExpand" size="xl"> Plein écran </UButton>
+      <div class="flex space-x-4 justify-between">
+        <UButton @click="sendInitialCode" size="xl"> Réinitialiser le code </UButton>
+        <UButton @click="toggleExpand" size="xl"> Plein écran </UButton>
     </div>
+
+  </div>
     <!-- Overlay fullscreen quand élargi : solution de Copilot-->
     <Teleport to="body">
       <div v-if="expanded" class="iframe-fullscreen-overlay">
-        <UButton @click="toggleExpand" size="xl"> Réduire </UButton>
+        <div class="flex space-x-4 justify-between">
+          <UButton @click="sendInitialCode" size="xl"> Réinitialiser le code </UButton>
+          <UButton @click="toggleExpand" size="xl"> Réduire </UButton>
+
+        </div>
         <!--<button class="close-btn" @click="toggleExpand">
           Fermer
         </button>-->

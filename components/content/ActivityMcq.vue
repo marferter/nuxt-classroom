@@ -36,39 +36,28 @@
 
     // Variables et fonctions liées à la soumission des réponses et à l'état du composant
 
-    //fonction spécifique de réinitialisation du "formulaire"
-    const clearBoxes = () => {
-        userAnswer.value.fill(false)
-    }
-
     // Initialisation (=récupération des variables et fonctions) depuis le composable de soumission
     const { sending, sendError, sendSuccess, submitAnswer } = useAnswerSubmission()
 
-    // Initialisation (=récupération des variables et fonctions) depuis le composable d'état, avec la fonction de réinitialisation spécifique en argument.
-    const {submitted, explained,toggleExplain, handleActivityCycle} = useActivityState(clearBoxes)
-
-    // On observe l'état `submitted` du composable d'état.
-    // Quand il passe à `true`, on déclenche la soumission des données ; isSubmitted récupère la valeur de la variable après changement.
-    watch(submitted, (isSubmitted) => {
-        if (isSubmitted) {
-    // On est en état "soumis", on envoie la réponse
+    const handleSubmit = () => {
         submitAnswer(
             type,
             userAnswer.value, 
             {[userAnswerCorrectField]:userAnswerCorrect.value}
         )
-        }
-    });
-    
+    }
+    //fonction spécifique de réinitialisation du "formulaire"
+    const clearBoxes = () => {
+        userAnswer.value.fill(false)
+    }
+
 </script>
 
 <template>
     <Awrapper 
         :title="title" 
-        :submitted="submitted"
-        :explained="explained" 
-        @explain="toggleExplain" 
-        @submit="handleActivityCycle">
+        @clearForm="clearBoxes"
+        @submit="handleSubmit">
         
         <slot></slot>
 
@@ -83,9 +72,7 @@
         -->
 
         <div v-for="(opt,index) in normalizedOptions" :key="index">
-            <McqOptionRender 
-            :submitted="submitted" 
-            :explained="explained" 
+            <McqOptionRender
             :opt="opt"
             v-model="userAnswer[index]">
 

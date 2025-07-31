@@ -11,51 +11,43 @@ const props = defineProps({
       required : false
     },
 
-    submitted : {
-        type : Boolean,
-        default : false
-    },
+    // submitted : {
+    //     type : Boolean,
+    //     default : false
+    // },
 
-    explained : {
-        type : Boolean,
-        default : false
-    }
+    // explained : {
+    //     type : Boolean,
+    //     default : false
+    // }
 
 })
 
-//const emit = defineEmits(['submit','explain'])
+const submitted = ref(false)
+const explained = ref(false)
 
-//la variable wrapperSubmitted récupère la prop comme valeur initiale, mais par la suite, elle n'est pas mise à jour avec la prop par cette affectation ; sa valeur est toggled par le bouton submit, puis poussée par le emit vers le composant extérieur ; du coup, est-ce nécessaire que submitted soit une prop ?
+provide('submitted',submitted) 
+provide('explained',explained)
 
-/* inversion des valeurs gérée dans le composant activity
-const wrapperSubmitted = ref(props.submitted)
+const emit = defineEmits(['submit', 'clearForm','explain'])
 
-const wrapperExplained = ref(props.explained)
-
-
-const toggleWrapperSubmitted = () => {
-    wrapperSubmitted.value = !wrapperSubmitted.value
+//Au clic sur le bouton Soumettre ...
+const handleSubmit = () => { 
+  submitted.value = !submitted.value //inverse l'état de submitted
+  emit('submit') //emet l'événement 'submit' au composant parent Activity...
 }
 
-const toggleWrapperExplained = () => {
-    wrapperExplained.value = !wrapperExplained.value
+//Au clic sur le bouton Nouvel essai les variables sont réinitialisées
+const handleClearForm = () => {
+  submitted.value = false 
+  explained.value = false 
+  emit('clearForm')
 }
-*/
 
-/* plus nécessaire car la logique est dans le parent et ces fonctions ne faisaient plus que le emit
-const submit = () => {
-  //toggleWrapperSubmitted()
-  //emit('submit',wrapperSubmitted.value)
-  emit('submit')
-} 
-
-const explain = () => {
-  //toggleWrapperExplained()
-  //emit('explain',wrapperExplained.value)
+const handleExplain = () => {
+  explained.value = !explained.value
   emit('explain')
 }
-*/
-
 
 </script>
 
@@ -76,11 +68,32 @@ const explain = () => {
     </main>
 
     <template #footer>
-        <div class="flex space-x-4 justify-end">
-
-            <UButton v-if="submitted" @click="$emit('explain')" size="xl"> {{ explained ? "Masquer explications" : "Afficher explications" }} </UButton>
+        <div class="flex space-x-4 justify-between">
+            <!-- <p> Awrapper explained {{ explained }}</p> -->
+              <UButton 
+              v-if="submitted"   
+              size="xl"
+              @click="handleExplain"
+            > 
+              {{ explained ? "Masquer explications" : "Afficher explications" }} 
+            </UButton>
             
-            <UButton @click="$emit('submit')" size="xl"> {{ submitted ? "Nouvel essai" : "Soumettre" }} </UButton>
+
+            <UButton
+              v-if="!submitted"
+              size="xl"
+              @click="handleSubmit" 
+            > 
+              Soumettre 
+            </UButton>
+
+            <UButton 
+              v-else
+              size="xl"
+              @click="handleClearForm" 
+            > 
+              Nouvel essai 
+            </UButton>    
 
         </div>
     </template>

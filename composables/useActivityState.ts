@@ -13,6 +13,20 @@ export const useActivityState = (resetHandler: () => void) => {
     //}
   }
 
+    const toggleSubmit = () => {
+    // On ne peut voir les explications que si l'activité a été soumise ; mais de toutes façons le bouton pour les afficher n'apparaît que si c'est soumis, passons-nous de la conditionnelle
+    //if (submitted.value) {
+      submitted.value = !submitted.value
+    //}
+  }
+  /*
+  const toggleSubmit = (status:boolean) => {
+    // On ne peut voir les explications que si l'activité a été soumise ; mais de toutes façons le bouton pour les afficher n'apparaît que si c'est soumis, passons-nous de la conditionnelle
+    //if (submitted.value) {
+      submitted.value = status
+    //}
+  }*/
+
   const resetActivity = () => {
     // Appel de la fonction de nettoyage spécifique fournie par le composant
     resetHandler()
@@ -22,22 +36,13 @@ export const useActivityState = (resetHandler: () => void) => {
     explained.value = false
   }
 
-  const handleActivityCycle = () => {
-    // Inverse l'état de soumission
-    submitted.value = !submitted.value
-
-    if (submitted.value === false) {
-      // Si on est revenu à l'état "non soumis", on déclenche le reset complet.
-      resetActivity()
-    }
-    // Si on est passé à "soumis", le composant parent s'occupera de l'envoi des données avec un watch ; ce composable n'a pas besoin de connaître la logique d'envoi.
-  }
 
   // On expose les états et les fonctions de contrôle
   return {
     submitted,
     explained,
     toggleExplain,
-    handleActivityCycle
+    toggleSubmit,
+    resetActivity
   }
 }

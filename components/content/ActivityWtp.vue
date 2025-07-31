@@ -24,11 +24,14 @@
 
     const type = 'wtp'
 
+    // Variables et fonctions liées à la soumission des réponses
+
     const userAnswer = ref('') //initialise une variable réactive pour stocker la réponse de l'utilisateur
 
     //valeur booléenne pour tracer les codes ont été volontairement soumis par l'élève via le bouton soumettre (true) des codes enregistrés via le code run ; règle de nommage du champ ad-hoc
-    const userAnswerSubmitted = ref(false)
-    const userAnswerSubmittedField = 'submitted'
+
+    //champ de réponse spécifique
+    //const userAnswerSubmittedField = 'submitted'
 
     const saveCode = (code) => {
         userAnswer.value = code
@@ -38,32 +41,26 @@
         )
     }
 
+    // Initialisation (=récupération des variables et fonctions) depuis le composable de soumission
+    const { sending, sendError, sendSuccess, submitAnswer } = useAnswerSubmission()
+
+     const {toggleSubmit, toggleExplain, explained, submitted} = useActivityState(() => {})
+
+    const handleSubmit = () => {
+        toggleSubmit()
+        submitAnswer(
+            type, //voir si je peux le passer par défaut ?
+            userAnswer.value,
+            {['submitted']:true}
+        )
+    }
+
+    //Variables et fonctions liées à l'affichage ou non de l'éditeur de code
     const isComponentVisible = ref(false)
 
     const mountComponent = () => {
         isComponentVisible.value = true
     }
-
-    // Variables et fonctions liées à la soumission des réponses et à l'état du composant
-
-    // Initialisation (=récupération des variables et fonctions) depuis le composable de soumission
-    const { sending, sendError, sendSuccess, submitAnswer } = useAnswerSubmission()
-
-    // Initialisation (=récupération des variables et fonctions) depuis le composable d'état, avec la fonction de réinitialisation spécifique en argument : ici c'est une fonction à corps vide.
-    const {submitted, explained,toggleExplain, handleActivityCycle} = useActivityState(() => {})
-
-    // On observe l'état `submitted` du composable d'état.
-    // Quand il passe à `true`, on déclenche la soumission des données ; isSubmitted récupère la valeur de la variable après changement.
-    watch(submitted, (isSubmitted) => {
-        if (isSubmitted) {
-    // On est en état "soumis", on envoie la réponse
-        submitAnswer(
-            type,
-            userAnswer.value
-        )
-
-        }
-    });
     
 </script>
 
@@ -71,10 +68,9 @@
 
     <Awrapper 
         :title="title"
-        :explained="explained" 
-        :submitted="submitted" 
-        @explain="toggleExplain" 
-        @submit="handleActivityCycle">
+        @clearForm=""
+        @submit="handleSubmit"
+        @explain="toggleExplain">
 
         <slot></slot>
         <!-- <pre>{{ userAnswer }}</pre> -->
