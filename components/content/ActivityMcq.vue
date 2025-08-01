@@ -7,7 +7,7 @@
     const props = defineProps<{
     options: McqOption[];
     uuid: string;
-    title?: string;
+    title: string;
     maxScore?: number;
     }>();
 
@@ -42,6 +42,7 @@
     const handleSubmit = () => {
         submitAnswer(
             type,
+            props.title,
             userAnswer.value, 
             {[userAnswerCorrectField]:userAnswerCorrect.value}
         )

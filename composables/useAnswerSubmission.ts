@@ -21,8 +21,9 @@ export const useAnswerSubmission = () => {
 
   // Définir la fonction principale avec les données en paramètres.
   async function submitAnswer(
-    type: string, 
-    userAnswer: any, 
+    type: string,
+    title: string,
+    userAnswer: any,
     extraFields?: Record<string, any>) {
     // Validation de l'utilisateur
     if (!user.value) {
@@ -44,6 +45,7 @@ export const useAnswerSubmission = () => {
       }
       // Créer le payload dynamiquement pour pouvoir s'adapter à des champs de réponse spécifiques au type de question
       const payload: Record<string, any> = {
+        question_title: title,
         user_answer: userAnswer,
         user_created: user.value.id,
         ...extraFields

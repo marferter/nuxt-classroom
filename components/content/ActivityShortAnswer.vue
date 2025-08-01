@@ -33,6 +33,7 @@
         toggleSubmit()
         submitAnswer(
             type, //voir si je peux le passer par défaut ?
+            props.title,
             userAnswer.value
         )
     }
