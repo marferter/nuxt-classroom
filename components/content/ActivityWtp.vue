@@ -27,17 +27,29 @@
     // Variables et fonctions liées à la soumission des réponses
 
     const userAnswer = ref('') //initialise une variable réactive pour stocker la réponse de l'utilisateur
+    const userErrorOutput = ref('')
+    const userFullOutput = ref('')
 
     //valeur booléenne pour tracer les codes ont été volontairement soumis par l'élève via le bouton soumettre (true) des codes enregistrés via le code run ; règle de nommage du champ ad-hoc
 
     //champ de réponse spécifique
     //const userAnswerSubmittedField = 'submitted'
 
-    const saveCode = (code) => {
-        userAnswer.value = code
+    const saveCode = (data) => {
+        userAnswer.value = data[0]
+        userErrorOutput.value = data[1]
+        userFullOutput.value = data[2]
+        console.log("answer", userAnswer.value)
+        console.log("error", userErrorOutput.value)
+        console.log("output", userFullOutput.value)
         submitAnswer(
             type,
-            userAnswer.value
+            props.title,
+            userAnswer.value,
+            {
+                ['error_output']:userErrorOutput.value,
+                ['full_output']:userFullOutput.value
+            }
         )
     }
 
@@ -50,8 +62,13 @@
         toggleSubmit()
         submitAnswer(
             type, //voir si je peux le passer par défaut ?
+            props.title,
             userAnswer.value,
-            {['submitted']:true}
+            {
+                ['submitted']:true,
+                ['error_output']:userErrorOutput.value,
+                ['full_output']:userFullOutput.value
+            }
         )
     }
 

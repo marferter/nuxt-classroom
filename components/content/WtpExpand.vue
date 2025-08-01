@@ -16,12 +16,14 @@ const toggleExpand = () => {
 }
 
 //Variables et fonctions pour la gestion de la communication avec le composant parent
-const emit = defineEmits(['codeRun'])
+const emit = defineEmits(['codeRun','code'])
 
 //Variables et fonctions pour la gestion de la communication avec l'iframe
 const iframeRef = ref(null)
 
 const userInputCode = ref(null)
+const userFullOutput = ref(null)
+const userErrorOutput = ref(null)
 
 const sendInitialCode = () => {
   if (!iframeRef.value) {
@@ -56,12 +58,30 @@ const handleGlobalMessage = (event) => {
 
   if (msg && msg.type === "code") {
     console.log("Exécution de code détectée dans mon iframe")
-    console.log(userInputCode.value)
     userInputCode.value = msg.data
-    emit('codeRun', userInputCode.value)
+    console.log(userInputCode.value)
+    //emit('codeRun', userInputCode.value)
   }
 
+  else if (msg && msg.type === "error") {
+    console.log("Erreur détectée dans mon iframe")
+    userErrorOutput.value = msg.data
+    console.log(userErrorOutput.value)
+  }
+
+  else if (msg && msg.type === "full_output") {
+    console.log("Output final détecté dans mon iframe")
+    userFullOutput.value = msg.data
+    console.log(userFullOutput.value)
+    //emit('codeRun', [userInputCode.value,userFullOutput.value])
+  }
+
+  else if (msg && msg.type === "program_finished") {
+    console.log("Fin d'exécution détectée dans mon iframe")
+    emit('codeRun', [userInputCode.value,userErrorOutput.value,userFullOutput.value])
+  }
   
+
 }
 
 onMounted(() => {
