@@ -7,7 +7,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "extract-questions": "node scripts/extract-questions.js"
   },
   "dependencies": {
     "@iconify-json/mdi": "^1.2.3",
@@ -15,6 +16,7 @@
     "@nuxt/ui-pro": "^3.1.0",
     "@nuxtjs/mdc": "^0.17.0",
     "cheerio": "^1.0.0",
+    "glob": "^11.0.3",
     "highlight.js": "^11.11.1",
     "markdown-it": "^14.1.0",
     "marked": "^15.0.11",
