@@ -10,17 +10,10 @@ export default defineContentConfig({
     }),
 
     questions: defineCollection({
-      type: 'page',
-      source: 'questions/*.md'
+      type: 'data',
+      source: 'questions/*.md',
+      schema: z.object({
+      })
     }),
-
-
-    /* activity: defineCollection({
-        source: ,
-        type:'data',
-        schema:
-    
-    })
-    */
   }
 })
