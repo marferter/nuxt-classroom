@@ -1,11 +1,5 @@
 import { ref } from 'vue'
-
-// dictionnaire qui permet d'associer chaque type de question à une collection spécifique pour les soumissions
-const activities: Record<string, string> = {
-  mcq: 'submissions_mcq',
-  shortanswer: 'submissions_shortanswer',
-  wtp: 'submissions_wtp'
-}
+import type { Submission } from '~/types/directus-schema.ts';
 
 export const useAnswerSubmission = () => {
   // Définir tous les états nécessaires à l'intérieur du composable
@@ -13,57 +7,60 @@ export const useAnswerSubmission = () => {
   const sendError = ref<string | null>(null)
   const sendSuccess = ref(false)
 
-  // Récupérer les dépendances Nuxt (plugins, etc.)
-  // useNuxtApp nous donne accès à $directus, $readItems, $createItem et autres plugins
+  // Pour accéder aux plugins de Nuxt, dont $directus, $readItems, $createItem et autres
   const nuxtApp = useNuxtApp()
-  // Le composable useDirectusUser est la manière moderne d'accéder à l'utilisateur
   const user = useDirectusUser()
+  const { createItems } = useDirectusItems();
 
   // Définir la fonction principale avec les données en paramètres.
   async function submitAnswer(
-    type: string,
-    title: string,
-    userAnswer: any,
-    extraFields?: Record<string, any>) {
+  activityId: string,
+  activityTitle: string,
+  activityType: Submission['activity_type'],
+  answerContent: Record <string,any>
+) {
     // Validation de l'utilisateur
     if (!user.value) {
       sendError.value = 'Utilisateur non connecté. Impossible de soumettre la réponse.'
+      console.error('Utilisateur non connecté. Impossible de soumettre la réponse.')
       return
     }
 
+
+    else {console.log(user.value.id)}
+  
     // Réinitialiser les états avant de commencer
     sending.value = true
     sendError.value = null
     sendSuccess.value = false
 
     try {
-      const collection = activities[type]
-      if (!collection) {
-        sendError.value = `Type de question inconnu: ${type}`
-        sending.value = false
-        return
-      }
-      // Créer le payload dynamiquement pour pouvoir s'adapter à des champs de réponse spécifiques au type de question
-      const payload: Record<string, any> = {
-        question_title: title,
-        user_answer: userAnswer,
-        user_created: user.value.id,
-        ...extraFields
+      //Créer l'objet à soumettre 
+      const newSubmission: Omit<Submission, 'id'> = {
+        activity_id: activityId,
+        activity_title: activityTitle,
+        activity_type: activityType,
+        content: answerContent,
+        user_created: user.value.id
       }
 
-      // Utilisation de la dépendance $directus injectée par Nuxt
-      await nuxtApp.$directus.request(nuxtApp.$createItem(collection, payload))
+      await createItems({ collection: 'submissions', items: [newSubmission] })
+
       sendSuccess.value = true
-
-    } catch (e) {
-      // Gestion d'erreur robuste par Copilot
-      if (e instanceof Error) {
-        sendError.value = e.message
-      } else {
-        sendError.value = 'Une erreur inattendue est survenue lors de l\'envoi.'
+      // AJOUT DU LOG DE SUCCÈS
+      console.log(`Réponse envoyée avec succès pour "${activityTitle}"!`, newSubmission);
       }
-      console.error(e) // Toujours bon de logguer l'erreur complète
-    } finally {
+      
+      catch (e) {
+        if (e instanceof Error) {
+          // Afficher l'erreur complète pour voir les détails
+          console.log("ERREUR COMPLÈTE:", JSON.stringify(e, null, 2));
+          sendError.value = e.message;
+        } else {
+          sendError.value = 'Une erreur inattendue est survenue lors de l\'envoi.';
+        }
+        console.error(e);
+      } finally {
       // Cet état est toujours mis à jour, que ça réussisse ou non
       sending.value = false
     }
