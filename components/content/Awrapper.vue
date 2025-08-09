@@ -1,10 +1,6 @@
 <script setup>
 import { ref, provide} from 'vue'
 
-import MarkdownIt from 'markdown-it'
-import hljs from 'highlight.js'
-import 'highlight.js/styles/github.css'
-
 const props = defineProps({
     title : {
       type: String,
@@ -63,7 +59,7 @@ const handleExplain = () => {
         </div>
     </template>
 
-    <main>
+    <main class="space-y-1">
       <slot> </slot>
     </main>
 
