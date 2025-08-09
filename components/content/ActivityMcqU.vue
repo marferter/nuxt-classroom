@@ -3,24 +3,28 @@
     import type { McqOption } from '~/utils/mcqOption'
     import {defaultOption} from '~/utils/mcqOption'
     import {ref, computed, watch} from 'vue'
+    import type { Submission } from '~/types/directus-schema';
 
-    const props = defineProps<{
-    options: McqOption[];
-    uuid: string;
-    title: string;
-    maxScore?: number;
+    const { 
+        options, 
+        uuid, 
+        title, 
+        type = 'mcqu' 
+    } = defineProps<{
+        options: McqOption[];
+        uuid: string;
+        title: string;
+        type?: Submission['activity_type'];
     }>();
-
-    const type = 'mcq'
 
     // Variables liées à la donnée de la question et aux réponses ; elles sont passées au composant interne d'affichage des questions McqOptionRender
 
     // La normalisation suivante permet de gérer le cas où aucune prop n'est passée ainsi que d'attribuer des valeurs par défaut aux propriétés ; la version suivante est plus élégante et flexible (avec le spread operator) que celle de la version V1 de ce composant ; elle s'appuie sur l'objet mcqOption par défaut.
     const normalizedOptions = computed(() => {
-        if (!props.options) {
+        if (!options) {
             return [];
         }
-        return props.options.map((opt) => ({
+        return options.map((opt) => ({
             ...defaultOption,
             ...opt
         }));
@@ -29,6 +33,11 @@
     
     const userAnswer = ref<number | null>(null) // index de la réponse sélectionnée
     
+    const userContent = computed(() => ({
+        userAnswer: userAnswer.value,
+        userCorrection: userAnswerCorrect.value
+    }))
+
     // Comme il s'agit d'un champ de réponse spécifique à la question, on précise ici le nom du champ spécifique correspondant dans la base de données
     const userAnswerCorrectField = 'user_correction'
     const userAnswerCorrect = computed(() => {
@@ -43,10 +52,10 @@
 
     const handleSubmit = () => {
         submitAnswer(
+            uuid,
+            title,
             type,
-            props.title,
-            userAnswer.value, 
-            {[userAnswerCorrectField]:userAnswerCorrect.value}
+            userContent.value
         )
     }
     //fonction spécifique de réinitialisation du "formulaire"
