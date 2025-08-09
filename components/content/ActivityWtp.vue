@@ -1,54 +1,39 @@
-<script setup>
+<script setup lang="ts">
+    import { ref } from 'vue'
+    import type { Submission } from '~/types/directus-schema';
 
-    import {computed, ref,watch} from 'vue'
-    import hljs from 'highlight.js'; // Import highlight.js
-
-    const props = defineProps({
-        title : {
-            type: String,
-            required : true
-        },
-        uuid : {
-            type:String,
-            required : true
-        },
-        initialCode : {
-            type: String,
-            required : false
-        },
-        maxScore : {
-            type : Number,
-            required : false
-        }
-    });
-
-    const type = 'wtp'
+    const {
+        title,
+        uuid,
+        initialCode = '',
+        type = 'wtp'
+    } = defineProps<{
+        title: string;
+        uuid: string;
+        initialCode?: string;
+        type?: Submission['activity_type'];
+    }>();
 
     // Variables et fonctions liées à la soumission des réponses
+    const userCode = ref<string>(initialCode)
+    const userErrorOutput = ref<string>('')
+    const userFullOutput = ref<string>('')
 
-    const userAnswer = ref('') //initialise une variable réactive pour stocker la réponse de l'utilisateur
-    const userErrorOutput = ref('')
-    const userFullOutput = ref('')
 
-    //valeur booléenne pour tracer les codes ont été volontairement soumis par l'élève via le bouton soumettre (true) des codes enregistrés via le code run ; règle de nommage du champ ad-hoc
-
-    //champ de réponse spécifique
-    //const userAnswerSubmittedField = 'submitted'
-
-    const saveCode = (data) => {
-        userAnswer.value = data[0]
+    const saveCode = (data: [string, string, string]) => {
+        userCode.value = data[0]
         userErrorOutput.value = data[1]
         userFullOutput.value = data[2]
-        console.log("answer", userAnswer.value)
-        console.log("error", userErrorOutput.value)
-        console.log("output", userFullOutput.value)
+
         submitAnswer(
+            uuid,
+            title,
             type,
-            props.title,
-            userAnswer.value,
             {
-                ['error_output']:userErrorOutput.value,
-                ['full_output']:userFullOutput.value
+                userCode: userCode.value,
+                error_output: userErrorOutput.value,
+                full_output: userFullOutput.value,
+                submitted: false // On indique que ce n'est pas une soumission finale
             }
         )
     }
@@ -61,19 +46,21 @@
     const handleSubmit = () => {
         toggleSubmit()
         submitAnswer(
-            type, //voir si je peux le passer par défaut ?
-            props.title,
-            userAnswer.value,
+            uuid,
+            title,
+            type,
             {
-                ['submitted']:true,
-                ['error_output']:userErrorOutput.value,
-                ['full_output']:userFullOutput.value
+                userAnswer: userCode.value,
+                error_output: userErrorOutput.value,
+                full_output: userFullOutput.value,
+                submitted: true // On indique que c'est la soumission finale de l'utilisateur
             }
         )
     }
 
     //Variables et fonctions liées à l'affichage ou non de l'éditeur de code
-    const isComponentVisible = ref(false)
+    // On type la variable pour l'affichage du composant
+    const isComponentVisible = ref<boolean>(false)
 
     const mountComponent = () => {
         isComponentVisible.value = true
@@ -85,7 +72,7 @@
 
     <Awrapper 
         :title="title"
-        @clearForm=""
+        @clearForm="() => {}"
         @submit="handleSubmit"
         @explain="toggleExplain">
 
