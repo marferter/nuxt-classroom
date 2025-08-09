@@ -1,12 +1,15 @@
 import { defineNuxtConfig } from 'nuxt/config'
+import { extractAndProcessUuids } from './server/utils/content/extract-questions.js'
+
 
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
   components: true,
   hooks: {
-  },
-
+  
+  },  
+  
   content: {
     build: {
       markdown: {
@@ -34,18 +37,19 @@ export default defineNuxtConfig({
       },
     }
   },
+
   modules: ['@nuxt/ui-pro', '@nuxt/content', 'nuxt-directus'],
-  directus : {
-    url: 'https://directus.apps.21-learning.com/',
-    autoFetch: false
-  }
-  /*runtimeConfig: {
+  // directus : {
+  //   url: 'https://directus.apps.21-learning.com/',
+  //   autoFetch: true
+  // }
+  runtimeConfig: {
     public: {
       directus: {
         url: 'https://directus.apps.21-learning.com/'
       }
     }
-  }*/,
+  },
   css: ['~/assets/css/main.css'],
   ui: {
     theme: {
