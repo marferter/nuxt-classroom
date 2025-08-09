@@ -14,6 +14,7 @@ const user = useDirectusUser();
 onBeforeMount(async () => {
   // Si l'utilisateur n'est pas connecté, lance le login
   if (!user.value) {
+    //await login({ email: "prof.test@edufr.ch", password: "cintrisinidirictiS27!" })
     await login({ email: "admin@21-learning.com", password: "Van.Rossum$21" })
     //pour vérifier que user.value est bien renseigné
     //console.log('Connecté !', user.value)
