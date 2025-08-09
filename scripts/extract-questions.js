@@ -25,6 +25,11 @@ async function extractActivities() {
     console.log(`Processing ${file}...`)
     const content = await fs.readFile(file, 'utf-8')
 
+    // Extraire le titre principal de la leçon (frontmatter du fichier)
+    const lessonTitleMatch = content.match(/^\s*title:\s*["']?([^"\n']+)["']?/m)
+    const lesson = lessonTitleMatch ? lessonTitleMatch[1].trim() : '(titre de leçon non trouvé)'
+    console.dir(`  -> Titre de la leçon : ${lesson}`)
+
     // Regex pour trouver les blocs MDC commençant par "Activity"
     // Cette regex capture le nom du composant, le frontmatter et le contenu du slot
     const activityRegex = /::(Activity\w+)\s*---([\s\S]*?)---\s*([\s\S]*?)::/g
@@ -39,6 +44,13 @@ async function extractActivities() {
         console.warn(`  -> Found an activity in ${file} without a UUID. Skipping.`)
         continue
       }
+
+      // Extraire le titre du frontmatter
+      const titleMatch = frontmatter.match(/title:\s*["']?([^"\n']+)["']?/)
+      const title = titleMatch ? titleMatch[1].trim() : '(titre non trouvé)'
+      console.dir(`  -> Titre de la questtion : ${title}`)
+      // Logue aussi le titre de la leçon pour chaque activité
+      console.dir(`     (dans la leçon : ${lesson})`)
 
       const uuid = uuidMatch[1]
       const newFileName = `${uuid}.md`
