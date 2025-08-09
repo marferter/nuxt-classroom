@@ -3,5 +3,5 @@
 </script>
 
 <template>
-    <UIcon name="mdi:cross-circle" class="size-8" />
+    <UIcon name="mdi:cross-circle" class="size-6" />
 </template>
