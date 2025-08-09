@@ -1,41 +1,41 @@
 import { ref } from 'vue'
-import type { Submission } from '~/types/directus-schema.ts';
+import type { Submission, SubmissionFilters } from '~/types/directus-schema.ts';
 
 export const useAnswerSubmission = () => {
-  // Définir tous les états nécessaires à l'intérieur du composable
+  // États pour la soumission
   const sending = ref(false)
   const sendError = ref<string | null>(null)
   const sendSuccess = ref(false)
 
-  // Pour accéder aux plugins de Nuxt, dont $directus, $readItems, $createItem et autres
+  // États pour la récupération
+  const fetching = ref(false)
+  const fetchError = ref<string | null>(null)
+  const fetchSuccess = ref(false)
+
+  // Plugins Nuxt/Directus
   const nuxtApp = useNuxtApp()
   const user = useDirectusUser()
-  const { createItems } = useDirectusItems();
+  const { createItems } = useDirectusItems()
+  const { getItems } = useDirectusItems()
 
-  // Définir la fonction principale avec les données en paramètres.
+  // Fonction de soumission
   async function submitAnswer(
-  activityId: string,
-  activityTitle: string,
-  activityType: Submission['activity_type'],
-  answerContent: Record <string,any>
-) {
-    // Validation de l'utilisateur
+    activityId: string,
+    activityTitle: string,
+    activityType: Submission['activity_type'],
+    answerContent: Record<string, any>
+  ) {
     if (!user.value) {
       sendError.value = 'Utilisateur non connecté. Impossible de soumettre la réponse.'
       console.error('Utilisateur non connecté. Impossible de soumettre la réponse.')
       return
     }
 
-
-    else {console.log(user.value.id)}
-  
-    // Réinitialiser les états avant de commencer
     sending.value = true
     sendError.value = null
     sendSuccess.value = false
 
     try {
-      //Créer l'objet à soumettre 
       const newSubmission: Omit<Submission, 'id'> = {
         activity_id: activityId,
         activity_title: activityTitle,
@@ -47,30 +47,60 @@ export const useAnswerSubmission = () => {
       await createItems({ collection: 'submissions', items: [newSubmission] })
 
       sendSuccess.value = true
-      // AJOUT DU LOG DE SUCCÈS
       console.log(`Réponse envoyée avec succès pour "${activityTitle}"!`, newSubmission);
+    } catch (e) {
+      if (e instanceof Error) {
+        console.log("ERREUR COMPLÈTE:", JSON.stringify(e, null, 2));
+        sendError.value = e.message;
+      } else {
+        sendError.value = 'Une erreur inattendue est survenue lors de l\'envoi.';
       }
-      
-      catch (e) {
-        if (e instanceof Error) {
-          // Afficher l'erreur complète pour voir les détails
-          console.log("ERREUR COMPLÈTE:", JSON.stringify(e, null, 2));
-          sendError.value = e.message;
-        } else {
-          sendError.value = 'Une erreur inattendue est survenue lors de l\'envoi.';
-        }
-        console.error(e);
-      } finally {
-      // Cet état est toujours mis à jour, que ça réussisse ou non
+      console.error(e);
+    } finally {
       sending.value = false
     }
   }
 
-  // Exposer les états et la fonction pour qu'ils soient utilisables par les composants
+  // Fonction de récupération
+  async function fetchSubmissions(filters: SubmissionFilters): Promise<Submission[]> {
+    fetching.value = true
+    fetchError.value = null
+    fetchSuccess.value = false
+
+    try {
+      const items = await getItems<Submission>({
+        collection: 'submissions',
+        params: {
+          filter: filters
+        }
+      })
+      fetchSuccess.value = true
+      return items
+    } catch (e) {
+      if (e instanceof Error) {
+        console.log("ERREUR COMPLÈTE:", JSON.stringify(e, null, 2));
+        fetchError.value = e.message;
+      } else {
+        fetchError.value = 'Une erreur inattendue est survenue lors de la récupération.';
+      }
+      console.error(e);
+      return []
+    } finally {
+      fetching.value = false
+    }
+  }
+
+  // Exposer les états et fonctions
   return {
     sending,
     sendError,
     sendSuccess,
-    submitAnswer
+    submitAnswer,
+    fetching,
+    fetchError,
+    fetchSuccess,
+    fetchSubmissions
   }
 }
+
+
