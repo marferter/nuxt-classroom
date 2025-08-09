@@ -23,9 +23,10 @@
 
 <template>
     <div  
-        :class="{'bg-elevated/50': !submitted, 'bg-red-50': submitted && !userAnswerCorrect,'bg-green-50': submitted && userAnswerCorrect}"
+
+        :class="{'border-neutral-300': !submitted, 'border-error-300': submitted && !userAnswerCorrect,'border-success-300': submitted && userAnswerCorrect}"
         
-        class="p-4 border border-neutral-300 rounded-lg shadow-sm flex items-center justify-between">
+        class=" p-4 bg-neutral-50 border rounded-lg shadow-sm flex items-center justify-between">
 
         <div >
             <label class="flex items-center space-x-2" >
