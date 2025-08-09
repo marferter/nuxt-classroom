@@ -19,16 +19,16 @@ export default defineNuxtConfig({
         highlight: {
 
           // Theme used in all color schemes.
-          //theme: 'github-light',
+          theme: 'material-theme-lighter',
           // OR
-          theme: {
-            // Default theme (same as single string)
-            default: 'github-light',
-            // Theme used if `html.dark`
-            dark: 'github-dark',
-            // Theme used if `html.sepia`
-            sepia: 'monokai'
-          },
+          // theme: {
+          //   // Default theme (same as single string)
+          //   default: 'github-light',
+          //   // Theme used if `html.dark`
+          //   dark: 'github-dark',
+          //   // Theme used if `html.sepia`
+          //   sepia: 'monokai'
+          // },
           langs: [
             'python',
             'javascript'
@@ -38,7 +38,7 @@ export default defineNuxtConfig({
     }
   },
 
-  modules: ['@nuxt/ui-pro', '@nuxt/content', 'nuxt-directus'],
+  modules: ['@nuxt/ui', '@nuxt/content', 'nuxt-directus'],
   // directus : {
   //   url: 'https://directus.apps.21-learning.com/',
   //   autoFetch: true
@@ -53,7 +53,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   ui: {
     theme: {
-      colors: ['primary', 'neutral', 'error']
+      colors: ['primary', 'neutral', 'error','success']
     }
   }
 })
