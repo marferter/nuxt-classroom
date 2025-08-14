@@ -15,5 +15,18 @@ export default defineContentConfig({
       schema: z.object({
       })
     }),
+
+    activities : defineCollection(
+      {
+        type: 'data',
+        source: 'activities/*.json',
+        schema: z.object ({
+          uuid: z.string(),
+          lessonId: z.string(),
+          activityTitle: z.string(),
+          body: z.any()
+        })
+      }
+    )
   }
 })
