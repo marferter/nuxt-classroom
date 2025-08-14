@@ -5,7 +5,7 @@ import type {DirectusUser} from 'nuxt-directus'
 import type { TableColumn } from '@nuxt/ui'
 
 const {
-  fetchSubmissions,
+  getSubmissions,
   fetching,
   fetchError,
   fetchSuccess
@@ -16,24 +16,33 @@ const user: DirectusUser = await getUserById({
   id: "4efd82b2-8ad3-4a26-9423-4d05a53b5348",
 });
 
-const users = ref<DirectusUser[]>([])
+const allUsers = ref<DirectusUser[]>([])
+const allLessons = ref([])
 
-// Appelle la fonction au montage du composant
+// Utilise useAsyncData au top-level pour profiter du SSR et éviter le warning
+const { data: fetchedLessons } = await useAsyncData('all-lessons', () => {
+  return queryCollection('content')
+    .select('id')
+    .all()
+})
+//console.log(fetchedLessons.value)
+
+// Appelle la fonction au montage du composant pour les utilisateurs
 onMounted(async () => {
-  const result = await getUsers({
+  const fetchedUsers = await getUsers({
     params: {
       fields: ['id','first_name','last_name'],
     },
   });
   
-// Pour garantir que users.value contiendra toujours un tableau ; si result est un tableau, on l'utilise tel quel ; sinon, si data n'est pas null ou undefined, on prend result.data ; sinon le tableau vide (nullish coalescing) ; tout ça parce que la doc dit : In case Metadata are requested by global search querys: {"data":[...] "meta":{...}}
-  users.value = Array.isArray(result) ? 
-    result : 
-      result.data ?? [];
+  // Pour garantir que allUsers.value contiendra toujours un tableau
+  allUsers.value = Array.isArray(fetchedUsers) ? 
+    fetchedUsers : 
+      fetchedUsers.data ?? [];
 })
 
 const selectUsers = computed(() => {
-  return users.value.map(user => ({
+  return allUsers.value.map(user => ({
     label: `${user.last_name ?? ''} ${user.first_name ?? ''}`,
     id: String(user?.id)
   }))
@@ -46,16 +55,17 @@ const submissions = ref<Submission[]>([])
 
 const onUserSelected = async () => {
   // Appelle fetchSubmissions avec le filtre sur l'utilisateur sélectionné
-  submissions.value = await fetchSubmissions({ user_created: selectedUser.value })
+  submissions.value = await getSubmissions({ user_created: selectedUser.value })
 }
 
-//const columns: TableColumn<Submission>[]
 </script>
 
 <template>
 
-    <pre> Utilisateurs {{ selectUsers
-  }}</pre>
+  <pre> Leçons {{ fetchedLessons }}</pre>
+
+    <!-- <pre> Utilisateurs {{ selectUsers
+  }}</pre> -->
 
   <USelect
     v-model="selectedUser"
