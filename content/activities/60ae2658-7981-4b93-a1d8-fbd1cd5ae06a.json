@@ -1,0 +1,645 @@
+{
+  "uuid": "60ae2658-7981-4b93-a1d8-fbd1cd5ae06a",
+  "lessonId": "content/test/wtp-demo.md",
+  "activityTitle": "Exercice 1",
+  "body": {
+    "type": "minimal",
+    "value": [
+      [
+        "activity-wtp",
+        {
+          "initialCode": "from gturtle import *\n\ndef dessine_carre(cote) :\n    for _ in range(4) :\n        forward(cote)\n        right(90)\n",
+          "title": "Exercice 1",
+          "uuid": "60ae2658-7981-4b93-a1d8-fbd1cd5ae06a"
+        },
+        [
+          "ol",
+          {},
+          [
+            "li",
+            {},
+            "A l’aide de la fonction ",
+            [
+              "code",
+              {},
+              "dessine_carre"
+            ],
+            ", écrivez un programme qui dessine une suite de 5 carrés côte à côte , en partant d’un grand carré de côté 400 et en divisant chaque fois le côté par 2."
+          ],
+          [
+            "li",
+            {},
+            "Complétez le programme afin qu’il calcule la somme des aires de tous les carrés et qu’il affiche : “La somme des aires des carrés est …”."
+          ]
+        ],
+        "  ",
+        [
+          "figure",
+          {},
+          "\n    ",
+          [
+            "img",
+            {
+              "src": "/suite-carres.png",
+              "alt": "Suite de carrés"
+            }
+          ],
+          "\n    ",
+          [
+            "figcaption",
+            {},
+            "Suite de carrés"
+          ],
+          "\n  "
+        ],
+        [
+          "template",
+          {
+            "v-slot:solution": ""
+          },
+          [
+            "p",
+            {},
+            "Voici une solution possible :"
+          ],
+          [
+            "pre",
+            {
+              "className": "language-python shiki shiki-themes material-theme-lighter",
+              "code": "from gturtle import *\n\ndef dessine_carre(cote) :\n    for _ in range(4) :\n        forward(cote)\n        right(90)\n\n#initialiser la variable\ncote_carre = 400\n\nfor _ in range(5) :\n    dessine_carre(cote_carre)\n    #positionner la tortue au point de départ du carré suivant\n    right(90)\n    forward(cote_carre)\n    left(90)\n    #incrémenter la variable\n    cote_carre /= 2\n",
+              "language": "python",
+              "meta": "",
+              "style": ""
+            },
+            [
+              "code",
+              {
+                "__ignoreMap": ""
+              },
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 1
+                },
+                [
+                  "span",
+                  {
+                    "class": "seVAb"
+                  },
+                  "from"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "so1d8"
+                  },
+                  " gturtle "
+                ],
+                [
+                  "span",
+                  {
+                    "class": "seVAb"
+                  },
+                  "import"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  " *\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 2
+                },
+                [
+                  "span",
+                  {
+                    "emptyLinePlaceholder": true
+                  },
+                  "\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 3
+                },
+                [
+                  "span",
+                  {
+                    "class": "s-I41"
+                  },
+                  "def"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "sv6rI"
+                  },
+                  " dessine_carre"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  "("
+                ],
+                [
+                  "span",
+                  {
+                    "class": "se-zd"
+                  },
+                  "cote"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  ")"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  " :\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 4
+                },
+                [
+                  "span",
+                  {
+                    "class": "seVAb"
+                  },
+                  "    for"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "so1d8"
+                  },
+                  " _ "
+                ],
+                [
+                  "span",
+                  {
+                    "class": "seVAb"
+                  },
+                  "in"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "sv6rI"
+                  },
+                  " range"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  "("
+                ],
+                [
+                  "span",
+                  {
+                    "class": "seuyn"
+                  },
+                  "4"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  ")"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  " :\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 5
+                },
+                [
+                  "span",
+                  {
+                    "class": "sv6rI"
+                  },
+                  "        forward"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  "("
+                ],
+                [
+                  "span",
+                  {
+                    "class": "sv6rI"
+                  },
+                  "cote"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  ")\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 6
+                },
+                [
+                  "span",
+                  {
+                    "class": "sv6rI"
+                  },
+                  "        right"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  "("
+                ],
+                [
+                  "span",
+                  {
+                    "class": "seuyn"
+                  },
+                  "90"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  ")\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 7
+                },
+                [
+                  "span",
+                  {
+                    "emptyLinePlaceholder": true
+                  },
+                  "\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 8
+                },
+                [
+                  "span",
+                  {
+                    "class": "se-zd"
+                  },
+                  "#initialiser la variable\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 9
+                },
+                [
+                  "span",
+                  {
+                    "class": "so1d8"
+                  },
+                  "cote_carre "
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "seuyn"
+                  },
+                  " 400\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 10
+                },
+                [
+                  "span",
+                  {
+                    "emptyLinePlaceholder": true
+                  },
+                  "\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 11
+                },
+                [
+                  "span",
+                  {
+                    "class": "seVAb"
+                  },
+                  "for"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "so1d8"
+                  },
+                  " _ "
+                ],
+                [
+                  "span",
+                  {
+                    "class": "seVAb"
+                  },
+                  "in"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "sv6rI"
+                  },
+                  " range"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  "("
+                ],
+                [
+                  "span",
+                  {
+                    "class": "seuyn"
+                  },
+                  "5"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  ")"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  " :\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 12
+                },
+                [
+                  "span",
+                  {
+                    "class": "sv6rI"
+                  },
+                  "    dessine_carre"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  "("
+                ],
+                [
+                  "span",
+                  {
+                    "class": "sv6rI"
+                  },
+                  "cote_carre"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  ")\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 13
+                },
+                [
+                  "span",
+                  {
+                    "class": "se-zd"
+                  },
+                  "    #positionner la tortue au point de départ du carré suivant\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 14
+                },
+                [
+                  "span",
+                  {
+                    "class": "sv6rI"
+                  },
+                  "    right"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  "("
+                ],
+                [
+                  "span",
+                  {
+                    "class": "seuyn"
+                  },
+                  "90"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  ")\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 15
+                },
+                [
+                  "span",
+                  {
+                    "class": "sv6rI"
+                  },
+                  "    forward"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  "("
+                ],
+                [
+                  "span",
+                  {
+                    "class": "sv6rI"
+                  },
+                  "cote_carre"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  ")\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 16
+                },
+                [
+                  "span",
+                  {
+                    "class": "sv6rI"
+                  },
+                  "    left"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  "("
+                ],
+                [
+                  "span",
+                  {
+                    "class": "seuyn"
+                  },
+                  "90"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  ")\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 17
+                },
+                [
+                  "span",
+                  {
+                    "class": "se-zd"
+                  },
+                  "    #incrémenter la variable\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 18
+                },
+                [
+                  "span",
+                  {
+                    "class": "so1d8"
+                  },
+                  "    cote_carre "
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  "/="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "seuyn"
+                  },
+                  " 2\n"
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  }
+}

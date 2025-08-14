@@ -1,0 +1,759 @@
+{
+  "uuid": "d131d1ae-430b-4143-b633-e8586ebbd8b1",
+  "lessonId": "content/test/mcq-demo.md",
+  "activityTitle": "Exemples de questions à choix multiples avec code et options",
+  "body": {
+    "type": "minimal",
+    "value": [
+      [
+        "activity-mcq",
+        {
+          ":options": "[{\"option\":\"Option 1\",\"code\":\"```python\\nfrom gturtle import *\\nfor i in range(8):\\n    forward(100)\\n    right(45)\\n```\\n\",\"is\":true,\"explanation\":\"Ce code dessine une spirale hexagonale à 8 côtés.\"},{\"option\":\"Option 2\",\"code\":\"```python\\nfrom gturtle import *\\nfor i in range(6):\\n    forward(100)\\n    right(60)\\n```\\n\",\"is\":false,\"explanation\":\"Ce code dessine un hexagone, pas une spirale à 8 côtés.\"},{\"option\":\"Option 3\",\"code\":\"```python\\nfrom gturtle import *\\nfor i in range(4):\\n    forward(100)\\n    right(90)\\n```\\n\",\"is\":false,\"explanation\":\"Ce code dessine un carré, pas une spirale à 8 côtés.\"},{\"option\":\"Option 4\",\"code\":\"```python\\nfrom gturtle import *\\nfor i in range(12):\\n    forward(50)\\n    right(30)\\n```\\n\",\"is\":false,\"explanation\":\"Ce code dessine une spirale à 12 côtés, pas une spirale à 8 côtés.\"}]",
+          "title": "Exemples de questions à choix multiples avec code et options",
+          "uuid": "d131d1ae-430b-4143-b633-e8586ebbd8b1"
+        },
+        [
+          "p",
+          {},
+          "Parmi les 4 codes suivants, lequel produit une spirale hexagonale à 8 côtés ?"
+        ],
+        [
+          "h3",
+          {
+            "id": "option-1"
+          },
+          "Option 1"
+        ],
+        [
+          "pre",
+          {
+            "className": "language-python shiki shiki-themes material-theme-lighter",
+            "code": "from gturtle import *\nfor i in range(8):\n    forward(100)\n    right(45)\n",
+            "language": "python",
+            "meta": "",
+            "style": ""
+          },
+          [
+            "code",
+            {
+              "__ignoreMap": ""
+            },
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 1
+              },
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "from"
+              ],
+              [
+                "span",
+                {
+                  "class": "so1d8"
+                },
+                " gturtle "
+              ],
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "import"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                " *\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 2
+              },
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "for"
+              ],
+              [
+                "span",
+                {
+                  "class": "so1d8"
+                },
+                " i "
+              ],
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "in"
+              ],
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                " range"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "8"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "):\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 3
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "    forward"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "100"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 4
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "    right"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "45"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ]
+          ]
+        ],
+        [
+          "h3",
+          {
+            "id": "option-2"
+          },
+          "Option 2"
+        ],
+        [
+          "pre",
+          {
+            "className": "language-python shiki shiki-themes material-theme-lighter",
+            "code": "from gturtle import *\nfor i in range(6):\n    forward(100)\n    right(60)\n",
+            "language": "python",
+            "meta": "",
+            "style": ""
+          },
+          [
+            "code",
+            {
+              "__ignoreMap": ""
+            },
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 1
+              },
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "from"
+              ],
+              [
+                "span",
+                {
+                  "class": "so1d8"
+                },
+                " gturtle "
+              ],
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "import"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                " *\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 2
+              },
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "for"
+              ],
+              [
+                "span",
+                {
+                  "class": "so1d8"
+                },
+                " i "
+              ],
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "in"
+              ],
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                " range"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "6"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "):\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 3
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "    forward"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "100"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 4
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "    right"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "60"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ]
+          ]
+        ],
+        [
+          "h3",
+          {
+            "id": "option-3"
+          },
+          "Option 3"
+        ],
+        [
+          "pre",
+          {
+            "className": "language-python shiki shiki-themes material-theme-lighter",
+            "code": "from gturtle import *\nfor i in range(4):\n    forward(100)\n    right(90)\n",
+            "language": "python",
+            "meta": "",
+            "style": ""
+          },
+          [
+            "code",
+            {
+              "__ignoreMap": ""
+            },
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 1
+              },
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "from"
+              ],
+              [
+                "span",
+                {
+                  "class": "so1d8"
+                },
+                " gturtle "
+              ],
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "import"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                " *\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 2
+              },
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "for"
+              ],
+              [
+                "span",
+                {
+                  "class": "so1d8"
+                },
+                " i "
+              ],
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "in"
+              ],
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                " range"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "4"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "):\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 3
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "    forward"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "100"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 4
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "    right"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "90"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ]
+          ]
+        ],
+        [
+          "h3",
+          {
+            "id": "option-4"
+          },
+          "Option 4"
+        ],
+        [
+          "pre",
+          {
+            "className": "language-python shiki shiki-themes material-theme-lighter",
+            "code": "from gturtle import *\nfor i in range(12):\n    forward(50)\n    right(30)\n",
+            "language": "python",
+            "meta": "",
+            "style": ""
+          },
+          [
+            "code",
+            {
+              "__ignoreMap": ""
+            },
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 1
+              },
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "from"
+              ],
+              [
+                "span",
+                {
+                  "class": "so1d8"
+                },
+                " gturtle "
+              ],
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "import"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                " *\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 2
+              },
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "for"
+              ],
+              [
+                "span",
+                {
+                  "class": "so1d8"
+                },
+                " i "
+              ],
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "in"
+              ],
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                " range"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "12"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "):\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 3
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "    forward"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "50"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 4
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "    right"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "30"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  }
+}

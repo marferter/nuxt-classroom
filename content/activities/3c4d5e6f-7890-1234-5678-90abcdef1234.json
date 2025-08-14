@@ -1,0 +1,781 @@
+{
+  "uuid": "3c4d5e6f-7890-1234-5678-90abcdef1234",
+  "lessonId": "content/test/mcq-demo.md",
+  "activityTitle": "Prompt complexe : Markdown, html",
+  "body": {
+    "type": "minimal",
+    "value": [
+      [
+        "activity-mcq",
+        {
+          ":options": "[{\"option\":\"Option 1\"},{\"option\":\"Opions 2\"},{\"option\":\"Option 3\",\"is\":true},{\"option\":\"Option 4\"}]",
+          "title": "Prompt complexe : Markdown, html",
+          "uuid": "3c4d5e6f-7890-1234-5678-90abcdef1234"
+        },
+        [
+          "p",
+          {},
+          "Voici un programme :"
+        ],
+        [
+          "pre",
+          {
+            "className": "language-python shiki shiki-themes material-theme-lighter",
+            "code": "from gturtle import *\n\ndef ligne(longueur) :\n    penDown()\n    forward(longueur)\n    back(longueur)\n\ndef motif(longueur_min, longueur_max) :\n    longueur = longueur_min\n    while longueur <= longueur_max :\n        ligne(longueur)\n        longueur += 10\n\n        penUp()\n        right(90)\n        forward(20)\n        left(90)\nlongueur_init = 20\nmotif(longueur_init, 55)\nprint(longueur)\n",
+            "language": "python",
+            "meta": "",
+            "style": ""
+          },
+          [
+            "code",
+            {
+              "__ignoreMap": ""
+            },
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 1
+              },
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "from"
+              ],
+              [
+                "span",
+                {
+                  "class": "so1d8"
+                },
+                " gturtle "
+              ],
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "import"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                " *\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 2
+              },
+              [
+                "span",
+                {
+                  "emptyLinePlaceholder": true
+                },
+                "\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 3
+              },
+              [
+                "span",
+                {
+                  "class": "s-I41"
+                },
+                "def"
+              ],
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                " ligne"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "se-zd"
+                },
+                "longueur"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                " :\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 4
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "    penDown"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "()\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 5
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "    forward"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "longueur"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 6
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "    back"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "longueur"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 7
+              },
+              [
+                "span",
+                {
+                  "emptyLinePlaceholder": true
+                },
+                "\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 8
+              },
+              [
+                "span",
+                {
+                  "class": "s-I41"
+                },
+                "def"
+              ],
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                " motif"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "se-zd"
+                },
+                "longueur_min"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ","
+              ],
+              [
+                "span",
+                {
+                  "class": "se-zd"
+                },
+                " longueur_max"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                " :\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 9
+              },
+              [
+                "span",
+                {
+                  "class": "so1d8"
+                },
+                "    longueur "
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "so1d8"
+                },
+                " longueur_min\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 10
+              },
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "    while"
+              ],
+              [
+                "span",
+                {
+                  "class": "so1d8"
+                },
+                " longueur "
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "<="
+              ],
+              [
+                "span",
+                {
+                  "class": "so1d8"
+                },
+                " longueur_max "
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ":\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 11
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "        ligne"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "longueur"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 12
+              },
+              [
+                "span",
+                {
+                  "class": "so1d8"
+                },
+                "        longueur "
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "+="
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                " 10\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 13
+              },
+              [
+                "span",
+                {
+                  "emptyLinePlaceholder": true
+                },
+                "\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 14
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "        penUp"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "()\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 15
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "        right"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "90"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 16
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "        forward"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "20"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 17
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "        left"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "90"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 18
+              },
+              [
+                "span",
+                {
+                  "class": "so1d8"
+                },
+                "longueur_init "
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                " 20\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 19
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "motif"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "longueur_init"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ","
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                " 55"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 20
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "print"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "longueur"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ]
+          ]
+        ],
+        [
+          "p",
+          {},
+          "Laquelle des images suivantes son exécution produit-elle ?"
+        ],
+        [
+          "div",
+          {
+            "style": "display: flex; gap: 1rem;"
+          },
+          "\n  ",
+          [
+            "figure",
+            {},
+            "\n    ",
+            [
+              "img",
+              {
+                "src": "/barres1.png",
+                "alt": "spirale"
+              }
+            ],
+            "\n    ",
+            [
+              "figcaption",
+              {},
+              "Option 1"
+            ],
+            "\n  "
+          ],
+          "  ",
+          [
+            "figure",
+            {},
+            "\n    ",
+            [
+              "img",
+              {
+                "src": "/barres2.png",
+                "alt": "hélice"
+              }
+            ],
+            "\n    ",
+            [
+              "figcaption",
+              {},
+              "Option 2"
+            ],
+            "\n  "
+          ],
+          "  ",
+          [
+            "figure",
+            {},
+            "\n    ",
+            [
+              "img",
+              {
+                "src": "/barres3.png",
+                "alt": "4 barres"
+              }
+            ],
+            "\n    ",
+            [
+              "figcaption",
+              {},
+              "Option 3"
+            ],
+            "\n  "
+          ],
+          "  ",
+          [
+            "figure",
+            {},
+            "\n    ",
+            [
+              "img",
+              {
+                "src": "/barres4.png",
+                "alt": "5 barres"
+              }
+            ],
+            "\n    ",
+            [
+              "figcaption",
+              {},
+              "Option 4"
+            ],
+            "\n  "
+          ]
+        ]
+      ]
+    ]
+  }
+}

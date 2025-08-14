@@ -1,0 +1,38 @@
+{
+  "uuid": "7d43bf8a-21bc-4121-a250-f7ba73d0308c",
+  "lessonId": "content/test/wtp-demo.md",
+  "activityTitle": "Exercice 2",
+  "body": {
+    "type": "minimal",
+    "value": [
+      [
+        "activity-wtp",
+        {
+          "initialCode": "from gturtle import *\n\ndef dessine_triangle(cote) :\n    for _ in range(3) :\n        forward(cote)\n        right(120)\n",
+          "title": "Exercice 2",
+          "uuid": "7d43bf8a-21bc-4121-a250-f7ba73d0308c"
+        },
+        [
+          "ol",
+          {},
+          [
+            "li",
+            {},
+            "A l’aide de la fonction ",
+            [
+              "code",
+              {},
+              "dessine_triangle"
+            ],
+            ", écrivez un programme qui dessine une suite de 5 triangles côte à côte , en partant d’un grand triangle de côté 400 et en divisant chaque fois le côté par 2."
+          ],
+          [
+            "li",
+            {},
+            "Complétez le programme afin qu’il calcule la somme des aires de tous les triangles et qu’il affiche : “La somme des aires des triangles est …”."
+          ]
+        ]
+      ]
+    ]
+  }
+}

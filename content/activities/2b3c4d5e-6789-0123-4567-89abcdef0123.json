@@ -1,0 +1,1166 @@
+{
+  "uuid": "2b3c4d5e-6789-0123-4567-89abcdef0123",
+  "lessonId": "content/test/mcq-demo.md",
+  "activityTitle": "Prompt avec bloc de code ; options, valeur et explications générées par Copilot",
+  "body": {
+    "type": "minimal",
+    "value": [
+      [
+        "activity-mcq",
+        {
+          ":options": "[{\"option\":\"def ligne()\",\"is\":true,\"explanation\":\"Il manque les deux-points à la fin de la définition de la fonction (`def ligne():`).\"},{\"option\":\"def dessine 3 triangles():\",\"is\":true,\"explanation\":\"Le nom de la fonction ne doit pas contenir d'espaces ni commencer par un chiffre (`def dessine_3_triangles():`).\"},{\"option\":\"def dessine_escalier():\",\"is\":true,\"explanation\":\"Le bloc d'instructions de la fonction n'est pas indenté correctement.\"},{\"option\":\"def dessine_cercle():\",\"is\":false,\"explanation\":\"La définition de cette fonction est correcte.\"},{\"option\":\"def 2traits():\",\"is\":true,\"explanation\":\"Le nom de la fonction ne doit pas commencer par un chiffre (`def deux_traits():`).\"}]",
+          "title": "Prompt avec bloc de code ; options, valeur et explications générées par Copilot",
+          "uuid": "2b3c4d5e-6789-0123-4567-89abcdef0123"
+        },
+        [
+          "p",
+          {},
+          "Dans le programme ci-dessous, on définit différentes fonctions. Cochez les cases correspondant aux fonctions dont la définition contient des erreurs:"
+        ],
+        [
+          "pre",
+          {
+            "className": "language-python shiki shiki-themes material-theme-lighter",
+            "code": "from gturtle import *\n\ndef ligne()\n    forward(100)\n\ndef dessine 3 triangles():\n    for loop in range(3):\n        for loop in range(3):\n            forward(100)\n            right(120)\n        right(90)\n\ndef dessine_escalier():\nfor loop in range(5):\n    forward(100)\n    right(90)\n    forward(120)\n    left(90)\n\ndef dessine_cercle():\n    for loop in range(36):\n        forward(2)\n        right(10)\n\ndef 2traits():\n    forward(10)\n    penUp()\n    forward(10)\n    penDown()\n    forward(10)\n\n\ndessine_cercle()\nligne()\ndessine 3 triangles()\ndessine_escalier()\n2traits()\n",
+            "language": "python",
+            "meta": "",
+            "style": ""
+          },
+          [
+            "code",
+            {
+              "__ignoreMap": ""
+            },
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 1
+              },
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "from"
+              ],
+              [
+                "span",
+                {
+                  "class": "so1d8"
+                },
+                " gturtle "
+              ],
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "import"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                " *\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 2
+              },
+              [
+                "span",
+                {
+                  "emptyLinePlaceholder": true
+                },
+                "\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 3
+              },
+              [
+                "span",
+                {
+                  "class": "s-I41"
+                },
+                "def"
+              ],
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                " ligne"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "()\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 4
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "    forward"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "100"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 5
+              },
+              [
+                "span",
+                {
+                  "emptyLinePlaceholder": true
+                },
+                "\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 6
+              },
+              [
+                "span",
+                {
+                  "class": "s-I41"
+                },
+                "def"
+              ],
+              [
+                "span",
+                {
+                  "class": "so1d8"
+                },
+                " dessine "
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "3"
+              ],
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                " triangles"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "():\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 7
+              },
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "    for"
+              ],
+              [
+                "span",
+                {
+                  "class": "so1d8"
+                },
+                " loop "
+              ],
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "in"
+              ],
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                " range"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "3"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "):\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 8
+              },
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "        for"
+              ],
+              [
+                "span",
+                {
+                  "class": "so1d8"
+                },
+                " loop "
+              ],
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "in"
+              ],
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                " range"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "3"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "):\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 9
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "            forward"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "100"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 10
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "            right"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "120"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 11
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "        right"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "90"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 12
+              },
+              [
+                "span",
+                {
+                  "emptyLinePlaceholder": true
+                },
+                "\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 13
+              },
+              [
+                "span",
+                {
+                  "class": "s-I41"
+                },
+                "def"
+              ],
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                " dessine_escalier"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "():\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 14
+              },
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "for"
+              ],
+              [
+                "span",
+                {
+                  "class": "so1d8"
+                },
+                " loop "
+              ],
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "in"
+              ],
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                " range"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "5"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "):\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 15
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "    forward"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "100"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 16
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "    right"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "90"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 17
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "    forward"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "120"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 18
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "    left"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "90"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 19
+              },
+              [
+                "span",
+                {
+                  "emptyLinePlaceholder": true
+                },
+                "\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 20
+              },
+              [
+                "span",
+                {
+                  "class": "s-I41"
+                },
+                "def"
+              ],
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                " dessine_cercle"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "():\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 21
+              },
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "    for"
+              ],
+              [
+                "span",
+                {
+                  "class": "so1d8"
+                },
+                " loop "
+              ],
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "in"
+              ],
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                " range"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "36"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "):\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 22
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "        forward"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "2"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 23
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "        right"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "10"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 24
+              },
+              [
+                "span",
+                {
+                  "emptyLinePlaceholder": true
+                },
+                "\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 25
+              },
+              [
+                "span",
+                {
+                  "class": "s-I41"
+                },
+                "def"
+              ],
+              [
+                "span",
+                {
+                  "class": "so1d8"
+                },
+                " 2traits"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "():\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 26
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "    forward"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "10"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 27
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "    penUp"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "()\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 28
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "    forward"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "10"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 29
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "    penDown"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "()\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 30
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "    forward"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "10"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 31
+              },
+              [
+                "span",
+                {
+                  "emptyLinePlaceholder": true
+                },
+                "\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 32
+              },
+              [
+                "span",
+                {
+                  "emptyLinePlaceholder": true
+                },
+                "\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 33
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "dessine_cercle"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "()\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 34
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "ligne"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "()\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 35
+              },
+              [
+                "span",
+                {
+                  "class": "so1d8"
+                },
+                "dessine "
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "3"
+              ],
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                " triangles"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "()\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 36
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "dessine_escalier"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "()\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 37
+              },
+              [
+                "span",
+                {
+                  "class": "so1d8"
+                },
+                "2traits"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "()\n"
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  }
+}

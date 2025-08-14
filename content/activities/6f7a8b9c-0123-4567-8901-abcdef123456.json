@@ -1,0 +1,23 @@
+{
+  "uuid": "6f7a8b9c-0123-4567-8901-abcdef123456",
+  "lessonId": "content/test/mcq-demo.md",
+  "activityTitle": "Exemples de questions à choix multiples avec code",
+  "body": {
+    "type": "minimal",
+    "value": [
+      [
+        "activity-mcq",
+        {
+          ":options": "[{\"option\":\"`x = 5`\",\"is\":true,\"explanation\":\"C'est une déclaration correcte d'une variable entière en Python.\"},{\"option\":\"`y = 'Hello'`\",\"is\":true,\"explanation\":\"C'est une déclaration correcte d'une variable de type chaîne de caractères en Python.\"},{\"option\":\"`z = [1, 2, 3]`\",\"is\":true,\"explanation\":\"C'est une déclaration correcte d'une liste en Python.\"},{\"option\":\"`a = {1, 2, 3}`\",\"is\":false,\"explanation\":\"Ceci est une déclaration correcte d'un ensemble (set) en Python, mais la question demande des variables avec des valeurs spécifiques.\"},{\"option\":\"`b = (1, 2)`\",\"is\":false,\"explanation\":\"Ceci est une déclaration correcte d'un tuple en Python, mais la question demande des variables avec des valeurs spécifiques.\"}]",
+          "title": "Exemples de questions à choix multiples avec code",
+          "uuid": "6f7a8b9c-0123-4567-8901-abcdef123456"
+        },
+        [
+          "p",
+          {},
+          "Cochez les variables qui sont correctement déclarées en Python :"
+        ]
+      ]
+    ]
+  }
+}
