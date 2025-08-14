@@ -1,5 +1,5 @@
 import { defineNuxtConfig } from 'nuxt/config'
-import { extractAndProcessUuids } from './server/utils/content/extract-questions.js'
+import { extractActivityUuids, extractActivityUuidsWithFile } from './scripts/extractActivities'
 
 
 export default defineNuxtConfig({
@@ -7,9 +7,14 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   components: true,
   hooks: {
-  
-  },  
-  
+    'content:file:afterParse': async (ctx) => {
+      const fileId = ctx.file?.id ?? ctx.file?.path ?? 'inconnu'
+      if (!ctx.file?.path?.includes('/test/')) return
+      const ast = Array.isArray(ctx.content.body?.value) ? ctx.content.body.value : []
+      await extractActivityUuidsWithFile(ast, fileId)
+    }
+  },
+
   content: {
     build: {
       markdown: {
