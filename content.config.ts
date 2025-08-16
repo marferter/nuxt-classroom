@@ -4,9 +4,9 @@ import type Questions from './pages/questions.vue'
 export default defineContentConfig({
 
   collections: {
-    content: defineCollection({
+    lessons: defineCollection({
       type: 'page',
-      source: 'test/*.md'
+      source: '**/*.md'
     }),
 
     questions: defineCollection({
