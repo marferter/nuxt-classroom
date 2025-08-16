@@ -2,9 +2,11 @@
 
 ::ActivityWtp
 ---
-title: "Exercice"
+title: "Suite de carrés décroissantscroissants"
 uuid: 60ae2658-7981-4b93-a1d8-fbd1cd5ae06a
 initialCode: |
+    from gturtle import *
+
     def dessine_carre(cote) :
         for _ in range(4) :
             forward(cote)
@@ -46,7 +48,26 @@ for _ in range(5) :
 ```
 ::
 
-<!--
+::ActivityWtp
+---
+title: "Suite de triangles décroissants"
+uuid: 7d43bf8a-21bc-4121-a250-f7ba73d0308c
+initialCode: |
+    from gturtle import *
+    
+    def dessine_triangle(cote) :
+        for _ in range(3) :
+            forward(cote)
+            right(120)
+---
+
+1. A l’aide de la fonction `dessine_triangle`, écrivez un programme qui dessine une suite de 5 triangles côte à côte , en partant d’un grand triangle de côté 400 et en divisant chaque fois le côté par 2.
+
+2. Complétez le programme afin qu’il calcule la somme des aires de tous les triangles et qu’il affiche : “La somme des aires des triangles est …”.
+
+::
+
+
 Voici du code en dehors d'un composant :
 
 ```python
@@ -57,8 +78,9 @@ def dessine_carre(cote) :
         right(90)
 
 dessine_carre(400)
-````
--->
+```  
+
+
 
 
 
