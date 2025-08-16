@@ -1,6 +1,6 @@
 {
   "uuid": "f7ca7f81-e1c1-4b0c-916b-6a1809237a6f",
-  "lessonId": "content/test/mcq-demo.md",
+  "lessonId": "lessons/demo/mcq.md",
   "activityTitle": "Prompt simple et options avec code inline - syntaxe avec le *littéral block scalar*\n",
   "body": {
     "type": "minimal",

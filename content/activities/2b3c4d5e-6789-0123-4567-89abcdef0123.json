@@ -1,6 +1,6 @@
 {
   "uuid": "2b3c4d5e-6789-0123-4567-89abcdef0123",
-  "lessonId": "content/test/mcq-demo.md",
+  "lessonId": "lessons/demo/mcq.md",
   "activityTitle": "Prompt avec bloc de code ; options, valeur et explications générées par Copilot",
   "body": {
     "type": "minimal",

@@ -1,7 +1,7 @@
 {
   "uuid": "7d43bf8a-21bc-4121-a250-f7ba73d0308c",
-  "lessonId": "content/test/wtp-demo.md",
-  "activityTitle": "Exercice 2",
+  "lessonId": "lessons/demo/wtp.md",
+  "activityTitle": "Suite de triangles décroissants",
   "body": {
     "type": "minimal",
     "value": [
@@ -9,7 +9,7 @@
         "activity-wtp",
         {
           "initialCode": "from gturtle import *\n\ndef dessine_triangle(cote) :\n    for _ in range(3) :\n        forward(cote)\n        right(120)\n",
-          "title": "Exercice 2",
+          "title": "Suite de triangles décroissants",
           "uuid": "7d43bf8a-21bc-4121-a250-f7ba73d0308c"
         },
         [

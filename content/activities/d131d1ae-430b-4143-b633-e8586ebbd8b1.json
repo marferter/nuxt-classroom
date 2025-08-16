@@ -1,6 +1,6 @@
 {
   "uuid": "d131d1ae-430b-4143-b633-e8586ebbd8b1",
-  "lessonId": "content/test/mcq-demo.md",
+  "lessonId": "lessons/demo/mcq.md",
   "activityTitle": "Exemples de questions à choix multiples avec code et options",
   "body": {
     "type": "minimal",
