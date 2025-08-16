@@ -1,5 +1,5 @@
 import { defineNuxtConfig } from 'nuxt/config'
-import { extractActivityUuids, extractActivityUuidsWithFile } from './scripts/extractActivities'
+import { extractActivities} from './scripts/extractActivities'
 
 
 export default defineNuxtConfig({
@@ -9,9 +9,9 @@ export default defineNuxtConfig({
   hooks: {
     'content:file:afterParse': async (ctx) => {
       const fileId = ctx.file?.id ?? ctx.file?.path ?? 'inconnu'
-      if (!ctx.file?.path?.includes('/test/')) return
+      if (!ctx.file?.path?.includes('/demo/') && !ctx.file?.path?.includes('/cours/')) return
       const ast = Array.isArray(ctx.content.body?.value) ? ctx.content.body.value : []
-      await extractActivityUuidsWithFile(ast, fileId)
+      await extractActivities(ast, fileId)
     }
   },
 
