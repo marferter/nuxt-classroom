@@ -62,7 +62,7 @@ export const useAnswerSubmission = () => {
   }
 
   // Fonction de récupération
-  async function fetchSubmissions(filters: SubmissionFilters): Promise<Submission[]> {
+  async function getSubmissions(filters: SubmissionFilters): Promise<Submission[]> {
     fetching.value = true
     fetchError.value = null
     fetchSuccess.value = false
@@ -99,7 +99,7 @@ export const useAnswerSubmission = () => {
     fetching,
     fetchError,
     fetchSuccess,
-    fetchSubmissions
+    getSubmissions
   }
 }
 
