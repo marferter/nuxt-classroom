@@ -1,7 +1,6 @@
 <!--Solution de Copilot pour pouvoir expand la fenêtre wtp-->
 
 <script setup>
-import { code } from '#build/ui-pro/prose'
 import { ref, onMounted } from 'vue'
 
 const props = defineProps({
@@ -80,8 +79,6 @@ const handleGlobalMessage = (event) => {
     console.log("Fin d'exécution détectée dans mon iframe")
     emit('codeRun', [userInputCode.value,userErrorOutput.value,userFullOutput.value])
   }
-  
-
 }
 
 onMounted(() => {
