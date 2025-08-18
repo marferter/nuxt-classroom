@@ -43,6 +43,21 @@ export default defineNuxtConfig({
     }
   },
 
+  mdc: {
+    components: {
+      map: {
+        ActivityMcq: 'ActivityMcq',
+        'activity-mcq': 'ActivityMcq',
+        ActivityMcqU: 'ActivityMcqU',
+        'activity-mcq-u': 'ActivityMcqU',
+        ActivityShortAnswer: 'ActivityShortAnswer',
+        'activity-short-answer': 'ActivityShortAnswer',
+        ActivityWtp: 'ActivityWtp',
+        'activity-wtp': 'ActivityWtp'
+      }
+    }
+  },
+
   modules: ['@nuxt/ui', '@nuxt/content', 'nuxt-directus'],
   // directus : {
   //   url: 'https://directus.apps.21-learning.com/',
