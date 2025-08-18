@@ -1,7 +1,7 @@
 {
   "uuid": "60ae2658-7981-4b93-a1d8-fbd1cd5ae06a",
   "lessonId": "lessons/demo/wtp.md",
-  "activityTitle": "Suite de carrés décroissantscroissants",
+  "activityTitle": "Suite de carrés décroissants",
   "body": {
     "type": "minimal",
     "value": [
@@ -9,7 +9,7 @@
         "activity-wtp",
         {
           "initialCode": "from gturtle import *\n\ndef dessine_carre(cote) :\n    for _ in range(4) :\n        forward(cote)\n        right(90)\n",
-          "title": "Suite de carrés décroissantscroissants",
+          "title": "Suite de carrés décroissants",
           "uuid": "60ae2658-7981-4b93-a1d8-fbd1cd5ae06a"
         },
         [

@@ -1,0 +1,23 @@
+{
+  "uuid": "9e3cb5b9-d553-4019-bf85-1634d111d1ff",
+  "lessonId": "lessons/demo/ast.md",
+  "activityTitle": "Question 1",
+  "body": {
+    "type": "minimal",
+    "value": [
+      [
+        "activity-mcq",
+        {
+          ":options": "[{\"option\":\"Option 1\",\"is\":true,\"explanation\":\"C'est la bonne réponse.\"},{\"option\":\"Option 2\",\"is\":false,\"explanation\":\"C'est incorrect.\"},{\"option\":\"Option 3\",\"is\":false,\"explanation\":\"C'est aussi incorrect.\"}]",
+          "title": "Question 1",
+          "uuid": "9e3cb5b9-d553-4019-bf85-1634d111d1ff"
+        },
+        [
+          "p",
+          {},
+          "Cochez la bonne réponse parmi les options suivantes :"
+        ]
+      ]
+    ]
+  }
+}
