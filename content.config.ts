@@ -6,7 +6,10 @@ export default defineContentConfig({
   collections: {
     lessons: defineCollection({
       type: 'page',
-      source: '**/*.md'
+      source: '**/*.md',
+      schema: z.object({
+        rawbody: z.string()
+      })
     }),
 
     questions: defineCollection({
@@ -16,17 +19,15 @@ export default defineContentConfig({
       })
     }),
 
-    activities : defineCollection(
-      {
-        type: 'data',
-        source: 'activities/*.json',
-        schema: z.object ({
-          uuid: z.string(),
-          lessonId: z.string(),
-          activityTitle: z.string(),
-          body: z.any()
-        })
-      }
-    )
+    activities : defineCollection({
+      type: 'data',
+      source: 'activities/*.json',
+      schema: z.object ({
+        uuid: z.string(),
+        lessonId: z.string(),
+        activityTitle: z.string(),
+        body: z.any()
+      })
+    })
   }
 })
