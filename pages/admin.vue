@@ -13,7 +13,7 @@ return getUsers(
 })
 
 const {data : lessons} = await useAsyncData('all-lessons', () => {
-return  queryCollection('content').select('id').all()
+return  queryCollection('lessons').select('id').all()
 })
 
 //Transformation des données pour les listes du Select
@@ -141,6 +141,7 @@ const {data: submissions, refreshSubmissions} = await useAsyncData('submissions'
         <p> Activité : {{ selectedActivityId }}</p>
 
         <ContentRenderer v-if="selectedActivity" :value="selectedActivity" />
+        
         <pre v-for="submission in submissions"> {{ submission.content }}</pre>
     </div>
 
