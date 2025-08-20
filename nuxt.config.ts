@@ -1,17 +1,21 @@
 import { defineNuxtConfig } from 'nuxt/config'
 import { extractActivities} from './scripts/extractActivities'
 
-
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
   components: true,
   hooks: {
     'content:file:afterParse': async (ctx) => {
+      console.log('HOOK called for:', ctx.file?.path)
       const fileId = ctx.file?.id ?? ctx.file?.path ?? 'inconnu'
-      if (!ctx.file?.path?.includes('/demo/') && !ctx.file?.path?.includes('/cours/')) return
+      if (!ctx.file?.path?.includes('/2.demo/') && !ctx.file?.path?.includes('/1.cours/')) {
+        console.log('HOOK skipped for:', ctx.file?.path)
+        return
+      }
       const ast = Array.isArray(ctx.content.body?.value) ? ctx.content.body.value : []
       await extractActivities(ast, fileId)
+      console.log('HOOK extractActivities done for:', fileId)
     }
   },
 
