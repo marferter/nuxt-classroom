@@ -1,5 +1,6 @@
 # Démonstration du composant Wtp
 
+
 ::ActivityWtp
 ---
 title: "Suite de carrés décroissants"
