@@ -26,10 +26,11 @@ export async function extractActivities(ast: unknown[], parentFileId: string): P
     ) {
       const uuid = (props as any).uuid;
       const title = typeof (props as any).title === 'string' ? (props as any).title : '';
+      const activityType = typeof tag === 'string' ? tag : ''
       const activityFilePath = path.join(
         process.cwd(),
         'content',
-        'activities',
+        '3.activities',
         `${uuid}.json`
       );
 
@@ -38,14 +39,15 @@ export async function extractActivities(ast: unknown[], parentFileId: string): P
         uuid: uuid,
         lessonId: parentFileId,
         activityTitle: title,
+        activityType: activityType,
         body: {
           type: 'minimal',
           value: [block]
         }
       };
 
-      // On écrase le fichier à chaque appel
       await fs.writeFile(activityFilePath, JSON.stringify(activityObj, null, 2), 'utf8');
+      console.log(`[extractActivities] Fichier créé ou modifié : ${activityFilePath}`);
     }
   }
 }
