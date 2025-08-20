@@ -1,7 +1,8 @@
 {
   "uuid": "a1eed46d-adab-463f-ae07-437c66efe1bc",
-  "lessonId": "lessons/demo/mcq.md",
+  "lessonId": "lessons/2.demo/mcq.md",
   "activityTitle": "Prompt simple et options avec code inline",
+  "activityType": "activity-mcq",
   "body": {
     "type": "minimal",
     "value": [

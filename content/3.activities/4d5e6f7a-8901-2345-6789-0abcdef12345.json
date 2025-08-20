@@ -1,7 +1,8 @@
 {
   "uuid": "4d5e6f7a-8901-2345-6789-0abcdef12345",
-  "lessonId": "lessons/demo/mcq.md",
+  "lessonId": "lessons/2.demo/mcq.md",
   "activityTitle": "2. Deklination",
+  "activityType": "activity-mcq",
   "body": {
     "type": "minimal",
     "value": [

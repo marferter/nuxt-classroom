@@ -1,12 +1,13 @@
 {
   "uuid": "27ecb20a-6fb6-460f-a07d-02d337901adf",
-  "lessonId": "lessons/demo/ast.md",
+  "lessonId": "lessons/2.demo/ast.md",
   "activityTitle": "Question 2",
+  "activityType": "activity-mcq",
   "body": {
     "type": "minimal",
     "value": [
       [
-        "activity-mcq-v1",
+        "activity-mcq",
         {
           ":options": "[{\"option\":\"Option A\",\"is\":true,\"explanation\":\"C'est la bonne réponse.\"},{\"option\":\"Option B\",\"is\":false,\"explanation\":\"C'est incorrect.\"},{\"option\":\"Option C\",\"is\":false,\"explanation\":\"C'est aussi incorrect.\"}]",
           "title": "Question 2",

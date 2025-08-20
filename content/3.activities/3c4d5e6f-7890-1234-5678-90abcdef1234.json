@@ -1,7 +1,8 @@
 {
   "uuid": "3c4d5e6f-7890-1234-5678-90abcdef1234",
-  "lessonId": "lessons/demo/mcq.md",
+  "lessonId": "lessons/2.demo/mcq.md",
   "activityTitle": "Prompt complexe : Markdown, html",
+  "activityType": "activity-mcq",
   "body": {
     "type": "minimal",
     "value": [

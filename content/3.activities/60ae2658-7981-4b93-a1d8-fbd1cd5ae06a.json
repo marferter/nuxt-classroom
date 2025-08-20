@@ -1,7 +1,8 @@
 {
   "uuid": "60ae2658-7981-4b93-a1d8-fbd1cd5ae06a",
-  "lessonId": "lessons/demo/wtp.md",
+  "lessonId": "lessons/2.demo/wtp.md",
   "activityTitle": "Suite de carrés décroissants",
+  "activityType": "activity-wtp",
   "body": {
     "type": "minimal",
     "value": [

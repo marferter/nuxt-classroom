@@ -1,7 +1,8 @@
 {
   "uuid": "9e3cb5b9-d553-4019-bf85-1634d111d1ff",
-  "lessonId": "lessons/demo/ast.md",
+  "lessonId": "lessons/2.demo/ast.md",
   "activityTitle": "Question 1",
+  "activityType": "activity-mcq",
   "body": {
     "type": "minimal",
     "value": [

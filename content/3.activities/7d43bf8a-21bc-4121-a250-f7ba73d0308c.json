@@ -1,7 +1,8 @@
 {
   "uuid": "7d43bf8a-21bc-4121-a250-f7ba73d0308c",
-  "lessonId": "lessons/demo/wtp.md",
+  "lessonId": "lessons/2.demo/wtp.md",
   "activityTitle": "Suite de triangles décroissants",
+  "activityType": "activity-wtp",
   "body": {
     "type": "minimal",
     "value": [
