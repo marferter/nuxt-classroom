@@ -1,10 +1,5 @@
 <script setup>
 
-import { onMounted, ref } from 'vue'
-import { parseMarkdown } from '#imports'
-import { textarea } from '#build/ui'
-//import ActivityMcq from '~/components/content/ActivityMcq.vue'
-
 const route = useRoute()
 
 const realPath = computed(() => {
