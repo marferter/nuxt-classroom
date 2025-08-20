@@ -187,7 +187,7 @@ export default defineAppConfig({
         ],
           defaultVariants: {
             color: 'neutral',
-            size: 'xs',
+            size: 'md', // ou 'xl' pour encore plus épais
             type: 'solid'
           }
         }
