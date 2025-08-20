@@ -21,11 +21,12 @@ export default defineContentConfig({
 
     activities : defineCollection({
       type: 'data',
-      source: 'activities/*.json',
+      source: '3.activities/*.json',
       schema: z.object ({
         uuid: z.string(),
         lessonId: z.string(),
         activityTitle: z.string(),
+        activityType: z.string(),
         body: z.any()
       })
     })
