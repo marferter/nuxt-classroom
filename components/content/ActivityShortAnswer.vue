@@ -20,6 +20,7 @@
 
     // Initialisation (=récupération des variables et fonctions) depuis les composables
     const { sending, sendError, sendSuccess, submitAnswer } = useAnswerSubmission()
+    
     const {toggleSubmit, toggleExplain, resetActivity, explained, submitted} = useActivityState(clearTextArea)
 
     const handleSubmit = () => {
