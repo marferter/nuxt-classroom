@@ -34,7 +34,7 @@ onBeforeMount(async () => {
   
       <!-- class="mx-auto max-w-4xl px-4" -->
       <main> 
-        <UContainer>
+        <UContainer >
         <NuxtPage/>
         </UContainer>
       </main>
