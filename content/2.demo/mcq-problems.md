@@ -6,7 +6,7 @@ Répartir entre plusieurs pages ; enlever les exemples moins pertinents ; sépar
 ::ActivityMcq
 ---
 title : |
-  Prompt simple et options avec code inline - syntaxe avec le *littéral block scalar*
+  Prompt simple et options avec code inline - syntaxe avec le *litteral block scalar*
 uuid: f7ca7f81-e1c1-4b0c-916b-6a1809237a6f
 options:
   - option: |

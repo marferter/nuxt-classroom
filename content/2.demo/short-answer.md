@@ -1,4 +1,5 @@
 # Démonstration du composant ActivityShortAnswer
+
 Voici une démonstration du composant `ActivityShortAnswer` pour des questions ouvertes.
 
 Le lien tout en haut de la page permet de voir le code source en Markdown, ainsi que l'entrée correspondante dans la base de données Content.

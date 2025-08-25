@@ -1,0 +1,24 @@
+{
+  "uuid": "bffab406-824b-43ea-b981-f0a020e37cf2",
+  "lessonId": "lessons/2.demo/mcq-problems.md",
+  "activityTitle": "Incohérence entre le title et les options dans un littéral block\n\nRetour à la ligne qui ne marche pas.\n",
+  "activityType": "activity-mcq",
+  "body": {
+    "type": "minimal",
+    "value": [
+      [
+        "activity-mcq",
+        {
+          ":options": "[{\"option\":\"`3 + 4`\\n\",\"is\":false,\"explanation\":\"`3 + 4` est une *expression arithmétique* qui évalue à 7 :\\n\\nRetour à la ligne qui marche.\\n\"}]",
+          "title": "Incohérence entre le title et les options dans un littéral block\n\nRetour à la ligne qui ne marche pas.\n",
+          "uuid": "bffab406-824b-43ea-b981-f0a020e37cf2"
+        },
+        [
+          "p",
+          {},
+          "Le retour à la ligne est pris en compte dans les options, pour autant qu'on saute deux lignes, mais pas dans le title. Jusque là pas d'erreurs ni de warnings dans la console, pour autant qu'on ne mette pas de : dans le titre. Les : dans l'explication sont supportés."
+        ]
+      ]
+    ]
+  }
+}
