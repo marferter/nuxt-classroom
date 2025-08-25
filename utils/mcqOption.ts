@@ -1,7 +1,7 @@
 export type McqOption = {
   option: string
-  is: boolean
-  explanation: string
+  is?: boolean
+  explanation?: string
 }
 
 export const defaultOption: McqOption = {
