@@ -190,6 +190,6 @@ export default defineAppConfig({
             size: 'md', // ou 'xl' pour encore plus épais
             type: 'solid'
           }
-        }
+        },
     }
   })

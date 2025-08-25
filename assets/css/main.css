@@ -38,19 +38,7 @@
 */
 
 
-/* par Copilot : pour afficher les numéros de ligne */
-.shiki .line::before {
-  content: attr(line);
-  position: absolute;
-  left: 0;
-  width: 2em;
-  text-align: right;
-  color: #999;
-  opacity: 0.5;
-  user-select: none;
-  font-variant-numeric: tabular-nums;
-  padding-right: 0.5em;
-}
+
 
 
 @layer theme {
@@ -96,9 +84,29 @@
     margin-top: 0.8rem;
     font-size: 1.1rem;
   }
+  code {
+    background: var(--color-neutral-50);
+    border-radius: 4px;
+    padding: 0.2em 0.4em;
+    font-size: 1.05rem;
+    color: var(--ui-primary);
+  }
 
 }
 
+/* par Copilot : pour afficher les numéros de ligne */
+.shiki .line::before {
+  content: attr(line);
+  position: absolute;
+  left: 0;
+  width: 2em;
+  text-align: right;
+  color: #999;
+  opacity: 0.5;
+  user-select: none;
+  font-variant-numeric: tabular-nums;
+  padding-right: 0.5em;
+}
 
 /* par Copilot : pour gérer l'espacement les numéros de ligne et le code*/
 .shiki .line {
@@ -107,9 +115,11 @@
   padding-left: 2.5em; /* espace pour le numéro */
 }
 
+/* Par Copilot : pour forcer l'arrière-plan des blocs de code  ; celui du thème VSC ne fonctionne pas ; attention, cette modif ne s'applique que pour le thème material-theme-lighter
+J'ai supprimé la ligne :   color: #24292e !important; il me semble que la couleur du texte suit le thème sélectionné */
+
 .shiki.material-theme-lighter {
   background: var(--color-neutral-50) !important;
-  color: #24292e !important;
   border-radius: 8px;
   padding: 1em;
 }

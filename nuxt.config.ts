@@ -59,6 +59,9 @@ export default defineNuxtConfig({
         ActivityWtp: 'ActivityWtp',
         'activity-wtp': 'ActivityWtp'
       }
+    },
+    highlight: {
+      theme: 'material-theme-palenight'
     }
   },
 
@@ -81,3 +84,11 @@ export default defineNuxtConfig({
     }
   }
 })
+
+function createShikiHighlighter(arg0: {
+  bundledThemes: { 'material-theme-palenight': any }
+  // Configure the bundled languages
+  bundledLangs: { html: any; mdc: any; vue: any; yml: any; scss: any; ts: any; typescript: any }
+}) {
+  throw new Error('Function not implemented.')
+}
