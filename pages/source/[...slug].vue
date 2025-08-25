@@ -121,7 +121,7 @@ const formattedMarkdown = computed(() => {
             <h2> Entrée correspondante dans la base de données Content </h2>
             <p> Voici les comment cette page est représentée dans la base de données Content. </p>
             <p> body.value contient l'AST résultant du parsing du Markdown par Content.</p>
-            <pre v-if="page">{{ page }} </pre>
+            <pre v-if="page" style="white-space: pre-wrap">{{ page }} </pre>
 
             <!-- <UButton @click="showMdcData = !showMdcData"> 
                 {{ showMdcData ? "Masquer l'HAST de NuxtMDC" : "Comparer avec l'HAST de NuxtMDC" }}
