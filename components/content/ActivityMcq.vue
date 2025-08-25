@@ -20,7 +20,7 @@
 
     // Variables liées à la donnée de la question et aux réponses ; elles sont passées au composant interne d'affichage des questions McqOptionRender
 
-    // La normalisation suivante permet de gérer le cas où aucune prop n'est passée ainsi que d'attribuer des valeurs par défaut aux propriétés ; la version suivante est plus élégante et flexible (avec le spread operator) que celle de la version V1 de ce composant ; elle s'appuie sur l'objet mcqOption par défaut.
+    // La normalisation suivante permet de gérer le cas où aucune prop n'est passée ainsi que d'attribuer des valeurs par défaut aux propriétés ; elle s'appuie sur l'objet mcqOption par défaut.
     const normalizedOptions = computed(() => {
         if (!options) {
             return [];
@@ -83,8 +83,8 @@
         <div v-for="(opt,index) in normalizedOptions" :key="index">
             <McqOptionRender
             :opt="opt"
+            :userAnswerCorrect="userAnswerCorrect[index]"
             v-model="userAnswer[index]">
-
             </McqOptionRender>
         </div>
     </Awrapper>

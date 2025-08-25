@@ -20,10 +20,10 @@
     const userFullOutput = ref<string>('')
 
 
-    const saveCode = (data: [string, string, string]) => {
-        userCode.value = data[0]
-        userErrorOutput.value = data[1]
-        userFullOutput.value = data[2]
+    const saveCode = (data: { input: string; error: string; output: string }) => {
+        userCode.value = data.input
+        userErrorOutput.value = data.error
+        userFullOutput.value = data.output
 
         submitAnswer(
             uuid,

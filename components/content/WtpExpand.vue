@@ -7,6 +7,9 @@ const props = defineProps({
   initialCode: String
 })
 
+//Variable pour identifier réactivement l'instance du composant
+const iframeRef = ref(null)
+
 //Variables et fonctions pour la gestion de l'affichage plein écran
 const expanded = ref(false)
 
@@ -14,72 +17,78 @@ const toggleExpand = () => {
   expanded.value = !expanded.value
 }
 
-//Variables et fonctions pour la gestion de la communication avec le composant parent
-const emit = defineEmits(['codeRun','code'])
-
-//Variables et fonctions pour la gestion de la communication avec l'iframe
-const iframeRef = ref(null)
-
-const userInputCode = ref(null)
-const userFullOutput = ref(null)
-const userErrorOutput = ref(null)
-
+//Fonction pour envoyer le code initial à l'éditeur
 const sendInitialCode = () => {
   if (!iframeRef.value) {
     console.error("L'iframe n'est pas prête !")
     return
   }
 
-  const messagePayload = {
+  const initialCodePayload = {
     type: 'files',
     data: [{
       name: 'main.py',
       data: props.initialCode
     }]
   }
-  
   //Si ça marche il faudra remplacer * pour vérifier l'origine du message...
-  iframeRef.value.contentWindow.postMessage(messagePayload,"*")
+  iframeRef.value.contentWindow.postMessage(initialCodePayload,"*")
   console.log("Code initial envoyé à l'iframe")
+}
 
+//Définition de l'événement "code exécuté" à transmettre au composant parent
+const emit = defineEmits('codeRun')
+
+//Variables pour récupérer le code et les outputs de l'utilisateur
+const userInputCode = ref('')
+const userFullOutput = ref('')
+const userErrorOutput = ref('')
+
+const emitCodeRun = () => {
+  emit('codeRun', {
+    input: userInputCode.value,
+    error: userErrorOutput.value,
+    output: userFullOutput.value
+  })
+  // Réinitialisation des variables
+  userInputCode.value = ''
+  userErrorOutput.value = ''
+  userFullOutput.value = ''
 }
 
 const handleGlobalMessage = (event) => {
   //Vérifications : si une condition est fausse on ignore le message
-
   if (
     !iframeRef.value || //iframe pas montée
     event.source !== iframeRef.value.contentWindow //le message vient d'une autre iframe
   ) {
     return //on arrête tout car le message n'est pas pour nous.
   }
+
   const msg = event.data
 
-  if (msg && msg.type === "code") {
-    console.log("Exécution de code détectée dans mon iframe")
-    userInputCode.value = msg.data
-    console.log(userInputCode.value)
-    //emit('codeRun', userInputCode.value)
-  }
-
-  else if (msg && msg.type === "error") {
-    console.log("Erreur détectée dans mon iframe")
-    userErrorOutput.value = msg.data
-    console.log(userErrorOutput.value)
-  }
-
-  else if (msg && msg.type === "full_output") {
-    console.log("Output final détecté dans mon iframe")
-    userFullOutput.value = msg.data
-    console.log(userFullOutput.value)
-    //emit('codeRun', [userInputCode.value,userFullOutput.value])
-  }
-
-  else if (msg && msg.type === "program_finished") {
-    console.log("Fin d'exécution détectée dans mon iframe")
-    emit('codeRun', [userInputCode.value,userErrorOutput.value,userFullOutput.value])
+  //On teste le type des messages et on stocke leur data dans la variable correspondante
+  switch (msg?.type) {
+    case "code":
+      userInputCode.value = msg.data
+      break
+    case "error":
+      userErrorOutput.value = msg.data
+      break
+    case "full_output":
+      userFullOutput.value = msg.data
+      break
+    case "program_finished":
+      emitCodeRun()
+      break
+    // Optionnel : gérer les cas inattendus
+    default:
+      // rien ou log
+      break
   }
 }
+
+
 
 onMounted(() => {
 
@@ -98,46 +107,26 @@ onBeforeUnmount(() => {
     iframeRef.value.removeEventListener('load', sendInitialCode);
   }
 })
+
+
 </script>
 
 <template>
   <div>
-    <!-- Affichage normal -->
-    <div v-if="!expanded" class="wtp-iframe-container">
+    <div :class="['wtp-iframe-container', { 'iframe-fullscreen-overlay': expanded }]">
+      <div class="flex pb-1 space-x-4 justify-between">
+        <UButton @click="sendInitialCode" size="xl"> Réinitialiser le code</UButton>
+        <UButton @click="toggleExpand" size="xl">{{ expanded ? 'Réduire' : 'Amplifier' }}</UButton>
+      </div>
       <iframe
         ref="iframeRef"
-        width="100%"
-        height="400px"
+        :width="expanded ? '' : '100%'"
+        :height="expanded ? '' : '400px'"
         src="https://webtigerpython.ethz.ch"
         allow="usb;clipboard-write"
       ></iframe>
-      <div class="flex space-x-4 justify-between">
-        <UButton @click="sendInitialCode" size="xl"> Réinitialiser le code </UButton>
-        <UButton @click="toggleExpand" size="xl"> Plein écran </UButton>
+      <!-- <pre>{{ userInputCode }}</pre> -->
     </div>
-
-  </div>
-    <!-- Overlay fullscreen quand élargi : solution de Copilot-->
-    <Teleport to="body">
-      <div v-if="expanded" class="iframe-fullscreen-overlay">
-        <div class="flex space-x-4 justify-between">
-          <UButton @click="sendInitialCode" size="xl"> Réinitialiser le code </UButton>
-          <UButton @click="toggleExpand" size="xl"> Réduire </UButton>
-
-        </div>
-        <!--<button class="close-btn" @click="toggleExpand">
-          Fermer
-        </button>-->
-        <iframe
-          ref="iframeRef"
-          width="100%"
-          height="100%"
-          src="https://webtigerpython.ethz.ch"
-          allow="usb;clipboard-write"
-        ></iframe>
-      </div>
-    </Teleport>
-    <pre>{{ userInputCode }}</pre>
   </div>
 </template>
 
@@ -148,9 +137,11 @@ onBeforeUnmount(() => {
   margin: 1rem auto;
   position: relative;
   background: #fafafa;
-  border-radius: 10px;
+  border-radius: 10 pt;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  padding-top: 2.5rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+
 }
 /*
 .expand-btn {
@@ -169,30 +160,22 @@ onBeforeUnmount(() => {
 */
 .iframe-fullscreen-overlay {
   position: fixed;
-  inset: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 80vh;
   background: #f9f9f9;
   z-index: 9999;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   justify-content: center;
-  padding: 0;
+
 }
 .iframe-fullscreen-overlay iframe {
   flex: 1;
   width: 100vw;
-  height: 100vh;
   border: none;
 }
-.close-btn {
-  position: absolute;
-  top: 16px;
-  right: 28px;
-  z-index: 10000;
-  background: white;
-  border: 1px solid #aaa;
-  border-radius: 4px;
-  padding: 0.5em 1.2em;
-  font-size: 1.2em;
-}
+
 </style>

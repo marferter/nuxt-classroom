@@ -42,7 +42,7 @@ const handleClearForm = () => {
   <UCard class="mt-4" variant="outline">
     <template #header>
         <div class="flex space-x-2">
-            <h2 class="text-primary">
+            <h2 class="text-primary text-xl">
                 {{ title }}
             </h2>
 
@@ -55,7 +55,8 @@ const handleClearForm = () => {
 
     <template #footer>
         <div class="flex space-x-4 justify-between">
-          <UButton 
+          <UButton
+            icon="i-lucide-lightbulb"
             v-if="submitted"   
             size="xl"
             @click="handleExplain"

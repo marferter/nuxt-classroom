@@ -49,7 +49,7 @@
     >
         <slot></slot>
 
-        <UTextarea v-model="userAnswer" :maxrows="4" autoresize class="w-full"/>
+        <UTextarea size="xl" v-model="userAnswer" :maxrows="4" autoresize class="w-full"/>
 
         <MdSolution v-if="explained && submitted">
             <slot name="solution"></slot>
