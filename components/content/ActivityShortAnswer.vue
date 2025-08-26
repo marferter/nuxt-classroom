@@ -1,44 +1,41 @@
 <script setup lang="ts">
-    import { ref } from 'vue'
-    import type { Submission } from '~/types/directus-schema'
+import { ref, computed } from 'vue'
+import type { Submission } from '~/types/directus-schema'
 
-    const { 
-        uuid, 
-        title, 
-        type = 'shortAnswer' 
-    } = defineProps<{
-        uuid: string;
-        title: string;
-        type?: Submission['activity_type'];
-    }>();
+// Props typées
+const { 
+    uuid, 
+    title, 
+    type = 'shortAnswer' 
+} = defineProps<{
+    uuid: string;
+    title: string;
+    type?: Submission['activity_type'];
+}>()
 
-    const userAnswer = ref('') //initialise une variable réactive pour stocker la réponse de l'utilisateur
+// Réponse utilisateur
+const userAnswer = ref('')
 
+// Composables pour la soumission et l'état de l'activité
+const { sending, sendError, sendSuccess, submitAnswer } = useAnswerSubmission()
+const { toggleSubmit, toggleExplain, resetActivity, explained, submitted } = useActivityState(clearTextArea)
 
-    const userContent = computed(() => 
-        ({userAnswer: userAnswer.value}))
+// Gestion de la soumission
+function handleSubmit() {
+    toggleSubmit()
+    submitAnswer(
+        uuid,
+        title,
+        type,
+        { userAnswer: userAnswer.value }
+    )
+}
 
-    // Initialisation (=récupération des variables et fonctions) depuis les composables
-    const { sending, sendError, sendSuccess, submitAnswer } = useAnswerSubmission()
-    
-    const {toggleSubmit, toggleExplain, resetActivity, explained, submitted} = useActivityState(clearTextArea)
-
-    const handleSubmit = () => {
-        toggleSubmit()
-        submitAnswer(
-            uuid,
-            title,
-            type,
-            userContent.value
-        )
-    }
-
-    //fonction spécifique de réinitialisation du "formulaire"
+//Fonction spécifique de réinitialisation du "formulaire"
     function clearTextArea() {
         userAnswer.value = ''
     }
 </script>
-
 
 <template>
     <Awrapper 
@@ -49,11 +46,16 @@
     >
         <slot></slot>
 
-        <UTextarea size="xl" v-model="userAnswer" :maxrows="4" autoresize class="w-full"/>
+        <UTextarea
+            size="xl"
+            v-model="userAnswer"
+            :maxrows="4"
+            autoresize
+            class="w-full"
+        />
 
         <MdSolution v-if="explained && submitted">
             <slot name="solution"></slot>
         </MdSolution>
-        
     </Awrapper>
 </template>

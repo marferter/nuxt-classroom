@@ -3,10 +3,9 @@
 </script>
 
 <template>
-
-    <div class="text-sm bg-primary-50 rounded-md p-1 flex gap-1">
+    <!-- Solution affichée avec une icône et un slot pour le contenu -->
+    <div class="flex gap-1 items-center rounded-md bg-primary-50 p-1 text-sm">
         <UIcon name="i-lucide-lightbulb" class="size-20 text-primary-500" />
-         <slot/>
+        <slot />
     </div>
-
 </template>

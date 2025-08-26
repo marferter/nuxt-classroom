@@ -24,8 +24,8 @@
     <div  
         :class="{
             'border-neutral-300': !submitted,
-            'border-error-300': submitted && !userAnswerCorrect,
-            'border-success-300': submitted && userAnswerCorrect}"
+            'border-error-300 border-3': submitted && !userAnswerCorrect,
+            'border-success-300 border-3': submitted && userAnswerCorrect}"
         
         class=" p-3 bg-neutral-50 border rounded-lg shadow-sm flex items-center justify-between">
 
@@ -42,9 +42,6 @@
         <CorrectAnswerIcon v-if="submitted && userAnswerCorrect"/>
         <WrongAnswerIcon v-if="submitted && !userAnswerCorrect"/>
     </div>
-
-    <!--<div class="ml-4 text-neutral-500 text-xs" v-if="explanation"> {{props.explanation}}</div>
-    -->
 
     <div v-if="explained && opt.explanation && submitted" class=" mt-1 ml-5 mb-3 flex space-x-2">
         <label class="flex items-center space-x-1">

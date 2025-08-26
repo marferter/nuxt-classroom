@@ -1,5 +1,3 @@
-<!--Solution de Copilot pour pouvoir expand la fenêtre wtp-->
-
 <script setup>
 import { ref, onMounted } from 'vue'
 
@@ -32,7 +30,7 @@ const sendInitialCode = () => {
     }]
   }
   //Si ça marche il faudra remplacer * pour vérifier l'origine du message...
-  iframeRef.value.contentWindow.postMessage(initialCodePayload,"*")
+  iframeRef.value.contentWindow.postMessage(initialCodePayload,"https://webtigerpython.ethz.ch")
   console.log("Code initial envoyé à l'iframe")
 }
 
@@ -108,7 +106,6 @@ onBeforeUnmount(() => {
   }
 })
 
-
 </script>
 
 <template>
@@ -125,7 +122,6 @@ onBeforeUnmount(() => {
         src="https://webtigerpython.ethz.ch"
         allow="usb;clipboard-write"
       ></iframe>
-      <!-- <pre>{{ userInputCode }}</pre> -->
     </div>
   </div>
 </template>
@@ -133,7 +129,6 @@ onBeforeUnmount(() => {
 <style scoped>
 
 .wtp-iframe-container {
-  /*max-width: 700px;*/
   margin: 1rem auto;
   position: relative;
   background: #fafafa;
@@ -143,21 +138,7 @@ onBeforeUnmount(() => {
   padding-bottom: 0.2rem;
 
 }
-/*
-.expand-btn {
-  position: absolute;
-  top: 8px;
-  right: 15px;
-  z-index: 10;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 3px 12px;
-  font-size: 0.95em;
-  cursor: pointer;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-}
-*/
+
 .iframe-fullscreen-overlay {
   position: fixed;
   left: 0;
