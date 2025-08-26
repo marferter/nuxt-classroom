@@ -22,6 +22,7 @@
     "marked": "^15.0.11",
     "nuxt": "^3.16.2",
     "nuxt-directus": "^5.7.0",
+    "remark-mdc": "^3.6.0",
     "shiki": "^3.6.0",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
