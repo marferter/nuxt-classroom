@@ -99,7 +99,8 @@ const {data: submissions, refreshSubmissions} = await useAsyncData('submissions'
 </pre> -->
 
 <!-- <pre> Liste pour sélectionner l'activité : {{ activityItems }}</pre> -->
-    <div>
+
+    <div class="overflow-auto">
         <p> Veuillez sélectionner une leçon : </p>
 
         <USelect
@@ -144,5 +145,6 @@ const {data: submissions, refreshSubmissions} = await useAsyncData('submissions'
         
         <pre v-for="submission in submissions"> {{ submission.content }}</pre>
     </div>
+
 
 </template>
