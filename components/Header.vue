@@ -10,19 +10,13 @@ const items = computed<NavigationMenuItem[]>(() => [
     to: '/',
   },
   {
-    label: 'Exercices',
-    to: '/exercices',
-    /*active: route.path.startsWith('/examen')*/
+    label: 'Cours',
+    to: '',
   },
   {
-    label: 'Exercices2',
-    to: '/exercices2',
-    /*active: route.path.startsWith('/examen')*/
-  },
-  {
-    label: 'Exercices3',
-    to: '/exercices3',
-    /*active: route.path.startsWith('/examen')*/
+    label: 'Demo',
+    to: '',
+
   }
 
 ])
