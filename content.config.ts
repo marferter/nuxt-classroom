@@ -1,5 +1,5 @@
 import { defineContentConfig, defineCollection, z } from '@nuxt/content'
-import type Questions from './pages/questions.vue'
+
 
 export default defineContentConfig({
 
@@ -9,13 +9,6 @@ export default defineContentConfig({
       source: '**/*.md',
       schema: z.object({
         rawbody: z.string()
-      })
-    }),
-
-    questions: defineCollection({
-      type: 'data',
-      source: 'questions/*.md',
-      schema: z.object({
       })
     }),
 
