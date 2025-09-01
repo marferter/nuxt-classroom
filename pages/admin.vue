@@ -1,15 +1,21 @@
 <script setup>
-const {getUsers} = useDirectusUsers()
-//Récupérations des listes de pages de cours et d'utilsateurs au chargement de la page, SSR
+// definePageMeta({
+//   requiresAuth: true,          // exige d'être connecté
+//   requiredRole: 'admin'        // exige le rôle 'admin'
+// })
 
+const {getUsers} = useDirectusUsers()
+
+
+//Récupérations des listes de pages de cours et d'utilsateurs au chargement de la page, SSR
 //Requêtes pour récupérer les données
 const {data : students } = await useAsyncData('all-students',() => {
-return getUsers(
-    {params : 
-        {fields : ['id','first_name', 'last_name']}
-    //     {filter : {"role": "90b71453-3030-43ca-94f5-d50d3281e714"}}
+return getUsers({
+    params: {
+        fields: ['id', 'first_name', 'last_name'],
+        filter: { "role": "90b71453-3030-43ca-94f5-d50d3281e714" }
     }
-)
+})
 })
 
 const {data : lessons} = await useAsyncData('all-lessons', () => {
@@ -17,12 +23,13 @@ return  queryCollection('lessons').select('id').all()
 })
 
 //Transformation des données pour les listes du Select
-const studentItems = computed(() => 
-students.value?.map( student => ({
-    label: `${student.first_name} ${student.last_name}`,
-    value: student.id
-}))
-)
+const studentItems = computed(() => [
+    { label: 'tous.tes', value: 'all' },
+    ...(students.value?.map(student => ({
+        label: `${student.first_name} ${student.last_name}`,
+        value: student.id
+    })) ?? [])
+])
 
 const lessonItems = computed(() => 
 lessons.value?.map( lesson => (lesson.id)
@@ -41,22 +48,26 @@ const {data: activities, refresh: refreshActivities} = await useAsyncData('lesso
 },
 {watch: [selectedLesson]}
 )
-const activityItems = computed(() =>
-activities.value?.map( activity => ({
-    label: `${activity.activityTitle}`,
-    value: `${activity.id}`
-}))
-)
+
+const activityItems = computed(() => [
+    { label: 'Toutes', value: 'all' },
+    ...(activities.value?.map(activity => ({
+        label: `${activity.activityTitle}`,
+        value: `${activity.id}`
+    })) ?? [])
+])
 
 const selectedActivityId = ref(null)
 
-const {data: activity} = await useAsyncData('activity', () => 
-{return queryCollection('activities').where('id','=',selectedActivityId.value).all()
-},
-{watch: [selectedActivityId]}
-)
+const {data: selectedActivities} = await useAsyncData('activity', () => {
+    if (selectedActivityId.value === 'all') {
+        return queryCollection('activities').where('lessonId','=',selectedLesson.value).all();
+    } else {
+        return queryCollection('activities').where('id', '=', selectedActivityId.value).all();
+    }
+}, {watch: [selectedActivityId]});
 
-const selectedActivity = computed(() => activity.value?.[0] || null)
+// const selectedActivity = computed(() => activity.value?.[0] || null)
 
 //Récupération des soumissions avec filtres (réactif); voir comment utiliser le refresh
 // const {data: submissions, refresh} = await useAsyncData(
@@ -72,16 +83,20 @@ const { getItems } = useDirectusItems()
 const {data: submissions, refreshSubmissions} = await useAsyncData('submissions', () => {
     console.log("Filtering submissions for user:", selectedStudent.value);
     console.log("Filtering submissions for activity:", selectedActivity.value.uuid);
+    // Récupère tous les uuid des activités sélectionnées
+    const activityUuids = Array.isArray(selectedActivities.value)
+        ? selectedActivities.value.map(a => a.uuid)
+        : selectedActivities.value?.uuid
     return getItems({
         collection: 'submissions',
         params: {
             filter: {
                 user_created: selectedStudent.value,
-                activity_id: selectedActivity.value.uuid
+                activity_id: Array.isArray(activityUuids) ? { _in: activityUuids } : activityUuids
             }
         }
     });
-}, {watch: [selectedStudent,selectedActivity]}); 
+}, {watch: [selectedStudent,selectedActivities]}); 
 
 
 </script>
@@ -139,11 +154,19 @@ const {data: submissions, refreshSubmissions} = await useAsyncData('submissions'
 
     <div>
         <p> Étudiant.e : {{ selectedStudent }} </p>
-        <p> Activité : {{ selectedActivityId }}</p>
-
-        <ContentRenderer v-if="selectedActivity" :value="selectedActivity" />
         
-        <pre v-for="submission in submissions"> {{ submission.content }}</pre>
+        <div v-for="activity in selectedActivities">
+            <p> Activité : {{ activity.uuid }}</p>
+            <ContentRenderer  :value="activity" />
+        </div>
+
+        <p> {{ activityUuids }}</p>
+
+        <div v-for="submission in submissions">
+            <h2> {{ submission.user_created.first_name }}</h2>
+            <h3> {{ submission.activity_title }} </h3>
+            <pre > {{ submission.content }}</pre>
+        </div>
     </div>
 
 
