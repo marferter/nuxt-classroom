@@ -48,148 +48,66 @@ export default defineAppConfig({
           }
         },
       },
-      separator: {
-        slots: {
-          root: 'flex items-center align-center text-center',
-          border: '',
-          container: 'font-medium text-default flex',
-          icon: 'shrink-0 size-5',
-          avatar: 'shrink-0',
-          avatarSize: '2xs',
-          label: 'text-sm'
-        },
-        variants: {
-          color: {
-            primary: {
-              border: 'border-primary'
-            },
-            secondary: {
-              border: 'border-secondary'
-            },
-            success: {
-              border: 'border-success'
-            },
-            info: {
-              border: 'border-info'
-            },
-            warning: {
-              border: 'border-warning'
-            },
-            error: {
-              border: 'border-error'
-            },
-            neutral: {
-              border: 'border-default'
-            }
-          },
-          orientation: {
-            horizontal: {
-              root: 'w-full flex-row',
-              border: 'w-full',
-              container: 'mx-3 whitespace-nowrap'
-            },
-            vertical: {
-              root: 'h-full flex-col',
-              border: 'h-full',
-              container: 'my-2'
-            }
-          },
-          size: {
-            xs: '',
-            sm: '',
-            md: '',
-            lg: '',
-            xl: ''
-          },
-          type: {
-            solid: {
-              border: 'border-solid'
-            },
-            dashed: {
-              border: 'border-dashed'
-            },
-            dotted: {
-              border: 'border-dotted'
-            }
-          }
-        },
+      radioGroup: {
         compoundVariants: [
           {
-            orientation: 'horizontal',
             size: 'xs',
+            variant: [
+              'card',
+              'table'
+            ],
             class: {
-              border: 'border-t'
+              item: 'p-1.5'
             }
           },
           {
-            orientation: 'horizontal',
             size: 'sm',
+            variant: [
+              'card',
+              'table'
+            ],
             class: {
-              border: 'border-t-[2px]'
+              item: 'p-3'
             }
           },
           {
-            orientation: 'horizontal',
             size: 'md',
+            variant: [
+              'card',
+              'table'
+            ],
             class: {
-              border: 'border-t-[3px]'
+              item: 'p-3.5'
             }
           },
           {
-            orientation: 'horizontal',
             size: 'lg',
+            variant: [
+              'card',
+              'table'
+            ],
             class: {
-              border: 'border-t-[4px]'
+              item: 'p-4'
             }
           },
           {
-            orientation: 'horizontal',
             size: 'xl',
+            variant: [
+              'card',
+              'table'
+            ],
             class: {
-              border: 'border-t-[5px]'
+              item: 'p-4.5'
             }
           },
           {
-            orientation: 'vertical',
-            size: 'xs',
+            color: 'primary',
+            variant: 'card',
             class: {
-              border: 'border-s'
-            }
-          },
-          {
-            orientation: 'vertical',
-            size: 'sm',
-            class: {
-              border: 'border-s-[2px]'
-            }
-          },
-          {
-            orientation: 'vertical',
-            size: 'md',
-            class: {
-              border: 'border-s-[3px]'
-            }
-          },
-          {
-            orientation: 'vertical',
-            size: 'lg',
-            class: {
-              border: 'border-s-[4px]'
-            }
-          },
-          {
-            orientation: 'vertical',
-            size: 'xl',
-            class: {
-              border: 'border-s-[5px]'
+              item: 'has-data-[state=checked]:bg-primary/10 has-data-[state=checked]:border-primary'
             }
           }
         ],
-          defaultVariants: {
-            color: 'neutral',
-            size: 'md', // ou 'xl' pour encore plus épais
-            type: 'solid'
-          }
-        },
+      }   
     }
   })
