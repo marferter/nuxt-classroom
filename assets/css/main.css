@@ -101,6 +101,10 @@
   padding-left: 1rem;
   }
 
+  a, a:visited {
+  color: var(--color-primary); /* adapte la variable à ton thème */
+}
+
 
 }
 

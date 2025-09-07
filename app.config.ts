@@ -37,7 +37,7 @@ export default defineAppConfig({
         }
       },
       link: {
-        base: 'focus-visible:outline-primary text-decoration-underline',
+        base: 'focus-visible:outline-primary underline text-primary',
         variants: {
           active: {
             true: 'text-primary',
