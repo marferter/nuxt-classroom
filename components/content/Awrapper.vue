@@ -12,10 +12,10 @@ const props = defineProps({
 // Emits
 const emit = defineEmits(['submit', 'clearForm', 'explain'])
 
-// Activity state
+// Etat de l'activité
 const { toggleSubmit, toggleExplain, explained, submitted } = useActivityState(() => {})
 
-// Provide state to slot children
+// Provide des états pour les descendants
 provide('submitted', submitted)
 provide('explained', explained)
 
