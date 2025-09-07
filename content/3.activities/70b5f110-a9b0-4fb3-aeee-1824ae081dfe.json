@@ -302,7 +302,7 @@
         [
           "p",
           {},
-          "Que se passerait-il si on supprimait la ligne 8 ?"
+          "Que se passerait-il au moment de l'exécution si on supprimait la ligne 8 ? Expliquez."
         ],
         [
           "template",

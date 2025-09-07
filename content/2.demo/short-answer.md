@@ -30,7 +30,7 @@ def triangle() :
 triangle()
 ```
 
-Que se passerait-il si on supprimait la ligne 8 ?
+Que se passerait-il au moment de l'exécution si on supprimait la ligne 8 ? Expliquez.
 
 #solution
 Sans la ligne 8 (`triangle()`), la fonction `triangle` serait bien définie, mais elle ne serait jamais appelée. Par conséquent, aucun triangle ne serait dessiné et le programme n'aurait aucun effet visible.

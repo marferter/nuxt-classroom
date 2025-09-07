@@ -2,7 +2,6 @@
 
 Répartir entre plusieurs pages ; enlever les exemples moins pertinents ; séparer une palette d'exemples variés en termes de contenu, et les démos des problèmes liés au yaml.
 
-
 ::ActivityMcq
 ---
 title : Prompt simple et options avec code inline
