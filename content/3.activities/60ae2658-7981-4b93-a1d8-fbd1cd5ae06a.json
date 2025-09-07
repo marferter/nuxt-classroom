@@ -14,7 +14,7 @@
           "uuid": "60ae2658-7981-4b93-a1d8-fbd1cd5ae06a"
         },
         [
-          "ul",
+          "ol",
           {},
           [
             "li",
@@ -30,26 +30,28 @@
           [
             "li",
             {},
-            "Complétez le programme afin qu’il calcule la somme des aires de tous les carrés et qu’il affiche : “La somme des aires des carrés est …”.",
-            [
-              "figure",
-              {},
-              "\n  ",
-              [
-                "img",
-                {
-                  "src": "/suite-carres.png",
-                  "alt": "Suite de carrés"
-                }
-              ],
-              "\n  ",
-              [
-                "figcaption",
-                {},
-                "Suite de carrés"
-              ]
-            ]
+            "Complétez le programme afin qu’il calcule la somme des aires de tous les carrés et qu’il affiche : “La somme des aires des carrés est …”."
           ]
+        ],
+        "  ",
+        [
+          "figure",
+          {},
+          "\n    ",
+          [
+            "img",
+            {
+              "src": "/suite-carres.png",
+              "alt": "Suite de carrés"
+            }
+          ],
+          "\n    ",
+          [
+            "figcaption",
+            {},
+            "Suite de carrés"
+          ],
+          "\n  "
         ],
         [
           "template",

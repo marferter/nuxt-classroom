@@ -25,7 +25,7 @@
               {},
               "dessine_triangle"
             ],
-            ", écrivez un programme qui dessine une suite de 5 triangles côte à côte , en partant d’un petit triangle de côté 50 et en multipliant chaque fois le côté par 2."
+            ", écrivez un programme qui dessine une suite de 5 triangles côte à côte , en partant d’un grand triangle de côté 400 et en divisant chaque fois le côté par 2."
           ],
           [
             "li",
