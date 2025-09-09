@@ -1,45 +1,61 @@
 <script setup>
-// definePageMeta({
-//   requiresAuth: true,          // exige d'être connecté
-//   requiredRole: 'admin'        // exige le rôle 'admin'
-// })
 
 const {getUsers} = useDirectusUsers()
+const { getItems } = useDirectusItems()
+
+// Auth Middleware : page résevée au rôle teacher
+definePageMeta({
+    middleware: [
+        function (to, from) {
+            const user = useDirectusUser()
+            if (user.value.role !== 'e901035a-903b-4b1b-aa14-c6520e352ed5') {
+                return navigateTo('/forbidden')
+            }
+        }
+    ],
+})
 
 
-//Récupérations des listes de pages de cours et d'utilsateurs au chargement de la page, SSR
-//Requêtes pour récupérer les données
+//Récupération de la liste des utilisateurs
 const {data : students } = await useAsyncData('all-students',() => {
-return getUsers({
-    params: {
-        fields: ['id', 'first_name', 'last_name'],
-        filter: { "role": "90b71453-3030-43ca-94f5-d50d3281e714" }
+return getUsers(
+    {params : 
+        {
+            fields : ['id','first_name', 'last_name'],
+            filter : {role: "90b71453-3030-43ca-94f5-d50d3281e714"}
+        }
     }
-})
+)
 })
 
+//Transformation des données pour les listes du Select
+const studentItems = computed(() => 
+students.value?.map( student => ({
+    label: `${student.first_name} ${student.last_name}`,
+    value: student.id
+}))
+)
+
+
+//Initialisation de la variables pour l'item sélectionné
+const selectedStudent = ref(null)
+
+//Récupération de la liste des leçons
 const {data : lessons} = await useAsyncData('all-lessons', () => {
 return  queryCollection('lessons').select('id').all()
 })
 
 //Transformation des données pour les listes du Select
-const studentItems = computed(() => [
-    { label: 'tous.tes', value: 'all' },
-    ...(students.value?.map(student => ({
-        label: `${student.first_name} ${student.last_name}`,
-        value: student.id
-    })) ?? [])
-])
-
 const lessonItems = computed(() => 
 lessons.value?.map( lesson => (lesson.id)
 )
 )
 
-//Initialisation des variables pour l'item sélectionné
+//Initialisation de la variable pour l'item sélectionné
 const selectedLesson = ref(null)
-const selectedStudent = ref(null)
 
+
+//Récupération de la liste des activités sur la page sélectionnée
 const {data: activities, refresh: refreshActivities} = await useAsyncData('lesson-activities', () => 
 {return queryCollection('activities')
     .where('lessonId','=',selectedLesson.value)
@@ -49,73 +65,51 @@ const {data: activities, refresh: refreshActivities} = await useAsyncData('lesso
 {watch: [selectedLesson]}
 )
 
-const activityItems = computed(() => [
-    { label: 'Toutes', value: 'all' },
-    ...(activities.value?.map(activity => ({
-        label: `${activity.activityTitle}`,
-        value: `${activity.id}`
-    })) ?? [])
-])
+//Transformation des données pour les listes du Select
+const activityItems = computed(() =>
+activities.value?.map( activity => ({
+    label: `${activity.activityTitle}`,
+    value: `${activity.id}`
+}))
+)
 
+//Initialisation de la variable pour l'item sélectionné
 const selectedActivityId = ref(null)
 
-const {data: selectedActivities} = await useAsyncData('activity', () => {
-    if (selectedActivityId.value === 'all') {
-        return queryCollection('activities').where('lessonId','=',selectedLesson.value).all();
-    } else {
-        return queryCollection('activities').where('id', '=', selectedActivityId.value).all();
-    }
-}, {watch: [selectedActivityId]});
 
-// const selectedActivity = computed(() => activity.value?.[0] || null)
+//Récupération de l'activité sélectionnée
+const {data: activity} = await useAsyncData('activity', () => 
+{return queryCollection('activities').where('id','=',selectedActivityId.value).all()
+},
+{watch: [selectedActivityId]}
+)
 
-//Récupération des soumissions avec filtres (réactif); voir comment utiliser le refresh
-// const {data: submissions, refresh} = await useAsyncData(
+const selectedActivity = computed(() => activity.value?.[0] || null)
 
-//     watch: [selectedStudent,selectedActivity]
-// )
-//@update:model-value="onUserSelected"
 
-// const currentSubmissions = computed(() => submissions)
-
-const { getItems } = useDirectusItems()
-
+//Récupération des soumissions de l'utilsateur et de l'activité sélectionnés
 const {data: submissions, refreshSubmissions} = await useAsyncData('submissions', () => {
     console.log("Filtering submissions for user:", selectedStudent.value);
     console.log("Filtering submissions for activity:", selectedActivity.value.uuid);
-    // Récupère tous les uuid des activités sélectionnées
-    const activityUuids = Array.isArray(selectedActivities.value)
-        ? selectedActivities.value.map(a => a.uuid)
-        : selectedActivities.value?.uuid
     return getItems({
         collection: 'submissions',
         params: {
             filter: {
                 user_created: selectedStudent.value,
-                activity_id: Array.isArray(activityUuids) ? { _in: activityUuids } : activityUuids
-            }
+                activity_id: selectedActivity.value.uuid
+            },
+            sort: '-date_created' 
         }
     });
-}, {watch: [selectedStudent,selectedActivities]}); 
+}, {watch: [selectedStudent,selectedActivity]}); 
 
 
 </script>
 
 <template>
     <h1> Ebauche d'une page de révision des soumissions </h1>
-<!-- <pre>
-    Leçons : {{ lessons }}
-</pre>
-<pre>
-    Etudiant.e.s : {{ students }}
-</pre>
-<pre> 
-    Activités : {{ activities }}
-</pre> -->
 
-<!-- <pre> Liste pour sélectionner l'activité : {{ activityItems }}</pre> -->
-
-    <div class="overflow-auto">
+    <div>
         <p> Veuillez sélectionner une leçon : </p>
 
         <USelect
@@ -154,20 +148,15 @@ const {data: submissions, refreshSubmissions} = await useAsyncData('submissions'
 
     <div>
         <p> Étudiant.e : {{ selectedStudent }} </p>
-        
-        <div v-for="activity in selectedActivities">
-            <p> Activité : {{ activity.uuid }}</p>
-            <ContentRenderer  :value="activity" />
-        </div>
+        <p> Activité : {{ selectedActivityId }}</p>
 
-        <p> {{ activityUuids }}</p>
-
+        <ContentRenderer v-if="selectedActivity" :value="selectedActivity" />
         <div v-for="submission in submissions">
-            <h2> {{ submission.user_created.first_name }}</h2>
-            <h3> {{ submission.activity_title }} </h3>
+            <USeparator/>
+            <h2> Date de soumission : {{ submission.date_created }} </h2 >
             <pre > {{ submission.content }}</pre>
         </div>
+        
     </div>
-
 
 </template>
