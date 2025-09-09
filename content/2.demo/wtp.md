@@ -1,5 +1,16 @@
 # Démonstration du composant Wtp
 
+Voici une démonstration du composant `ActivityWtp` pour des questions ouvertes.
+
+Le lien tout en haut de la page permet de voir le code source en Markdown, ainsi que l'entrée correspondante dans la base de données Content.
+
+La donnée de la question est passée via un *slot* écrit en Markdown ; son format bénéficie donc de toute la souplesse du HTML.
+
+Le code initial est passé en prop.
+
+La solution est passée via un *slot* nommé `solution`, avec la même souplesse de formatage. Comme elle est rédigée après la question, un éditeur tel que Visual Studio Code avec Copilot peut compléter ce *slot* automatiquement. 
+
+Pour voir la solution, cliquer sur le bouton "Soumettre".
 
 ::ActivityWtp
 ---
@@ -68,18 +79,6 @@ initialCode: |
 
 ::
 
-
-Voici du code en dehors d'un composant :
-
-```python
-from gturtle import *
-def dessine_carre(cote) :
-    for _ in range(4) :
-        forward(cote)
-        right(90)
-
-dessine_carre(400)
-```  
 
 
 
