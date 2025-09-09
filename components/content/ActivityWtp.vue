@@ -31,8 +31,8 @@
             type,
             {
                 userCode: userCode.value,
-                error_output: userErrorOutput.value,
-                full_output: userFullOutput.value,
+                errorOutput: userErrorOutput.value,
+                fullOutput: userFullOutput.value,
                 submitted: false // On indique que ce n'est pas une soumission finale
             }
         )
@@ -50,9 +50,9 @@
             title,
             type,
             {
-                userAnswer: userCode.value,
-                error_output: userErrorOutput.value,
-                full_output: userFullOutput.value,
+                userCode: userCode.value,
+                errorOutput: userErrorOutput.value,
+                fullOutput: userFullOutput.value,
                 submitted: true // On indique que c'est la soumission finale de l'utilisateur
             }
         )
