@@ -41,38 +41,43 @@ console.log(token.value);
 </script>
 
 <template>
-    <h2 class="text-center"> Login </h2>
-    <p class="text-center"> Veuillez vous identifier.</p>
+    <div class="flex justify-center">
+        <UCard class="w-128 mt-16">
+            <h1 class="text-center"> Login </h1>
+            <p class="text-center"> Veuillez vous identifier.</p>
 
-    <UForm :schema="schema" :state="state" class="space-y-4" @submit="onSubmit">
-        <UFormField
-            class="mt-4"
-            label="Identifiant"
-            name="email"
-        >
-            <UInput placeholder="Veuillez entrer votre adresse e-mail."
-            v-model="state.email"
-            class="w-full" />
-        </UFormField>
+            <UForm :schema="schema" :state="state" class="space-y-4" @submit="onSubmit">
+                <UFormField
+                    class="mt-4"
+                    label="Identifiant"
+                    name="email"
+                >
+                    <UInput placeholder="Veuillez entrer votre adresse e-mail."
+                    v-model="state.email"
+                    class="w-full" />
+                </UFormField>
 
-        <UFormField 
-            class="mt-3"
-            label="Mot de passe"
-            name="password"
-        >
-            <UInput placeholder="Veuillez entrer votre mot de passe"
-            v-model="state.password"
-            class="w-full" />
-        </UFormField>
+                <UFormField 
+                    class="mt-3"
+                    label="Mot de passe"
+                    name="password"
+                >
+                    <UInput placeholder="Veuillez entrer votre mot de passe"
+                    v-model="state.password"
+                    class="w-full" />
+                </UFormField>
 
-        <div class="flex justify-center">
-        <UButton class="mt-7" type="submit"> Se connecter </UButton>
-        </div>
+                <div class="flex justify-center">
+                <UButton class="mt-7" type="submit"> Se connecter </UButton>
+                </div>
 
-        <div>
-            <div v-if="loginError" class="bg-red-100 rounded border border-red-200 p-2 text-red-700">
-                {{ loginError }}
-            </div>
-        </div>
-    </UForm>
+                <div>
+                    <div v-if="loginError" class="bg-red-100 rounded border border-red-200 p-2 text-red-700">
+                        {{ loginError }}
+                    </div>
+                </div>
+            </UForm>
+            <p class="text-neutral-500 text-sm"> Vous pouvez aussi vous loguer à l'aide du "user switch" au bas de l'écran, puis poursuivre vers l'accueil en cliquant sur le logo !</p>
+        </UCard>
+    </div>
 </template>
