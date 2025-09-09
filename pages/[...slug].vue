@@ -21,9 +21,6 @@ const user = useDirectusUser();
 </script>
 
 <template>
-    <header>
-      <UserSwitch :user="user"/>
-    </header>
     <main>
         <ULink 
           :to="sourceLink" 
