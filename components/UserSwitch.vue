@@ -1,7 +1,6 @@
 <script setup>
-
     const { user } = defineProps({
-  user: Object // ou type précis
+  user: Object // voir si je peux trouver le type des user directus
 })
 
     const value = ref(user ? user.email : '')
@@ -10,31 +9,26 @@
     const { logout, login } = useDirectusAuth()
     const toast = useToast()
 
+    //Récupération des users "test"
     const {data : users } = await useAsyncData('all-test-users',() => {
         return getUsers({
             params: {
-                fields: ['id', 'first_name', 'last_name', 'role', 'email'],
+                fields: ['id', 'first_name', 'role', 'email'],
                 filter: { "last_name": "Test" }
             }
         })
     })
 
-    // const userItems = computed(() => 
-    //     users.value?.map( user => ({
-    //         label: `${user.first_name} ${user.last_name}`,
-    //         description: user.role,
-    //         value: user.id
-    //     }))
-    // )
 
-    //tableau des users trié par prénom de Copilot
+
+    //tableau des users trié par prénom (par Copilot)
     const userItems = computed(() =>
         // On utilise l'optional chaining `?.` au cas où `users.value` serait `null` ou `undefined`
         users.value
             ?.slice() // .slice() sans argument est une autre façon de créer une copie
             .sort((a, b) => a.first_name.localeCompare(b.first_name))
             .map(user => ({
-                label: `${user.first_name} ${user.last_name}`,
+                label: `${user.first_name}`,
                 // description: `${user.role}`,
                 value: `${user.email}`
             })) || [] // Si users.value est `null`, on retourne un tableau vide
@@ -74,10 +68,6 @@
 </script>
 
 <template>
-    <!-- <p>Utilisateur connecté : {{ user ? user.first_name : 'aucun' }}</p> -->
-    <!-- <p>{{ users }}</p>
-    <p>{{ userItems }}</p> -->
-
 
     <URadioGroup
         v-model="value"
@@ -87,9 +77,10 @@
         size="xs"
         orientation="horizontal"
         indicator="hidden"
-        class="w-full flex justify-evenly"
+        class="[&_p]:text-sm [&_p]:mb-0"
     />
 
 
     <!-- <p> Valeur de la sélection : {{ value }} </p> -->
 </template>
+        <!-- class="w-full flex justify-evenly"  -->
