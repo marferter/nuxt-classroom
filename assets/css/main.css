@@ -13,7 +13,7 @@
   --ui-info: var(--ui-color-info-500);
   --ui-warning: var(--ui-color-warning-500);
   --ui-error: var(--ui-color-error-500);
-  --ui-container: 60%;
+  --ui-container: 80%;
 }
 
 
@@ -55,9 +55,26 @@
     margin-bottom: 0.25rem;
   }
   h3 {
-    font-size: 1.5 rem;
+    font-size: 1.5rem;
     color: var(--ui-primary);
     margin-bottom: 0.25rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 1rem
+  }
+
+  ul {
+  font-size: 1.2rem;
+  list-style-type: disc;
+  padding-left: 1rem;
+  }
+
+  ol {
+  list-style-type: decimal;
+  padding-left: 1rem;
   }
 }
 
@@ -81,7 +98,7 @@
     margin-bottom: 0.25rem;
   }
   p {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   code {
     background: var(--color-neutral-50);
@@ -100,11 +117,6 @@
   list-style-type: decimal;
   padding-left: 1rem;
   }
-
-  a, a:visited {
-  color: var(--color-primary); /* adapte la variable à ton thème */
-}
-
 
 }
 
