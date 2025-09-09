@@ -1,42 +1,43 @@
 <!-- Test pour voir si le plugin directus fonctionne -->
 <script setup>
 const { $directus } = useNuxtApp();
-//console.log($directus); // c'était la source de plein de warns Failed to stringify parce que $directus n'est pas une simple donnée JSON, c'est l'instance complète du client SDK, un objet complexe rempli de fonctions (request, auth, with, etc.). or on ne peut pas stringifier une chaîne de caractères.
 console.log('Le client Directus existe :', !!$directus);
+const route = useRoute()
 
-// const { login } = useDirectusAuth();
+const showNav = computed(() => {
+  // Liste des chemins où la barre de navigation doit être masquée
+  const forbiddenPaths = ['/login', '/forbidden']
+  
+  // On vérifie si le chemin actuel commence par l'un des chemins interdits.
+  // Utiliser startsWith est plus robuste car ça masquera aussi /admin/users, /admin/settings, etc.
+  return !forbiddenPaths.some(path => route.path.startsWith(path))
+})
 
-// const user = useDirectusUser();
-
-// onBeforeMount(async () => {
-//   // Si l'utilisateur n'est pas connecté, lance le login
-//   if (!user.value) {
-//     //await login({ email: "prof.test@edufr.ch", password: "cintrisinidirictiS27!" })
-//     await login({ email: "test-admin@21-learning.com", password: "12345678" })
-//     //pour vérifier que user.value est bien renseigné
-//     console.log('Connecté !', user.value)
-//   } else {
-//     //log si déjà connecté
-//     console.log('Déjà connecté !', user.value)
-//   }
-// })
 </script>
-
 
 <template>
   <div>
     <UApp>
       <NuxtRouteAnnouncer />
 
-      <nav>
+      <Header/>
 
-      </nav>
-  
       <!-- class="mx-auto max-w-4xl px-4" -->
-      <main> 
+      <main class="flex h-screen">
+        <!-- 
+      flex-shrink-0: empêche la barre de navigation de rétrécir
+      w-64: donne une largeur fixe (width: 16rem / 256px). Vous pouvez ajuster cette valeur (ex: w-72)
+      bg-gray-100 dark:bg-gray-900: couleur de fond pour les modes clair et sombre
+    -->
+        <nav v-if="showNav" class="flex-shrink-0 w-70 bg-gray-50 dark:bg-gray-900">
+          <Navigation/>
+        </nav>
+        <div class="flex-grow overflow-y-auto">
         <UContainer >
-        <NuxtPage/>
+        <NuxtPage class="pb-13 pt-5"/>
         </UContainer>
+        <Footer :show-nav="showNav" />
+        </div>
       </main>
 
     </UApp>
