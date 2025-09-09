@@ -144,7 +144,7 @@ onBeforeUnmount(() => {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 80vh;
+  height: 70vh;
   background: #f9f9f9;
   z-index: 9999;
   display: flex;
@@ -156,6 +156,7 @@ onBeforeUnmount(() => {
 .iframe-fullscreen-overlay iframe {
   flex: 1;
   width: 100vw;
+  height: 100vh;
   border: none;
 }
 
