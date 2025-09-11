@@ -33,8 +33,8 @@ const showNav = computed(() => {
           <Navigation/>
         </nav>
         <div class="flex-grow overflow-y-auto">
-        <UContainer >
-        <NuxtPage class="pb-13 pt-5"/>
+        <UContainer class="pb-40 pt-5">
+          <NuxtPage />
         </UContainer>
         <Footer :show-nav="showNav" />
         </div>
