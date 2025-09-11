@@ -1,0 +1,310 @@
+{
+  "uuid": "3f4e5d6c-7b8a-4c9d-0e1f-2a3b4c5d6e7f",
+  "lessonId": "lessons/1.cours/fonctions-sans-parametres.md",
+  "activityTitle": "Découverte des fonctions",
+  "activityType": "activity-short-answer",
+  "body": {
+    "type": "minimal",
+    "value": [
+      [
+        "activity-short-answer",
+        {
+          "title": "Découverte des fonctions",
+          "uuid": "3f4e5d6c-7b8a-4c9d-0e1f-2a3b4c5d6e7f"
+        },
+        [
+          "p",
+          {},
+          "Toujours dans le même programme :"
+        ],
+        [
+          "pre",
+          {
+            "className": "language-python shiki shiki-themes material-theme-lighter",
+            "code": "from gturtle import *\n\ndef triangle() :\n    for _ in range(3) :\n        forward(100)\n        right(180 - 60)\n\ntriangle()\n",
+            "language": "python",
+            "meta": "",
+            "style": ""
+          },
+          [
+            "code",
+            {
+              "__ignoreMap": ""
+            },
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 1
+              },
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "from"
+              ],
+              [
+                "span",
+                {
+                  "class": "so1d8"
+                },
+                " gturtle "
+              ],
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "import"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                " *\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 2
+              },
+              [
+                "span",
+                {
+                  "emptyLinePlaceholder": true
+                },
+                "\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 3
+              },
+              [
+                "span",
+                {
+                  "class": "s-I41"
+                },
+                "def"
+              ],
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                " triangle"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "()"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                " :\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 4
+              },
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "    for"
+              ],
+              [
+                "span",
+                {
+                  "class": "so1d8"
+                },
+                " _ "
+              ],
+              [
+                "span",
+                {
+                  "class": "seVAb"
+                },
+                "in"
+              ],
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                " range"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "3"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                " :\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 5
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "        forward"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "100"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 6
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "        right"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                "180"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                " -"
+              ],
+              [
+                "span",
+                {
+                  "class": "seuyn"
+                },
+                " 60"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                ")\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 7
+              },
+              [
+                "span",
+                {
+                  "emptyLinePlaceholder": true
+                },
+                "\n"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "line",
+                "line": 8
+              },
+              [
+                "span",
+                {
+                  "class": "sv6rI"
+                },
+                "triangle"
+              ],
+              [
+                "span",
+                {
+                  "class": "s1QUA"
+                },
+                "()\n"
+              ]
+            ]
+          ]
+        ],
+        [
+          "p",
+          {},
+          "Que se passerait-il si on supprimait les lignes 3 à 6 ?"
+        ]
+      ]
+    ]
+  }
+}

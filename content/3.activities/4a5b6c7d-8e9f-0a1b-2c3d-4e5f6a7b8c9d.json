@@ -1,0 +1,24 @@
+{
+  "uuid": "4a5b6c7d-8e9f-0a1b-2c3d-4e5f6a7b8c9d",
+  "lessonId": "lessons/1.cours/fonctions-sans-parametres.md",
+  "activityTitle": "Découverte des fonctions",
+  "activityType": "activity-wtp",
+  "body": {
+    "type": "minimal",
+    "value": [
+      [
+        "activity-wtp",
+        {
+          "title": "Découverte des fonctions",
+          "uuid": "4a5b6c7d-8e9f-0a1b-2c3d-4e5f6a7b8c9d",
+          "initialCode": "from gturtle import *\n\ndef triangle() :\n    for _ in range(3) :\n        forward(100)\n        right(180 - 60)\n\ntriangle()\n"
+        },
+        [
+          "p",
+          {},
+          "Vérifiez maintenant vos réponses à chacune des 4 questions ci-dessus en exécutant et en modifiant le code suivant ; souvenez-vous que vous pouvez revenir au code\ninitial à l'aide du bouton."
+        ]
+      ]
+    ]
+  }
+}

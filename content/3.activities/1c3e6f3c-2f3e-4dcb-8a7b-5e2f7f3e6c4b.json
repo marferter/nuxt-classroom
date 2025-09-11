@@ -1,0 +1,23 @@
+{
+  "uuid": "1c3e6f3c-2f3e-4dcb-8a7b-5e2f7f3e6c4b",
+  "lessonId": "lessons/1.cours/fonctions-sans-parametres.md",
+  "activityTitle": "Découverte des fonctions",
+  "activityType": "activity-short-answer",
+  "body": {
+    "type": "minimal",
+    "value": [
+      [
+        "activity-short-answer",
+        {
+          "title": "Découverte des fonctions",
+          "uuid": "1c3e6f3c-2f3e-4dcb-8a7b-5e2f7f3e6c4b"
+        },
+        [
+          "p",
+          {},
+          "Dans le programme ci-dessus, que se passerait-il si on supprimait la ligne 8 dans le code ?"
+        ]
+      ]
+    ]
+  }
+}

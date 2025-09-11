@@ -1,0 +1,550 @@
+{
+  "uuid": "3ff8be8d-caed-4e3e-8f4e-3d26b5afcf89",
+  "lessonId": "lessons/1.cours/fonctions-sans-parametres.md",
+  "activityTitle": "Fonctions sans paramètres - carré",
+  "activityType": "activity-wtp",
+  "body": {
+    "type": "minimal",
+    "value": [
+      [
+        "activity-wtp",
+        {
+          "title": "Fonctions sans paramètres - carré",
+          "uuid": "3ff8be8d-caed-4e3e-8f4e-3d26b5afcf89"
+        },
+        [
+          "p",
+          {},
+          "Écrivez un programme qui dessine un carré de côté 100 à l'aide d'une fonction ",
+          [
+            "code",
+            {},
+            "dessine_carre()"
+          ],
+          " que vous définirez."
+        ],
+        [
+          "p",
+          {},
+          "Définissez ensuite, dans le même programme, la fonction ",
+          [
+            "code",
+            {},
+            "affiche_aire_carre()"
+          ],
+          " afin que votre programme calcule l'aire du carré et l'affiche dans la console."
+        ],
+        [
+          "template",
+          {
+            "v-slot:solution": ""
+          },
+          [
+            "p",
+            {},
+            "Voici une solution possible ; vous remarquerez que le programme commence par une partie \"définitions\", suivie d'une partie \"exécution\" :"
+          ],
+          [
+            "pre",
+            {
+              "className": "language-python shiki shiki-themes material-theme-lighter",
+              "code": "    from gturtle import *\n\n    #définitions des fonctions\n    def dessine_carre() :\n        for _ in range(4) :\n            forward(100)\n            right(90)\n\n    def affiche_aire_carre() :\n        aire = 100**2\n        print(\"L'aire du carré est\", aire, \".\")\n\n    #exécution\n    dessine_carre()\n    affiche_aire_carre()\n",
+              "language": "python",
+              "meta": "",
+              "style": ""
+            },
+            [
+              "code",
+              {
+                "__ignoreMap": ""
+              },
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 1
+                },
+                [
+                  "span",
+                  {
+                    "class": "seVAb"
+                  },
+                  "    from"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "so1d8"
+                  },
+                  " gturtle "
+                ],
+                [
+                  "span",
+                  {
+                    "class": "seVAb"
+                  },
+                  "import"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  " *\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 2
+                },
+                [
+                  "span",
+                  {
+                    "emptyLinePlaceholder": true
+                  },
+                  "\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 3
+                },
+                [
+                  "span",
+                  {
+                    "class": "se-zd"
+                  },
+                  "    #définitions des fonctions\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 4
+                },
+                [
+                  "span",
+                  {
+                    "class": "s-I41"
+                  },
+                  "    def"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "sv6rI"
+                  },
+                  " dessine_carre"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  "()"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  " :\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 5
+                },
+                [
+                  "span",
+                  {
+                    "class": "seVAb"
+                  },
+                  "        for"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "so1d8"
+                  },
+                  " _ "
+                ],
+                [
+                  "span",
+                  {
+                    "class": "seVAb"
+                  },
+                  "in"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "sv6rI"
+                  },
+                  " range"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  "("
+                ],
+                [
+                  "span",
+                  {
+                    "class": "seuyn"
+                  },
+                  "4"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  ")"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  " :\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 6
+                },
+                [
+                  "span",
+                  {
+                    "class": "sv6rI"
+                  },
+                  "            forward"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  "("
+                ],
+                [
+                  "span",
+                  {
+                    "class": "seuyn"
+                  },
+                  "100"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  ")\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 7
+                },
+                [
+                  "span",
+                  {
+                    "class": "sv6rI"
+                  },
+                  "            right"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  "("
+                ],
+                [
+                  "span",
+                  {
+                    "class": "seuyn"
+                  },
+                  "90"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  ")\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 8
+                },
+                [
+                  "span",
+                  {
+                    "emptyLinePlaceholder": true
+                  },
+                  "\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 9
+                },
+                [
+                  "span",
+                  {
+                    "class": "s-I41"
+                  },
+                  "    def"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "sv6rI"
+                  },
+                  " affiche_aire_carre"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  "()"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  " :\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 10
+                },
+                [
+                  "span",
+                  {
+                    "class": "so1d8"
+                  },
+                  "        aire "
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "seuyn"
+                  },
+                  " 100"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  "**"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "seuyn"
+                  },
+                  "2\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 11
+                },
+                [
+                  "span",
+                  {
+                    "class": "sv6rI"
+                  },
+                  "        print"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  "("
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  "\""
+                ],
+                [
+                  "span",
+                  {
+                    "class": "sTbkg"
+                  },
+                  "L'aire du carré est"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  "\""
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  ","
+                ],
+                [
+                  "span",
+                  {
+                    "class": "sv6rI"
+                  },
+                  " aire"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  ","
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  " \""
+                ],
+                [
+                  "span",
+                  {
+                    "class": "sTbkg"
+                  },
+                  "."
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  "\""
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  ")\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 12
+                },
+                [
+                  "span",
+                  {
+                    "emptyLinePlaceholder": true
+                  },
+                  "\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 13
+                },
+                [
+                  "span",
+                  {
+                    "class": "se-zd"
+                  },
+                  "    #exécution\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 14
+                },
+                [
+                  "span",
+                  {
+                    "class": "sv6rI"
+                  },
+                  "    dessine_carre"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  "()\n"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "line",
+                  "line": 15
+                },
+                [
+                  "span",
+                  {
+                    "class": "sv6rI"
+                  },
+                  "    affiche_aire_carre"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "s1QUA"
+                  },
+                  "()\n"
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  }
+}

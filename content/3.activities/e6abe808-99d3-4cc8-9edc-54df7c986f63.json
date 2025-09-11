@@ -1,0 +1,47 @@
+{
+  "uuid": "e6abe808-99d3-4cc8-9edc-54df7c986f63",
+  "lessonId": "lessons/1.cours/fonctions-sans-parametres.md",
+  "activityTitle": "Fonctions sans paramètre : code rectangle() à corriger",
+  "activityType": "activity-wtp",
+  "body": {
+    "type": "minimal",
+    "value": [
+      [
+        "activity-wtp",
+        {
+          "title": "Fonctions sans paramètre : code rectangle() à corriger",
+          "uuid": "e6abe808-99d3-4cc8-9edc-54df7c986f63",
+          "initialCode": "from gturtle import *\n\ndef rectangle():\n    for loop in range(2):\n        forward(150)\n        right(90)\n        forward(50)\n        right(90)\n"
+        },
+        [
+          "p",
+          {},
+          "Jean-Guidon veut dessiner un rectangle à l'aide de la commande ",
+          [
+            "code",
+            {},
+            "rectangle()"
+          ],
+          ". Pourtant son programme ne dessine rien du tout ; corrigez son code."
+        ],
+        [
+          "template",
+          {
+            "v-slot:solution": ""
+          },
+          [
+            "p",
+            {},
+            "Il a défini la fonction mais a oublié de l'appeler ; ajoutez l'appel de fonction ",
+            [
+              "code",
+              {},
+              "rectangle()"
+            ],
+            " à la fin du programme !"
+          ]
+        ]
+      ]
+    ]
+  }
+}
