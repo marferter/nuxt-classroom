@@ -8,8 +8,6 @@ La donnée de la question est passée via un *slot* écrit en Markdown ; son for
 
 La solution est passée via un *slot* nommé `solution`, avec la même souplesse de formatage. Comme elle est rédigée après la question, un éditeur tel que Visual Studio Code avec Copilot peut compléter ce *slot* automatiquement. 
 
-C'est le cas pour tous les exemples que nous présentons dans cette page.
-
 Pour voir la solution, cliquer sur le bouton "Soumettre".
 
 ::ActivityShortAnswer
