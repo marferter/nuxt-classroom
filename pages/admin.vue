@@ -150,12 +150,13 @@ const {data: submissions, refreshSubmissions} = await useAsyncData('submissions'
         <p> Étudiant.e : {{ selectedStudent }} </p>
         <p> Activité : {{ selectedActivityId }}</p>
 
-        <ContentRenderer v-if="selectedActivity" :value="selectedActivity" />
         <div v-for="submission in submissions">
             <USeparator/>
-            <h2> Date de soumission : {{ submission.date_created }} </h2 >
+            <h3> Date de soumission : {{ submission.date_created }} </h3 >
             <pre > {{ submission.content }}</pre>
         </div>
+
+        <ContentRenderer v-if="selectedActivity" :value="selectedActivity" />
         
     </div>
 
