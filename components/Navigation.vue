@@ -33,17 +33,17 @@
 
             children: [
                 {
-                    label: 'Page 1',
+                    label: 'Fonctions sans paramètres',
                     icon: 'i-lucide-bookmark',
-                    to: '/cours/wtp',
-                    disabled: true,
+                    to: '/cours/fonctions-sans-parametres',
+                    // disabled: true,
                 },
-                {
-                    label: 'Page 2',
-                    icon: 'i-lucide-bookmark',
-                    to: '/cours/wtp',
-                    disabled: true,
-                },
+                // {
+                //     label: 'Page 2',
+                //     icon: 'i-lucide-bookmark',
+                //     to: '/cours/wtp',
+                //     disabled: true,
+                // },
             ]
         },
         {
